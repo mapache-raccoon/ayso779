@@ -1,6 +1,6 @@
 # AYSO Region 779 Website Content Repository
 
-Welcome to the content hub for [AYSO Region 779](https://www.ayso779.org/)! This repository serves as a central staging ground for website updates, branding assets, and communication workflows used on our Sports Connect-hosted site.
+Welcome to the content hub for [AYSO Region 779](https://www.ayso779.org/) This repository serves as a central staging ground for website updates, branding assets, and communication workflows used on our Sports Connect-hosted site.
 
 ## 📌 Purpose
 
