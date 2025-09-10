@@ -1,0 +1,3353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>2025 Referee Schedule</title>
+    <style>
+      :root {
+        --bg: #f8f9fa;
+        --border: #d0d5db;
+        --header-bg: #1b5e20; /* forest green base */
+        --header-fg: #fff;
+        --row-alt: #eef3f8;
+        --row-extra: #fff7d6;
+        --row-date: #d9e6f2;
+        --accent: #1b5e20; /* forest green accent */
+        --focus: #ffbf47;
+        --radius: 6px;
+        --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        background: var(--bg);
+        color: #1d242b;
+        line-height: 1.4;
+      }
+      html,
+      body {
+        font-size: 16px !important;
+      }
+      header {
+        padding: 1rem 0.75rem 0.25rem;
+      }
+      h1 {
+        text-align: center;
+        margin: 0 0 0.6rem;
+        font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+        color: var(--accent);
+        letter-spacing: 0.5px;
+      }
+      header p {
+        margin: 0.25rem auto 0;
+        max-width: 860px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      .schedule-wrapper {
+        overflow-x: auto;
+        padding: 0 0.75rem 1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        background: #fff;
+        font-size: 0.95rem;
+        box-shadow: var(--shadow);
+      }
+      caption {
+        text-align: left;
+        padding: 0.65rem 0.75rem;
+        font-weight: 600;
+        background: linear-gradient(90deg, var(--header-bg), #2e7d32);
+        color: var(--header-fg);
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        letter-spacing: 0.5px;
+      }
+      thead th {
+        position: sticky;
+        top: var(--caption-h, 2.05rem);
+        background: var(--header-bg);
+        color: var(--header-fg);
+        font-weight: 500;
+        padding: 0.5rem 0.55rem;
+        border: 1px solid #124d1d;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+      tbody td {
+        padding: 0.42rem 0.55rem;
+        border: 1px solid var(--border);
+        vertical-align: middle;
+      }
+      tbody tr:nth-child(odd):not(.extra):not(.date-break) {
+        background: var(--row-alt);
+      }
+      tbody tr.extra {
+        background: var(--row-extra);
+      }
+      tbody tr.date-break td {
+        background: transparent;
+        font-weight: inherit;
+        border-top: 4px solid var(--border);
+      }
+      tbody tr:hover {
+        outline: 2px solid var(--focus);
+        outline-offset: -2px;
+      }
+      th,
+      td {
+        text-align: left;
+      }
+      th:nth-child(1),
+      td:nth-child(1) {
+        white-space: nowrap;
+      }
+      th:nth-child(5),
+      th:nth-child(6),
+      td:nth-child(5),
+      td:nth-child(6) {
+        text-align: center;
+        white-space: nowrap;
+      }
+      th:nth-child(8),
+      td:nth-child(8) {
+        white-space: nowrap;
+      }
+      th:last-child,
+      td:last-child {
+        white-space: nowrap;
+      }
+      .note {
+        font-size: 0.7rem;
+        opacity: 0.8;
+        margin: 0.25rem 0.9rem 0;
+      }
+      @media (min-width: 900px) {
+        table {
+          font-size: 1rem;
+        }
+        thead th {
+          font-size: 0.85rem;
+        }
+      }
+      /* Toolbar and enhancements */
+      .toolbar {
+        margin: 0.25rem auto 0.75rem;
+        padding: 0.6rem 0.75rem;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+      }
+      .toolbar .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      @media (min-width: 700px) {
+        .toolbar .row {
+          grid-template-columns: repeat(4, 0.9fr) auto auto auto;
+          align-items: end;
+        }
+      }
+      .toolbar label {
+        font-size: 0.8rem;
+        color: #334155;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      .toolbar input[type="text"],
+      .toolbar select {
+        width: 100%;
+        padding: 0.5rem 0.6rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: #fff;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) inset;
+      }
+      .toolbar .checks {
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .toolbar .checks label {
+        margin: 0;
+        display: inline-flex;
+        gap: 0.4rem;
+        align-items: center;
+      }
+      .toolbar .actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        padding: 0.48rem 0.7rem;
+        border-radius: var(--radius);
+        background: #fff;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+      .btn.primary {
+        background: #14532d;
+        color: #fff;
+        border-color: #0f3f21;
+      }
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .muted {
+        color: #64748b;
+        font-size: 0.85rem;
+      }
+      .hidden {
+        display: none !important;
+      }
+      /* Cards view */
+      #rs-cardsView {
+        padding: 0 0.75rem;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+      @media (min-width: 700px) {
+        .cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (min-width: 1100px) {
+        .cards {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.65rem 0.7rem;
+        box-shadow: var(--shadow);
+      }
+      .card .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-bottom: 0.35rem;
+      }
+      .chip {
+        display: inline-block;
+        padding: 0.1rem 0.5rem;
+        border-radius: 999px;
+        background: #e2e8f0;
+        font-size: 0.75rem;
+      }
+      .chip.extra {
+        background: #ffe5a3;
+      }
+      .time {
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+      .teams {
+        font-weight: 600;
+      }
+      .loc {
+        color: #334155;
+        font-size: 0.9rem;
+      }
+      /* Row compacting */
+      .compact tbody td {
+        padding: 0.25rem 0.4rem;
+      }
+      /* Highlight utility */
+      .highlight {
+        animation: glow 2.2s ease-in-out 1;
+      }
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 0 0 rgba(20, 83, 45, 0.6);
+        }
+        50% {
+          box-shadow: 0 0 0 6px rgba(20, 83, 45, 0.15);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(20, 83, 45, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>2025 Referee Schedule</h1>
+    </header>
+    <main class="content">
+      <section>
+        <div id="rs-app">
+          <div class="toolbar" role="region" aria-label="Filters and actions">
+            <div class="row">
+              <div>
+                <label for="rs-division">Division</label>
+                <select id="rs-division">
+                  <option value="">All divisions</option>
+                </select>
+              </div>
+              <div>
+                <label for="rs-location">Location</label>
+                <select id="rs-location">
+                  <option value="">All locations</option>
+                </select>
+              </div>
+              <div>
+                <label for="rs-date">Date</label>
+                <select id="rs-date">
+                  <option value="">All dates</option>
+                </select>
+              </div>
+              <div class="checks">
+                <label
+                  ><input type="checkbox" id="rs-compact" /> Compact rows</label
+                >
+                <label
+                  ><input type="checkbox" id="rs-cardsToggle" /> Cards
+                  view</label
+                >
+              </div>
+              <div class="actions">
+                <button id="rs-jumpNext" class="btn" type="button">
+                  Jump to next date
+                </button>
+                <button id="rs-reset" class="btn" type="button">Reset</button>
+                <button id="rs-export" class="btn primary" type="button">
+                  Export CSV
+                </button>
+              </div>
+            </div>
+            <div class="muted" id="rs-resultsSummary" aria-live="polite"></div>
+          </div>
+          <div class="schedule-wrapper">
+            <table class="ref-schedule">
+              <caption>
+                Fall 2025 Referee Schedule (September &ndash; November)
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Division</th>
+                  <th scope="col">Home Team</th>
+                  <th scope="col">Away Team</th>
+                  <th scope="col">Start</th>
+                  <th scope="col">End</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Field</th>
+                  <th scope="col">Center Ref</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 09/06 -->
+                <tr class="date-break extra">
+                  <td>09/06/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U - Boys - Morrison</td>
+                  <td>TBD</td>
+                  <td>09:30</td>
+                  <td>10:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>779</td>
+                </tr>
+                <!-- 09/13 -->
+                <tr class="date-break">
+                  <td>09/13/2025</td>
+                  <td>G10U</td>
+                  <td>10201-Mateus</td>
+                  <td>10206-Hahn</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10208-Fondrick</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G10U</td>
+                  <td>10208-Fondrick</td>
+                  <td>10203-Lomeli</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10204-Sanchez</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G10U</td>
+                  <td>10204-Sanchez</td>
+                  <td>10209-Smith</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10102-Heinzelman</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B10U</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10108-Ramos</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10111-Boal</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B10U</td>
+                  <td>10111-Boal</td>
+                  <td>10105-Davison</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10108-Ramos</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B10U</td>
+                  <td>10109-Casillas</td>
+                  <td>10103-Borrello</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10106-McKeehan</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B10U</td>
+                  <td>10106-McKeehan</td>
+                  <td>10112-Sirop</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10103-Borrello</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B12U</td>
+                  <td>12101- Fernandez</td>
+                  <td>12105-Camargo</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12107-Ortega</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B12U</td>
+                  <td>12107-Ortega</td>
+                  <td>12103-Clutter</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12105-Camargo</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G12U</td>
+                  <td>12204 - Young</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12205 - Taylor</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G12U</td>
+                  <td>12205 - Taylor</td>
+                  <td>12201 - Radtke</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14106- Luna</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B14U</td>
+                  <td>14106- Luna</td>
+                  <td>14103- Hahn</td>
+                  <td>13:00</td>
+                  <td>14:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14203-O'Connell</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G14U</td>
+                  <td>14201-Young</td>
+                  <td>14203-O'Connell</td>
+                  <td>14:30</td>
+                  <td>16:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14103- Hahn</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G10U</td>
+                  <td>10202-Ramos</td>
+                  <td>10207-Guillen</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10U-Girls- Ruelas</td>
+                </tr>
+                <tr class="extra">
+                  <td>09/13/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U-Girls- Ruelas</td>
+                  <td>TBD</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10104-Seymour</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B10U</td>
+                  <td>10104-Seymour</td>
+                  <td>10110-Salas</td>
+                  <td>10:30</td>
+                  <td>11:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10101-Cirrincione</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B10U</td>
+                  <td>10101-Cirrincione</td>
+                  <td>10107-Hernandez</td>
+                  <td>11:30</td>
+                  <td>12:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10201-Mateus</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G10U</td>
+                  <td>10201-Mateus</td>
+                  <td>10205-Ayala</td>
+                  <td>12:30</td>
+                  <td>13:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10107-Hernandez</td>
+                </tr>
+                <tr class="extra">
+                  <td>09/13/2025</td>
+                  <td>EXTRA</td>
+                  <td>12U - Girls - Fondrick</td>
+                  <td>TBD</td>
+                  <td>11:20</td>
+                  <td>12:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14102-McNichols</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B14U</td>
+                  <td>14102-McNichols</td>
+                  <td>14105- Leon</td>
+                  <td>12:30</td>
+                  <td>14:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>12U - Girls - Fondrick</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G14U</td>
+                  <td>14202- Guillen</td>
+                  <td>14204-Cormack</td>
+                  <td>14:00</td>
+                  <td>15:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14105- Leon</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B12U</td>
+                  <td>12102-Ocampo</td>
+                  <td>12106-Luna</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12104-Perreault</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B12U</td>
+                  <td>12104-Perreault</td>
+                  <td>12108-Lanzisera</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12102-Ocampo</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>G12U</td>
+                  <td>12203 - Casias</td>
+                  <td>12202 - Kumar</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14104- Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>09/13/2025</td>
+                  <td>B14U</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>14104- Holtkamp</td>
+                  <td>11:45</td>
+                  <td>13:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12202 - Kumar</td>
+                </tr>
+                <!-- 09/20 -->
+                <tr class="date-break">
+                  <td>09/20/2025</td>
+                  <td>G10U</td>
+                  <td>10206-Hahn</td>
+                  <td>10208-Fondrick</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10207-Guillen</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G10U</td>
+                  <td>10207-Guillen</td>
+                  <td>10201-Mateus</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10208-Fondrick</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B10U</td>
+                  <td>10107-Hernandez</td>
+                  <td>10109-Casillas</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10103-Borrello</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B10U</td>
+                  <td>10103-Borrello</td>
+                  <td>10111-Boal</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10U - Boys - Morrison</td>
+                </tr>
+                <tr class="extra">
+                  <td>09/20/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U - Boys - Morrison</td>
+                  <td>TBD</td>
+                  <td>12:30</td>
+                  <td>13:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>779</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B10U</td>
+                  <td>10112-Sirop</td>
+                  <td>10104-Seymour</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10108-Ramos</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B10U</td>
+                  <td>10108-Ramos</td>
+                  <td>10101-Cirrincione</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10203-Lomeli</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10202-Ramos</td>
+                  <td>14:00</td>
+                  <td>15:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10101-Cirrincione</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B12U</td>
+                  <td>12106-Luna</td>
+                  <td>12108-Lanzisera</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12102-Ocampo</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B12U</td>
+                  <td>12102-Ocampo</td>
+                  <td>12103-Clutter</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12108-Lanzisera</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G12U</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>12202 - Kumar</td>
+                  <td>11:15</td>
+                  <td>12:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12103-Clutter</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B14U</td>
+                  <td>14105- Leon</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>12:30</td>
+                  <td>14:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12202 - Kumar</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G10U</td>
+                  <td>10209-Smith</td>
+                  <td>10202-Ramos</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10205-Ayala</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G10U</td>
+                  <td>10205-Ayala</td>
+                  <td>10204-Sanchez</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10202-Ramos</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B10U</td>
+                  <td>10110-Salas</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10105-Davison</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B10U</td>
+                  <td>10105-Davison</td>
+                  <td>10106-McKeehan</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10102-Heinzelman</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B14U</td>
+                  <td>14104- Holtkamp</td>
+                  <td>14106- Luna</td>
+                  <td>09:45</td>
+                  <td>11:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14103- Hahn</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B14U</td>
+                  <td>14103- Hahn</td>
+                  <td>14102-McNichols</td>
+                  <td>11:15</td>
+                  <td>12:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14204-Cormack</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G14U</td>
+                  <td>14204-Cormack</td>
+                  <td>14201-Young</td>
+                  <td>12:45</td>
+                  <td>14:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14203-O'Connell</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G14U</td>
+                  <td>14203-O'Connell</td>
+                  <td>14202- Guillen</td>
+                  <td>14:15</td>
+                  <td>15:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14201-Young</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B12U</td>
+                  <td>12104-Perreault</td>
+                  <td>12105-Camargo</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12101- Fernandez</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>B12U</td>
+                  <td>12101- Fernandez</td>
+                  <td>12107-Ortega</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12204 - Young</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G12U</td>
+                  <td>12204 - Young</td>
+                  <td>12205 - Taylor</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12203 - Casias</td>
+                </tr>
+                <tr>
+                  <td>09/20/2025</td>
+                  <td>G12U</td>
+                  <td>12203 - Casias</td>
+                  <td>12201 - Radtke</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12205 - Taylor</td>
+                </tr>
+                <!-- Added remaining dates 09/27 through 11/15 below -->
+                <!-- 09/27 -->
+                <tr class="date-break">
+                  <td>09/27/2025</td>
+                  <td>G10U</td>
+                  <td>10208-Fondrick</td>
+                  <td>10204-Sanchez</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10209-Smith</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G10U</td>
+                  <td>10209-Smith</td>
+                  <td>10201-Mateus</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10206-Hahn</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G10U</td>
+                  <td>10206-Hahn</td>
+                  <td>10204-Sanchez</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10108-Ramos</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B10U</td>
+                  <td>10108-Ramos</td>
+                  <td>10110-Salas</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10104-Seymour</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B10U</td>
+                  <td>10104-Seymour</td>
+                  <td>10105-Davison</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10110-Salas</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B10U</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10112-Sirop</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10101-Cirrincione</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B10U</td>
+                  <td>10101-Cirrincione</td>
+                  <td>10109-Casillas</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10112-Sirop</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B12U</td>
+                  <td>12105-Camargo</td>
+                  <td>12107-Ortega</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12103-Clutter</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B12U</td>
+                  <td>12103-Clutter</td>
+                  <td>12104-Perreault</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12105-Camargo</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G12U</td>
+                  <td>12201 - Radtke</td>
+                  <td>12204 - Young</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14102-McNichols</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B14U</td>
+                  <td>14102-McNichols</td>
+                  <td>14104- Holtkamp</td>
+                  <td>11:45</td>
+                  <td>13:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14201-Young</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G14U</td>
+                  <td>14201-Young</td>
+                  <td>14202- Guillen</td>
+                  <td>13:15</td>
+                  <td>14:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14204-Cormack</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G14U</td>
+                  <td>14204-Cormack</td>
+                  <td>14203-O'Connell</td>
+                  <td>14:45</td>
+                  <td>16:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14202- Guillen</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G10U</td>
+                  <td>10205-Ayala</td>
+                  <td>10207-Guillen</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10U-Girls- Ruelas</td>
+                </tr>
+                <tr class="extra">
+                  <td>09/27/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U-Girls- Ruelas</td>
+                  <td>TBD</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10111-Boal</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B10U</td>
+                  <td>10111-Boal</td>
+                  <td>10107-Hernandez</td>
+                  <td>10:30</td>
+                  <td>11:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10106-McKeehan</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B10U</td>
+                  <td>10106-McKeehan</td>
+                  <td>10103-Borrello</td>
+                  <td>11:30</td>
+                  <td>12:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10203-Lomeli</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10202-Ramos</td>
+                  <td>12:30</td>
+                  <td>13:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10103-Borrello</td>
+                </tr>
+                <tr class="extra">
+                  <td>09/27/2025</td>
+                  <td>EXTRA</td>
+                  <td>12U - Girls - Fondrick</td>
+                  <td>TBD</td>
+                  <td>11:30</td>
+                  <td>12:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>12206 - Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G12U</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>12203 - Casias</td>
+                  <td>14:15</td>
+                  <td>15:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>12U - Girls - Fondrick</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B12U</td>
+                  <td>12108-Lanzisera</td>
+                  <td>12102-Ocampo</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12106-Luna</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B12U</td>
+                  <td>12106-Luna</td>
+                  <td>12101- Fernandez</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12102-Ocampo</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>G12U</td>
+                  <td>12202 - Kumar</td>
+                  <td>12205 - Taylor</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12101- Fernandez</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B14U</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>14106- Luna</td>
+                  <td>11:45</td>
+                  <td>13:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14105- Leon</td>
+                </tr>
+                <tr>
+                  <td>09/27/2025</td>
+                  <td>B14U</td>
+                  <td>14105- Leon</td>
+                  <td>14103- Hahn</td>
+                  <td>13:30</td>
+                  <td>15:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14106- Luna</td>
+                </tr>
+                <!-- 10/04 -->
+                <tr class="date-break">
+                  <td>10/04/2025</td>
+                  <td>G10U</td>
+                  <td>10207-Guillen</td>
+                  <td>10209-Smith</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10202-Ramos</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G10U</td>
+                  <td>10202-Ramos</td>
+                  <td>10205-Ayala</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10110-Salas</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B10U</td>
+                  <td>10110-Salas</td>
+                  <td>10101-Cirrincione</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10107-Hernandez</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B10U</td>
+                  <td>10107-Hernandez</td>
+                  <td>10106-McKeehan</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10109-Casillas</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B10U</td>
+                  <td>10109-Casillas</td>
+                  <td>10111-Boal</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10106-McKeehan</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B10U</td>
+                  <td>10105-Davison</td>
+                  <td>10102-Heinzelman</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10204-Sanchez</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G10U</td>
+                  <td>10204-Sanchez</td>
+                  <td>10203-Lomeli</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10105-Davison</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B12U</td>
+                  <td>12107-Ortega</td>
+                  <td>12104-Perreault</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12105-Camargo</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B12U</td>
+                  <td>12105-Camargo</td>
+                  <td>12102-Ocampo</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12204 - Young</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G12U</td>
+                  <td>12204 - Young</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12201 - Radtke</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G12U</td>
+                  <td>12201 - Radtke</td>
+                  <td>12205 - Taylor</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14103- Hahn</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B14U</td>
+                  <td>14103- Hahn</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>13:00</td>
+                  <td>14:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14202- Guillen</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G14U</td>
+                  <td>14202- Guillen</td>
+                  <td>14204-Cormack</td>
+                  <td>14:30</td>
+                  <td>16:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14101- Orrosquieta</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G10U</td>
+                  <td>10201-Mateus</td>
+                  <td>10208-Fondrick</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10203-Lomeli</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10206-Hahn</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10201-Mateus</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B10U</td>
+                  <td>10112-Sirop</td>
+                  <td>10108-Ramos</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10206-Hahn</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B10U</td>
+                  <td>10103-Borrello</td>
+                  <td>10104-Seymour</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10108-Ramos</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B14U</td>
+                  <td>14106- Luna</td>
+                  <td>14102-McNichols</td>
+                  <td>11:15</td>
+                  <td>12:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>779</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B12U</td>
+                  <td>12103-Clutter</td>
+                  <td>12106-Luna</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12108-Lanzisera</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B12U</td>
+                  <td>12108-Lanzisera</td>
+                  <td>12101- Fernandez</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12203 - Casias</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G12U</td>
+                  <td>12203 - Casias</td>
+                  <td>12202 - Kumar</td>
+                  <td>11:15</td>
+                  <td>12:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14104- Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>B14U</td>
+                  <td>14104- Holtkamp</td>
+                  <td>14105- Leon</td>
+                  <td>12:30</td>
+                  <td>14:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14203-O'Connell</td>
+                </tr>
+                <tr>
+                  <td>10/04/2025</td>
+                  <td>G14U</td>
+                  <td>14203-O'Connell</td>
+                  <td>14201-Young</td>
+                  <td>14:00</td>
+                  <td>15:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14105- Leon</td>
+                </tr>
+                <!-- 10/11 -->
+                <tr class="date-break">
+                  <td>10/11/2025</td>
+                  <td>G10U</td>
+                  <td>10202-Ramos</td>
+                  <td>10206-Hahn</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10204-Sanchez</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G10U</td>
+                  <td>10204-Sanchez</td>
+                  <td>10208-Fondrick</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10201-Mateus</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G10U</td>
+                  <td>10201-Mateus</td>
+                  <td>10206-Hahn</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10106-McKeehan</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B10U</td>
+                  <td>10106-McKeehan</td>
+                  <td>10109-Casillas</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10102-Heinzelman</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B10U</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10103-Borrello</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10109-Casillas</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B10U</td>
+                  <td>10110-Salas</td>
+                  <td>10112-Sirop</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10101-Cirrincione</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B10U</td>
+                  <td>10101-Cirrincione</td>
+                  <td>10111-Boal</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10110-Salas</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B12U</td>
+                  <td>12108-Lanzisera</td>
+                  <td>12103-Clutter</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12106-Luna</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B12U</td>
+                  <td>12106-Luna</td>
+                  <td>12105-Camargo</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12108-Lanzisera</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G12U</td>
+                  <td>12205 - Taylor</td>
+                  <td>12203 - Casias</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12105-Camargo</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B14U</td>
+                  <td>14105- Leon</td>
+                  <td>14106- Luna</td>
+                  <td>11:45</td>
+                  <td>13:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14103- Hahn</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B14U</td>
+                  <td>14103- Hahn</td>
+                  <td>14104- Holtkamp</td>
+                  <td>13:15</td>
+                  <td>14:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14106- Luna</td>
+                </tr>
+                <tr class="extra">
+                  <td>10/11/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U-Girls- Ruelas</td>
+                  <td>TBD</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10207-Guillen</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G10U</td>
+                  <td>10207-Guillen</td>
+                  <td>10203-Lomeli</td>
+                  <td>09:15</td>
+                  <td>10:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10U-Girls- Ruelas</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B10U</td>
+                  <td>10108-Ramos</td>
+                  <td>10105-Davison</td>
+                  <td>10:15</td>
+                  <td>11:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10104-Seymour</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B10U</td>
+                  <td>10104-Seymour</td>
+                  <td>10107-Hernandez</td>
+                  <td>11:15</td>
+                  <td>12:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10209-Smith</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G10U</td>
+                  <td>10209-Smith</td>
+                  <td>10205-Ayala</td>
+                  <td>12:15</td>
+                  <td>13:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10107-Hernandez</td>
+                </tr>
+                <tr class="extra">
+                  <td>10/11/2025</td>
+                  <td>EXTRA</td>
+                  <td>12U - Girls - Fondrick</td>
+                  <td>TBD</td>
+                  <td>11:30</td>
+                  <td>12:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14101- Orrosquieta</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B14U</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>14102-McNichols</td>
+                  <td>12:45</td>
+                  <td>14:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>12U - Girls - Fondrick</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G14U</td>
+                  <td>14203-O'Connell</td>
+                  <td>14202- Guillen</td>
+                  <td>14:15</td>
+                  <td>15:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14102-McNichols</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B12U</td>
+                  <td>12102-Ocampo</td>
+                  <td>12107-Ortega</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12101- Fernandez</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>B12U</td>
+                  <td>12101- Fernandez</td>
+                  <td>12104-Perreault</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12107-Ortega</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G12U</td>
+                  <td>12202 - Kumar</td>
+                  <td>12204 - Young</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12104-Perreault</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G12U</td>
+                  <td>12201 - Radtke</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14201-Young</td>
+                </tr>
+                <tr>
+                  <td>10/11/2025</td>
+                  <td>G14U</td>
+                  <td>14201-Young</td>
+                  <td>14204-Cormack</td>
+                  <td>13:00</td>
+                  <td>14:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12206 - Holtkamp</td>
+                </tr>
+                <!-- 10/18 -->
+                <tr class="date-break">
+                  <td>10/18/2025</td>
+                  <td>G10U</td>
+                  <td>10205-Ayala</td>
+                  <td>10201-Mateus</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10208-Fondrick</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G10U</td>
+                  <td>10208-Fondrick</td>
+                  <td>10202-Ramos</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10111-Boal</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B10U</td>
+                  <td>10111-Boal</td>
+                  <td>10106-McKeehan</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10109-Casillas</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B10U</td>
+                  <td>10109-Casillas</td>
+                  <td>10104-Seymour</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10U - Boys - Morrison</td>
+                </tr>
+                <tr class="extra">
+                  <td>10/18/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U - Boys - Morrison</td>
+                  <td>TBD</td>
+                  <td>12:30</td>
+                  <td>13:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10104-Seymour</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B10U</td>
+                  <td>10103-Borrello</td>
+                  <td>10108-Ramos</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10112-Sirop</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B10U</td>
+                  <td>10112-Sirop</td>
+                  <td>10101-Cirrincione</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10205-Ayala</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G10U</td>
+                  <td>10205-Ayala</td>
+                  <td>10204-Sanchez</td>
+                  <td>13:00</td>
+                  <td>14:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10101-Cirrincione</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B12U</td>
+                  <td>12104-Perreault</td>
+                  <td>12102-Ocampo</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12107-Ortega</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B12U</td>
+                  <td>12107-Ortega</td>
+                  <td>12106-Luna</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12203 - Casias</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G12U</td>
+                  <td>12203 - Casias</td>
+                  <td>12204 - Young</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14106- Luna</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B14U</td>
+                  <td>14106- Luna</td>
+                  <td>14103- Hahn</td>
+                  <td>11:45</td>
+                  <td>13:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14202- Guillen</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G14U</td>
+                  <td>14202- Guillen</td>
+                  <td>14201-Young</td>
+                  <td>13:30</td>
+                  <td>15:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14103- Hahn</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10209-Smith</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10206-Hahn</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G10U</td>
+                  <td>10206-Hahn</td>
+                  <td>10207-Guillen</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10105-Davison</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B10U</td>
+                  <td>10105-Davison</td>
+                  <td>10110-Salas</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10107-Hernandez</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B10U</td>
+                  <td>10107-Hernandez</td>
+                  <td>10102-Heinzelman</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10110-Salas</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B14U</td>
+                  <td>14102-McNichols</td>
+                  <td>14105- Leon</td>
+                  <td>09:45</td>
+                  <td>11:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14104- Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B14U</td>
+                  <td>14104- Holtkamp</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>11:15</td>
+                  <td>12:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14105- Leon</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B12U</td>
+                  <td>12105-Camargo</td>
+                  <td>12108-Lanzisera</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12103-Clutter</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>B12U</td>
+                  <td>12103-Clutter</td>
+                  <td>12101- Fernandez</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12201 - Radtke</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G12U</td>
+                  <td>12201 - Radtke</td>
+                  <td>12202 - Kumar</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12205 - Taylor</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G12U</td>
+                  <td>12205 - Taylor</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>12:45</td>
+                  <td>14:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14204-Cormack</td>
+                </tr>
+                <tr>
+                  <td>10/18/2025</td>
+                  <td>G14U</td>
+                  <td>14204-Cormack</td>
+                  <td>14203-O'Connell</td>
+                  <td>14:00</td>
+                  <td>15:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12206 - Holtkamp</td>
+                </tr>
+                <!-- 10/25 -->
+                <tr class="date-break">
+                  <td>10/25/2025</td>
+                  <td>G10U</td>
+                  <td>10205-Ayala</td>
+                  <td>10208-Fondrick</td>
+                  <td>09:15</td>
+                  <td>10:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10207-Guillen</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G10U</td>
+                  <td>10207-Guillen</td>
+                  <td>10204-Sanchez</td>
+                  <td>10:15</td>
+                  <td>11:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10205-Ayala</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B10U</td>
+                  <td>10104-Seymour</td>
+                  <td>10111-Boal</td>
+                  <td>11:15</td>
+                  <td>12:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10204-Sanchez</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B10U</td>
+                  <td>10108-Ramos</td>
+                  <td>10107-Hernandez</td>
+                  <td>12:15</td>
+                  <td>13:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10111-Boal</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B10U</td>
+                  <td>10112-Sirop</td>
+                  <td>10105-Davison</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10102-Heinzelman</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B10U</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10109-Casillas</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10209-Smith</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G10U</td>
+                  <td>10209-Smith</td>
+                  <td>10207-Guillen</td>
+                  <td>13:15</td>
+                  <td>14:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10109-Casillas</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B12U</td>
+                  <td>12103-Clutter</td>
+                  <td>12105-Camargo</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12106-Luna</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B12U</td>
+                  <td>12106-Luna</td>
+                  <td>12104-Perreault</td>
+                  <td>09:30</td>
+                  <td>10:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12206 - Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G12U</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>12203 - Casias</td>
+                  <td>10:45</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14101- Orrosquieta</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B14U</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>14105- Leon</td>
+                  <td>12:00</td>
+                  <td>13:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12203 - Casias</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10206-Hahn</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10201-Mateus</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G10U</td>
+                  <td>10201-Mateus</td>
+                  <td>10202-Ramos</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10U-Girls- Ruelas</td>
+                </tr>
+                <tr class="extra">
+                  <td>10/25/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U-Girls- Ruelas</td>
+                  <td>TBD</td>
+                  <td>10:20</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10110-Salas</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B10U</td>
+                  <td>10110-Salas</td>
+                  <td>10103-Borrello</td>
+                  <td>11:45</td>
+                  <td>12:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10101-Cirrincione</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B10U</td>
+                  <td>10101-Cirrincione</td>
+                  <td>10106-McKeehan</td>
+                  <td>12:45</td>
+                  <td>13:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10103-Borrello</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B14U</td>
+                  <td>14104- Holtkamp</td>
+                  <td>14106- Luna</td>
+                  <td>08:00</td>
+                  <td>09:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>12U - Girls - Fondrick</td>
+                </tr>
+                <tr class="extra">
+                  <td>10/25/2025</td>
+                  <td>EXTRA</td>
+                  <td>12U - Girls - Fondrick</td>
+                  <td>TBD</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>779</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B14U</td>
+                  <td>14103- Hahn</td>
+                  <td>14102-McNichols</td>
+                  <td>11:45</td>
+                  <td>13:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14201-Young</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G14U</td>
+                  <td>14201-Young</td>
+                  <td>14203-O'Connell</td>
+                  <td>13:15</td>
+                  <td>14:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14102-McNichols</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B12U</td>
+                  <td>12108-Lanzisera</td>
+                  <td>12107-Ortega</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12101- Fernandez</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>B12U</td>
+                  <td>12101- Fernandez</td>
+                  <td>12102-Ocampo</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12202 - Kumar</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G12U</td>
+                  <td>12202 - Kumar</td>
+                  <td>12205 - Taylor</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12204 - Young</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G12U</td>
+                  <td>12204 - Young</td>
+                  <td>12201 - Radtke</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14202- Guillen</td>
+                </tr>
+                <tr>
+                  <td>10/25/2025</td>
+                  <td>G14U</td>
+                  <td>14202- Guillen</td>
+                  <td>14204-Cormack</td>
+                  <td>13:00</td>
+                  <td>14:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12201 - Radtke</td>
+                </tr>
+                <!-- 11/01 -->
+                <tr class="date-break">
+                  <td>11/01/2025</td>
+                  <td>G10U</td>
+                  <td>10202-Ramos</td>
+                  <td>10208-Fondrick</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10201-Mateus</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G10U</td>
+                  <td>10201-Mateus</td>
+                  <td>10204-Sanchez</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10207-Guillen</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G10U</td>
+                  <td>10207-Guillen</td>
+                  <td>10208-Fondrick</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10103-Borrello</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B10U</td>
+                  <td>10103-Borrello</td>
+                  <td>10112-Sirop</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10109-Casillas</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B10U</td>
+                  <td>10109-Casillas</td>
+                  <td>10108-Ramos</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10112-Sirop</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B10U</td>
+                  <td>10111-Boal</td>
+                  <td>10102-Heinzelman</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10105-Davison</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B10U</td>
+                  <td>10105-Davison</td>
+                  <td>10101-Cirrincione</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10102-Heinzelman</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B12U</td>
+                  <td>12102-Ocampo</td>
+                  <td>12106-Luna</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12104-Perreault</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B12U</td>
+                  <td>12104-Perreault</td>
+                  <td>12108-Lanzisera</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12203 - Casias</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G12U</td>
+                  <td>12203 - Casias</td>
+                  <td>12204 - Young</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12202 - Kumar</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G12U</td>
+                  <td>12202 - Kumar</td>
+                  <td>12201 - Radtke</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12204 - Young</td>
+                </tr>
+                <tr class="extra">
+                  <td>11/01/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U - Boys - Morrison</td>
+                  <td>TBD</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10209-Smith</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G10U</td>
+                  <td>10209-Smith</td>
+                  <td>10206-Hahn</td>
+                  <td>09:30</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10U - Boys - Morrison</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B10U</td>
+                  <td>10107-Hernandez</td>
+                  <td>10110-Salas</td>
+                  <td>10:30</td>
+                  <td>11:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10106-McKeehan</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B10U</td>
+                  <td>10106-McKeehan</td>
+                  <td>10104-Seymour</td>
+                  <td>11:30</td>
+                  <td>12:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10205-Ayala</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G10U</td>
+                  <td>10205-Ayala</td>
+                  <td>10203-Lomeli</td>
+                  <td>12:30</td>
+                  <td>13:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10104-Seymour</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G14U</td>
+                  <td>14204-Cormack</td>
+                  <td>14201-Young</td>
+                  <td>08:00</td>
+                  <td>09:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14102-McNichols</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B14U</td>
+                  <td>14102-McNichols</td>
+                  <td>14104- Holtkamp</td>
+                  <td>09:30</td>
+                  <td>11:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14204-Cormack</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B14U</td>
+                  <td>14105- Leon</td>
+                  <td>14103- Hahn</td>
+                  <td>11:30</td>
+                  <td>13:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14104- Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B12U</td>
+                  <td>12107-Ortega</td>
+                  <td>12103-Clutter</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12105-Camargo</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B12U</td>
+                  <td>12105-Camargo</td>
+                  <td>12101- Fernandez</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12205 - Taylor</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G12U</td>
+                  <td>12205 - Taylor</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>11:00</td>
+                  <td>12:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14106- Luna</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>B14U</td>
+                  <td>14106- Luna</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>12:15</td>
+                  <td>13:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14203-O'Connell</td>
+                </tr>
+                <tr>
+                  <td>11/01/2025</td>
+                  <td>G14U</td>
+                  <td>14203-O'Connell</td>
+                  <td>14202- Guillen</td>
+                  <td>14:00</td>
+                  <td>15:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14101- Orrosquieta</td>
+                </tr>
+                <!-- 11/08 -->
+                <tr class="date-break">
+                  <td>11/08/2025</td>
+                  <td>G10U</td>
+                  <td>10204-Sanchez</td>
+                  <td>10202-Ramos</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10U - Boys - Morrison</td>
+                </tr>
+                <tr class="extra">
+                  <td>11/08/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U - Boys - Morrison</td>
+                  <td>TBD</td>
+                  <td>09:30</td>
+                  <td>10:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10202-Ramos</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B10U</td>
+                  <td>10105-Davison</td>
+                  <td>10103-Borrello</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10112-Sirop</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B10U</td>
+                  <td>10112-Sirop</td>
+                  <td>10107-Hernandez</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10110-Salas</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B10U</td>
+                  <td>10110-Salas</td>
+                  <td>10109-Casillas</td>
+                  <td>13:00</td>
+                  <td>14:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10209-Smith</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G10U</td>
+                  <td>10209-Smith</td>
+                  <td>10207-Guillen</td>
+                  <td>14:00</td>
+                  <td>15:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10109-Casillas</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B12U</td>
+                  <td>12105-Camargo</td>
+                  <td>12107-Ortega</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12108-Lanzisera</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B12U</td>
+                  <td>12108-Lanzisera</td>
+                  <td>12102-Ocampo</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12103-Clutter</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B12U</td>
+                  <td>12103-Clutter</td>
+                  <td>12104-Perreault</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12205 - Taylor</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G12U</td>
+                  <td>12205 - Taylor</td>
+                  <td>12203 - Casias</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12206 - Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G12U</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>12201 - Radtke</td>
+                  <td>13:00</td>
+                  <td>14:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14204-Cormack</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G14U</td>
+                  <td>14204-Cormack</td>
+                  <td>14203-O'Connell</td>
+                  <td>14:30</td>
+                  <td>16:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12201 - Radtke</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G10U</td>
+                  <td>10206-Hahn</td>
+                  <td>10205-Ayala</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10203-Lomeli</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10201-Mateus</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10208-Fondrick</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G10U</td>
+                  <td>10208-Fondrick</td>
+                  <td>10209-Smith</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10102-Heinzelman</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B10U</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10106-McKeehan</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10108-Ramos</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B10U</td>
+                  <td>10108-Ramos</td>
+                  <td>10111-Boal</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10104-Seymour</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B10U</td>
+                  <td>10101-Cirrincione</td>
+                  <td>10104-Seymour</td>
+                  <td>13:00</td>
+                  <td>14:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10111-Boal</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B14U</td>
+                  <td>14102-McNichols</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>09:00</td>
+                  <td>10:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14201-Young</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G14U</td>
+                  <td>14201-Young</td>
+                  <td>14202- Guillen</td>
+                  <td>10:30</td>
+                  <td>12:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14101- Orrosquieta</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B14U</td>
+                  <td>14105- Leon</td>
+                  <td>14106- Luna</td>
+                  <td>08:00</td>
+                  <td>09:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14103- Hahn</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B14U</td>
+                  <td>14103- Hahn</td>
+                  <td>14104- Holtkamp</td>
+                  <td>09:30</td>
+                  <td>11:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12101- Fernandez</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>B12U</td>
+                  <td>12101- Fernandez</td>
+                  <td>12106-Luna</td>
+                  <td>11:00</td>
+                  <td>12:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12202 - Kumar</td>
+                </tr>
+                <tr>
+                  <td>11/08/2025</td>
+                  <td>G12U</td>
+                  <td>12202 - Kumar</td>
+                  <td>12204 - Young</td>
+                  <td>12:15</td>
+                  <td>13:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12106-Luna</td>
+                </tr>
+                <!-- 11/15 -->
+                <tr class="date-break">
+                  <td>11/15/2025</td>
+                  <td>G10U</td>
+                  <td>10202-Ramos</td>
+                  <td>10207-Guillen</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10204-Sanchez</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G10U</td>
+                  <td>10204-Sanchez</td>
+                  <td>10209-Smith</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10202-Ramos</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B10U</td>
+                  <td>10104-Seymour</td>
+                  <td>10102-Heinzelman</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10106-McKeehan</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B10U</td>
+                  <td>10106-McKeehan</td>
+                  <td>10108-Ramos</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10U-Girls- Ruelas</td>
+                </tr>
+                <tr class="extra">
+                  <td>11/15/2025</td>
+                  <td>EXTRA</td>
+                  <td>10U-Girls- Ruelas</td>
+                  <td>TBD</td>
+                  <td>12:30</td>
+                  <td>13:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 1</td>
+                  <td>10108-Ramos</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B10U</td>
+                  <td>10109-Casillas</td>
+                  <td>10112-Sirop</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10103-Borrello</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B10U</td>
+                  <td>10103-Borrello</td>
+                  <td>10101-Cirrincione</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 2</td>
+                  <td>10112-Sirop</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B12U</td>
+                  <td>12106-Luna</td>
+                  <td>12108-Lanzisera</td>
+                  <td>08:00</td>
+                  <td>09:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12104-Perreault</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B12U</td>
+                  <td>12104-Perreault</td>
+                  <td>12105-Camargo</td>
+                  <td>09:15</td>
+                  <td>10:30</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12102-Ocampo</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B12U</td>
+                  <td>12102-Ocampo</td>
+                  <td>12103-Clutter</td>
+                  <td>10:30</td>
+                  <td>11:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12206 - Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G12U</td>
+                  <td>12206 - Holtkamp</td>
+                  <td>12202 - Kumar</td>
+                  <td>11:45</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12201 - Radtke</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G12U</td>
+                  <td>12201 - Radtke</td>
+                  <td>12203 - Casias</td>
+                  <td>13:00</td>
+                  <td>14:15</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>14202- Guillen</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G14U</td>
+                  <td>14202- Guillen</td>
+                  <td>14204-Cormack</td>
+                  <td>14:15</td>
+                  <td>15:45</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 4</td>
+                  <td>12203 - Casias</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G10U</td>
+                  <td>10208-Fondrick</td>
+                  <td>10203-Lomeli</td>
+                  <td>08:00</td>
+                  <td>09:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10206-Hahn</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G10U</td>
+                  <td>10206-Hahn</td>
+                  <td>10201-Mateus</td>
+                  <td>09:00</td>
+                  <td>10:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10111-Boal</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B10U</td>
+                  <td>10111-Boal</td>
+                  <td>10110-Salas</td>
+                  <td>10:00</td>
+                  <td>11:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10107-Hernandez</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B10U</td>
+                  <td>10107-Hernandez</td>
+                  <td>10105-Davison</td>
+                  <td>11:00</td>
+                  <td>12:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10203-Lomeli</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G10U</td>
+                  <td>10203-Lomeli</td>
+                  <td>10205-Ayala</td>
+                  <td>12:00</td>
+                  <td>13:00</td>
+                  <td>Chino Hills Community Park</td>
+                  <td>Field 5</td>
+                  <td>10105-Davison</td>
+                </tr>
+                <tr class="extra">
+                  <td>11/15/2025</td>
+                  <td>EXTRA</td>
+                  <td>12U - Girls - Fondrick</td>
+                  <td>TBD</td>
+                  <td>11:30</td>
+                  <td>12:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14104- Holtkamp</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B14U</td>
+                  <td>14104- Holtkamp</td>
+                  <td>14105- Leon</td>
+                  <td>13:00</td>
+                  <td>14:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14203-O'Connell</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G14U</td>
+                  <td>14203-O'Connell</td>
+                  <td>14201-Young</td>
+                  <td>14:30</td>
+                  <td>16:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 1</td>
+                  <td>14105- Leon</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B14U</td>
+                  <td>14106- Luna</td>
+                  <td>14102-McNichols</td>
+                  <td>09:15</td>
+                  <td>10:45</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12107-Ortega</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B12U</td>
+                  <td>12107-Ortega</td>
+                  <td>12101- Fernandez</td>
+                  <td>11:00</td>
+                  <td>12:15</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12204 - Young</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>G12U</td>
+                  <td>12204 - Young</td>
+                  <td>12205 - Taylor</td>
+                  <td>12:15</td>
+                  <td>13:30</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>14101- Orrosquieta</td>
+                </tr>
+                <tr>
+                  <td>11/15/2025</td>
+                  <td>B14U</td>
+                  <td>14101- Orrosquieta</td>
+                  <td>14103- Hahn</td>
+                  <td>13:30</td>
+                  <td>15:00</td>
+                  <td>Grand Avenue Park</td>
+                  <td>Field 2</td>
+                  <td>12205 - Taylor</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="rs-cardsView" class="hidden" aria-live="polite">
+            <div class="cards" id="rs-cards"></div>
+          </div>
+          <p class="note">
+            If you find an error or need an update, please contact the Referee
+            Administrator.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const onReady = (fn) => {
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", fn, { once: true });
+          } else {
+            fn();
+          }
+        };
+
+        onReady(function init() {
+          const root = document.getElementById("rs-app") || document;
+          const q = (sel) => root.querySelector(sel);
+
+          const division = q("#rs-division");
+          const locationSel = q("#rs-location");
+          const dateSel = q("#rs-date");
+          const compact = q("#rs-compact");
+          const cardsToggle = q("#rs-cardsToggle");
+          const jumpNext = q("#rs-jumpNext");
+          const resetBtn = q("#rs-reset");
+          const exportBtn = q("#rs-export");
+          const summary = q("#rs-resultsSummary");
+          const table = root.querySelector("table.ref-schedule");
+          if (!division || !locationSel || !dateSel || !table) return;
+          const tbody = table.querySelector("tbody");
+          const caption = table.querySelector("caption");
+          const cardsView = q("#rs-cardsView");
+          const cards = q("#rs-cards");
+
+          // Adjust sticky header offset based on caption height
+          const setCaptionVar = () => {
+            const h = caption ? caption.getBoundingClientRect().height : 0;
+            document.documentElement.style.setProperty("--caption-h", h + "px");
+          };
+          setCaptionVar();
+          window.addEventListener("resize", setCaptionVar);
+
+          // Parse rows into data model
+          const rows = Array.from(tbody.querySelectorAll("tr"));
+          const parseDate = (txt) => {
+            const [m, d, y] = (txt || "")
+              .split("/")
+              .map((v) => parseInt(v, 10));
+            if (!m || !d || !y) return null;
+            const dt = new Date(y, m - 1, d);
+            dt.setHours(0, 0, 0, 0);
+            return dt;
+          };
+          const data = rows
+            .map((tr) => {
+              const tds = tr.querySelectorAll("td");
+              const obj = {
+                el: tr,
+                dateTxt: tds[0]?.textContent.trim() || "",
+                division: tds[1]?.textContent.trim() || "",
+                home: tds[2]?.textContent.trim() || "",
+                away: tds[3]?.textContent.trim() || "",
+                start: tds[4]?.textContent.trim() || "",
+                end: tds[5]?.textContent.trim() || "",
+                location: tds[6]?.textContent.trim() || "",
+                field: tds[7]?.textContent.trim() || "",
+                center: tds[8]?.textContent.trim() || "",
+                isExtra:
+                  tr.classList.contains("extra") ||
+                  /\bextra\b/i.test(tds[1]?.textContent || ""),
+              };
+              obj.date = parseDate(obj.dateTxt);
+              return obj;
+            })
+            .filter((r) => r.dateTxt); // ignore non-data rows if any
+
+          // Build filter options
+          const uniq = (arr) =>
+            Array.from(new Set(arr)).sort((a, b) => a.localeCompare(b));
+          const divisions = uniq(data.map((r) => r.division).filter(Boolean));
+          const locations = uniq(data.map((r) => r.location).filter(Boolean));
+          const dates = Array.from(
+            new Set(data.map((r) => r.date?.getTime()).filter(Boolean))
+          )
+            .sort((a, b) => a - b)
+            .map((ms) => new Date(ms));
+
+          const addOpts = (sel, values, fmt = (x) => x) => {
+            for (const v of values) {
+              const opt = document.createElement("option");
+              opt.value = fmt(v);
+              opt.textContent = fmt(v);
+              sel.appendChild(opt);
+            }
+          };
+          addOpts(division, divisions);
+          addOpts(locationSel, locations);
+          addOpts(dateSel, dates, (d) => {
+            const mm = String(d.getMonth() + 1).padStart(2, "0");
+            const dd = String(d.getDate()).padStart(2, "0");
+            return `${mm}/${dd}/${d.getFullYear()}`;
+          });
+
+          // State persistence
+          const LS_KEY = "refSchedFiltersV1";
+          const saveState = () => {
+            const state = {
+              division: division.value,
+              location: locationSel.value,
+              date: dateSel.value,
+              compact: compact.checked,
+              cards: cardsToggle.checked,
+            };
+            try {
+              localStorage.setItem(LS_KEY, JSON.stringify(state));
+            } catch {}
+          };
+          const loadState = () => {
+            try {
+              const raw = localStorage.getItem(LS_KEY);
+              if (!raw) return;
+              const st = JSON.parse(raw);
+              if (st.division) division.value = st.division;
+              if (st.location) locationSel.value = st.location;
+              if (st.date) dateSel.value = st.date;
+              compact.checked = !!st.compact;
+              cardsToggle.checked = !!st.cards;
+            } catch {}
+          };
+          loadState();
+
+          // Filtering
+          const applyFilters = () => {
+            const divv = division.value;
+            const loc = locationSel.value;
+            const dt = dateSel.value;
+
+            let shown = 0;
+            for (const r of data) {
+              let ok = true;
+              if (divv && r.division !== divv) ok = false;
+              if (loc && r.location !== loc) ok = false;
+              if (dt && r.dateTxt !== dt) ok = false;
+              r.el.classList.toggle("hidden", !ok);
+              if (ok) shown++;
+            }
+
+            // Compact mode
+            table.classList.toggle("compact", compact.checked);
+
+            // Toggle views
+            const useCards = cardsToggle.checked;
+            root
+              .querySelector(".schedule-wrapper")
+              .classList.toggle("hidden", useCards);
+            cardsView.classList.toggle("hidden", !useCards);
+            if (useCards) renderCards();
+
+            summary.textContent = `${shown} of ${data.length} matches`;
+            saveState();
+          };
+
+          const renderCards = () => {
+            const filtered = data.filter(
+              (r) => !r.el.classList.contains("hidden")
+            );
+            cards.innerHTML = "";
+            const frag = document.createDocumentFragment();
+            for (const r of filtered) {
+              const div = document.createElement("div");
+              div.className = "card";
+              const extraCls = r.isExtra ? "extra" : "";
+              div.innerHTML = `
+              <div class="top">
+                <div><span class="time">${r.start}–${r.end}</span> · <span class="loc">${r.location} • ${r.field}</span></div>
+                <span class="chip ${extraCls}">${r.division}</span>
+              </div>
+              <div class="teams">${r.home} vs ${r.away}</div>
+              <div class="muted">${r.dateTxt}</div>
+              <div>Center: <strong>${r.center}</strong></div>
+            `;
+              frag.appendChild(div);
+            }
+            cards.appendChild(frag);
+          };
+
+          // Jump to next date
+          const jumpToNextDate = () => {
+            const now = new Date();
+            now.setHours(0, 0, 0, 0);
+            const next = dates.find((d) => d >= now) || dates[0];
+            if (!next) return;
+            const mm = String(next.getMonth() + 1).padStart(2, "0");
+            const dd = String(next.getDate()).padStart(2, "0");
+            const targetStr = `${mm}/${dd}/${next.getFullYear()}`;
+            // find first visible row for this date
+            const target =
+              data.find(
+                (r) =>
+                  !r.el.classList.contains("hidden") && r.dateTxt === targetStr
+              )?.el || data.find((r) => r.dateTxt === targetStr)?.el;
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "center" });
+              target.classList.add("highlight");
+              setTimeout(() => target.classList.remove("highlight"), 2400);
+            }
+          };
+
+          // Export CSV of filtered rows
+          const exportCSV = () => {
+            const filtered = data.filter(
+              (r) => !r.el.classList.contains("hidden")
+            );
+            const header = [
+              "Date",
+              "Division",
+              "Home Team",
+              "Away Team",
+              "Start",
+              "End",
+              "Location",
+              "Field",
+              "Center Ref",
+            ];
+            const lines = [header.join(",")];
+            for (const r of filtered) {
+              const row = [
+                r.dateTxt,
+                r.division,
+                r.home,
+                r.away,
+                r.start,
+                r.end,
+                r.location,
+                r.field,
+                r.center,
+              ]
+                .map((v) => '"' + String(v).replace(/"/g, '""') + '"')
+                .join(",");
+              lines.push(row);
+            }
+            const blob = new Blob([lines.join("\n")], {
+              type: "text/csv;charset=utf-8;",
+            });
+            const a = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            a.href = url;
+            a.download = "referee-schedule-2025.csv";
+            a.click();
+            URL.revokeObjectURL(url);
+          };
+
+          // Wire events
+          [division, locationSel, dateSel].forEach(
+            (el) => el && el.addEventListener("change", applyFilters)
+          );
+          [compact, cardsToggle].forEach(
+            (el) => el && el.addEventListener("change", applyFilters)
+          );
+          jumpNext && jumpNext.addEventListener("click", jumpToNextDate);
+          exportBtn && exportBtn.addEventListener("click", exportCSV);
+          resetBtn &&
+            resetBtn.addEventListener("click", () => {
+              division.value = "";
+              locationSel.value = "";
+              dateSel.value = "";
+              compact.checked = false;
+              cardsToggle.checked = false;
+              applyFilters();
+            });
+
+          // Initial apply
+          applyFilters();
+        });
+      })();
+    </script>
+  </body>
+</html>
