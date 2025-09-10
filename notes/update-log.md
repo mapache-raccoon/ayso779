@@ -1,5 +1,15 @@
 # Changelog
 
+2025-09-09
+
+- Uploaded Fall 2025 Ref Schedule to Referree tab
+- Hid Fall 2024 Ref Schedule
+
+2025-09-08
+
+- Uploaded Fall 2025 Schedule to rotator
+
 2025-09-07
 
+- Board Member reverted back to old format after issue with 'clicking' email link.
 - Board Member update (added/edited board member content on the site).
