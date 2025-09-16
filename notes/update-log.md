@@ -1,5 +1,10 @@
 # Changelog
 
+2025-09-16
+
+- Built Fields Page
+- Reorganized the nav sections. Pushed Spring Select to After Alliance
+
 2025-09-09
 
 - Uploaded Fall 2025 Ref Schedule to Referree tab
