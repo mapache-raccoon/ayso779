@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fields | AYSO 779</title>
+    <style>
+      :root {
+        --bg: #f8f9fa;
+        --border: #d0d5db;
+        --header-bg: #1b5e20; /* forest green base */
+        --header-fg: #fff;
+        --row-alt: #eef3f8;
+        --row-extra: #fff7d6;
+        --row-date: #d9e6f2;
+        --accent: #1b5e20; /* forest green accent */
+        --focus: #ffbf47;
+        --radius: 6px;
+        --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+        /* local tokens */
+        --ink: #1d242b;
+        --muted: #667085;
+        --card: #ffffff;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+      header {
+        padding: 1.25rem 1rem;
+        background: linear-gradient(90deg, var(--header-bg), #2e7d32);
+        color: var(--header-fg);
+        border-bottom: none;
+        box-shadow: var(--shadow);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--header-fg) !important; /* prevent global overrides */
+        letter-spacing: 0.3px;
+      }
+      header a {
+        color: var(--header-fg) !important;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .notice {
+        background: var(--row-date);
+        border: 1px solid var(--border);
+        padding: 1rem;
+        border-radius: var(--radius);
+        margin: 1rem 0 1.5rem;
+      }
+      .notice ul {
+        margin: 0.25rem 0 0;
+        padding-left: 1.25rem;
+      }
+      .park {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+      .park h2 {
+        margin: 0 0 0.25rem;
+      }
+      .address {
+        margin: 0 0 0.75rem;
+        color: var(--muted);
+      }
+      .address a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .address a:hover,
+      .address a:focus-visible {
+        text-decoration: underline;
+        outline: none;
+      }
+      .gallery {
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: 1fr;
+        justify-items: center; /* center narrower items */
+      }
+      figure {
+        margin: 0;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        width: min(100%, 600px); /* cap figure (and image/caption) */
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      figcaption {
+        font-size: 0.9rem;
+        color: var(--muted);
+        padding: 0.5rem 0.75rem;
+        border-top: 1px solid var(--border);
+        background: #fff;
+      }
+      @media (min-width: 720px) {
+        .gallery.two {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Fields</h1>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="notice" aria-label="Field rules">
+        <strong>Game day notes</strong>
+        <ul>
+          <li>Home teams sit on the North or East touchline.</li>
+          <li>Away teams sit on the South or West touchline.</li>
+          <li>
+            U8 and below: First game sets up fields 1 hour before game time.
+          </li>
+          <li>U8 and below: Last game breaks down fields.</li>
+        </ul>
+      </section>
+
+      <!-- Chino Hills Community Park -->
+      <article class="park" id="chcp">
+        <h2>Chino Hills Community Park (CHCP)</h2>
+        <p class="address">
+          Address:
+          <a
+            href="https://maps.google.com/?q=3280+Eucalyptus+Ave,+Chino+Hills,+CA+91709"
+            target="_blank"
+            rel="noopener"
+            >3280 Eucalyptus Ave, Chino Hills, CA 91709</a
+          >
+        </p>
+
+        <div class="gallery two">
+          <figure>
+            <img
+              src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chcpwithfieldsno6.jpg"
+              alt="Chino Hills Community Park fields - view 1"
+            />
+            <figcaption>CHCP fields (view 1)</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/photo_2025-09-15_22-15-09.jpg"
+              alt="Chino Hills Community Park fields - view 2"
+            />
+            <figcaption>CHCP Field 3 Setup</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Grand Avenue Park -->
+      <article class="park" id="gap">
+        <h2>Grand Avenue Park (GAP)</h2>
+        <p class="address">
+          Address:
+          <a
+            href="https://maps.google.com/?q=1301+Grand+Ave,+Chino+Hills,+CA+91709"
+            target="_blank"
+            rel="noopener"
+            >1301 Grand Ave, Chino Hills, CA 91709</a
+          >
+        </p>
+
+        <div class="gallery">
+          <figure>
+            <img
+              src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/gap.jpg"
+              alt="Grand Avenue Park fields"
+            />
+            <figcaption>GAP fields</figcaption>
+          </figure>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
