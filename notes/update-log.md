@@ -1,6 +1,10 @@
 # Changelog
 
-2025-09-16
+2025-09-17
+
+- Updated Board Members page
+
+2025-09-15
 
 - Built Fields Page
 - Reorganized the nav sections. Pushed Spring Select to After Alliance

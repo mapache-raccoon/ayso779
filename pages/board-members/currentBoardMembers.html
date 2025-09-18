@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+I <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -381,10 +381,13 @@
       .board-wrapper .board-header-bar h2 {
         color: #fff !important;
       }
+      /* Table header: replace gradient with solid color on desktop */
       .board-wrapper table.board-table thead th {
-        background: var(--gradient-header) !important;
+        background: var(--green-dark) !important;
+        background-image: none !important;
         color: #fff !important;
       }
+      /* (Optional) if you also want to remove gradient in mobile stacked labels, keep same rule */
       /* Ensure zebra striping + hover not lost */
       .board-wrapper table.board-table tbody tr {
         background: #fff !important;
@@ -397,6 +400,11 @@
       }
       /* Links */
       .board-wrapper a.email-link {
+        background: var(--green-dark) !important;
+        color: #fff !important;
+      }
+      /* Prevent visited state from turning gray (host override guard) */
+      .board-wrapper a.email-link:visited {
         background: var(--green-dark) !important;
         color: #fff !important;
       }
@@ -435,6 +443,48 @@
         margin-left: auto;
         margin-right: auto;
         max-width: 780px;
+      }
+      /* Open roles alert banner */
+      .alert-banner {
+        background: #ff9d42;
+        color: #3a2300;
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: var(--radius-md);
+        margin: 0 0 1rem;
+        box-shadow: var(--shadow-sm);
+        line-height: 1.3;
+      }
+      /* Constrain alert section so bar doesn't span full viewport */
+      .volunteer-alert {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 0.75rem; /* side breathing room */
+      }
+      /* Narrow the banner itself a bit further and center */
+      .volunteer-alert .alert-banner {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .alert-banner a {
+        color: #0b3d07;
+        text-decoration: underline;
+        font-weight: 600;
+      }
+      .alert-banner a:hover,
+      .alert-banner a:focus {
+        text-decoration: none;
+      }
+      @media (max-width: 820px) {
+        .alert-banner {
+          border-radius: 0;
+        }
+        /* On small screens let it use full width minus existing padding */
+        .volunteer-alert .alert-banner {
+          max-width: none;
+        }
       }
     </style>
   </head>
@@ -502,6 +552,20 @@
         </div>
       </div>
     </header>
+
+    <section
+      class="volunteer-alert"
+      role="region"
+      aria-label="Volunteer Opportunities"
+    >
+      <div class="alert-banner" role="alert">
+        💚 We are always looking for new volunteers who want to contribute to
+        our players' experience and community. Interested in joining the Region
+        779 Board or helping a program?
+        <a href="mailto:rc@ayso779.org">Email the Regional Commissioner</a>.
+      </div>
+    </section>
+
     <main class="board-wrapper" aria-labelledby="boardHeading">
       <div class="board-header-bar">
         <h2 id="boardHeading">Region Leadership &amp; Program Contacts</h2>
@@ -528,14 +592,14 @@
           <tbody>
             <tr>
               <td data-label="Position">Regional Commissioner</td>
-              <td data-label="Name">Tyler Kleier (Area Director)</td>
+              <td data-label="Name">Steve Young</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:rc@ayso779.org">Email</a>
               </td>
             </tr>
             <tr>
               <td data-label="Position">Assistant Regional Commissioner</td>
-              <td data-label="Name">Steve Young</td>
+              <td data-label="Name">Krista Hahn</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:vrc@ayso779.org">Email</a>
               </td>
@@ -560,7 +624,7 @@
             </tr>
             <tr>
               <td data-label="Position">Secretary</td>
-              <td data-label="Name">Krista Hahn</td>
+              <td data-label="Name">Krista Hahn / Kayla Warmkessel</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:secretary@ayso779.org"
                   >Email</a
@@ -682,35 +746,35 @@
               </td>
             </tr>
             <tr>
-              <td data-label="Position">Boys / Girls U14 Coordinator</td>
+              <td data-label="Position">14U Coordinator</td>
               <td data-label="Name">Leo Ramos</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:b14g14@ayso779.org">Email</a>
               </td>
             </tr>
             <tr>
-              <td data-label="Position">Boys / Girls U12 Coordinator</td>
+              <td data-label="Position">12U Coordinator</td>
               <td data-label="Name">Alex Solorio</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:b12g12@ayso779.org">Email</a>
               </td>
             </tr>
             <tr>
-              <td data-label="Position">Boys / Girls U10 Coordinator</td>
+              <td data-label="Position">10U Coordinator</td>
               <td data-label="Name">Kayla Warmkessel</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:b10g10@ayso779.org">Email</a>
               </td>
             </tr>
             <tr>
-              <td data-label="Position">Boys / Girls 8U Coordinator</td>
+              <td data-label="Position">8U Coordinator</td>
               <td data-label="Name">Maynor Ramos</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:b8g8@ayso779.org">Email</a>
               </td>
             </tr>
             <tr>
-              <td data-label="Position">Boys / Girls 6U Coordinator</td>
+              <td data-label="Position">6U Coordinator</td>
               <td data-label="Name">Jessica Duran</td>
               <td data-label="Email">
                 <a class="email-link" href="mailto:b6g6@ayso779.org">Email</a>
