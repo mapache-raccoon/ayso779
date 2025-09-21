@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AYSO Region 779 | Fall Season General Information</title>
+    <meta
+      name="description"
+      content="AYSO Region 779 Fall Season General Information."
+    />
+    <style>
+      :root {
+        --green-dark: #0b5d13;
+        --green: #128a1d;
+        --green-light: #33cc55;
+        --bg: #fff;
+        --white: #fff;
+        --gray-100: #eef2f4;
+        --gray-200: #e2e8ec;
+        --gray-300: #d0d9df;
+        --gray-600: #4b5b63;
+        --gray-800: #243036;
+        --radius-lg: 18px;
+        --radius-md: 10px;
+        --radius-sm: 5px;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06),
+          0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.12),
+          0 3px 6px -1px rgba(0, 0, 0, 0.08);
+        --gradient-header: linear-gradient(
+          90deg,
+          var(--green) 0%,
+          var(--green-dark) 100%
+        );
+        font-size: 16px;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        color: var(--gray-800);
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        padding: 1.25rem 1rem 0.5rem;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .brand-row img.logo {
+        width: 76px;
+        aspect-ratio: 1/1.1;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+      }
+      h1.board-title {
+        margin: 0;
+        font-size: clamp(2rem, 3.6vw, 2.75rem);
+        line-height: 1.05;
+        letter-spacing: 0.5px;
+        color: var(--green-dark);
+        font-weight: 700;
+      }
+      .tagline {
+        font-size: 1rem;
+        color: var(--gray-600);
+        margin-top: 0.35rem;
+      }
+      .board-wrapper {
+        max-width: 1080px;
+        width: 100%;
+        margin: 0 auto 0;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 1.25rem 1.25rem 1.5rem;
+        overflow: visible;
+      }
+      .board-header-bar {
+        background: var(--gradient-header);
+        color: #fff;
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-md);
+        margin: 0 0 1.25rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem 1.5rem;
+      }
+      .board-header-bar h2 {
+        flex: 1;
+        margin: 0;
+        font-size: 1.25rem;
+        letter-spacing: 0.5px;
+        color: #fff;
+      }
+      .table-container {
+        width: 100%;
+        overflow: auto;
+        scrollbar-width: thin;
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+      h2.section-title {
+        font-size: 1.2rem;
+        color: var(--green-dark);
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 1rem;
+        color: var(--green);
+        margin-top: 0.25rem;
+        margin-bottom: 0.15rem;
+        font-weight: 600;
+        padding: 0;
+      }
+      ul,
+      ol {
+        margin: 0.5rem 0 1.5rem 1.5rem;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin: 0.75rem 0;
+        line-height: 1.6;
+      }
+      details {
+        margin-bottom: 1.2rem;
+        background: var(--gray-100);
+        border-radius: var(--radius-sm);
+        padding: 0.5rem 1rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-200);
+      }
+      details summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--green-dark);
+        font-size: 1rem;
+        outline: none;
+      }
+      details[open] summary {
+        color: var(--green);
+      }
+      @media (max-width: 820px) {
+        .board-wrapper {
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0.75rem 0.75rem 2rem;
+        }
+      }
+      @media (max-width: 640px) {
+        .board-wrapper {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+        h1.board-title {
+          font-size: 2rem;
+        }
+        .board-header-bar h2 {
+          font-size: 1rem;
+        }
+        h2.section-title {
+          font-size: 1rem;
+        }
+        h3,
+        p,
+        ul,
+        li {
+          font-size: 0.95rem;
+        }
+      }
+      @media print {
+        header,
+        .board-header-bar,
+        .tagline {
+          display: none;
+        }
+        .board-wrapper {
+          box-shadow: none;
+          border-radius: 0;
+          padding: 0;
+        }
+      }
+      footer {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand-row">
+        <img
+          src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/regionlogo.png"
+          alt="AYSO Region 779 Logo"
+          class="logo"
+        />
+        <div>
+          <h1 class="board-title">Fall Season General Information</h1>
+          <div class="tagline">
+            AYSO Region 779 • Chino Hills, CA • EST. 1991
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="board-wrapper" aria-labelledby="fallSeasonHeading">
+      <div class="board-header-bar">
+        <h2 id="fallSeasonHeading">Fall Season Details &amp; Guidelines</h2>
+        <div style="font-size: 0.8rem; opacity: 0.9; color: #fff">
+          Last updated:
+          <time datetime="2025-09-20" style="color: #fff">September 2025</time>
+        </div>
+      </div>
+      <div class="table-container">
+        <!-- 1. Season Overview -->
+        <section>
+          <h2 class="section-title">Season Overview</h2>
+          <p>The Fall season officially begins on August 1st.</p>
+        </section>
+
+        <!-- 2. Volunteer Requirements -->
+        <section>
+          <h2 class="section-title">Volunteer Requirements</h2>
+          <p>
+            All Head Coaches, Assistant Coaches, Referees, Team Managers, and
+            any other type of volunteer, are required to register as volunteers
+            every year. For information on how to register as a volunteer,
+            please click on the 'Registration' tab.
+          </p>
+          <h3>Coach ID Badges</h3>
+          <p>
+            Coach ID badges will be provided for the current season for both new
+            and returning coach volunteers. Coaches are required to wear coach
+            ID badges at all practices and games.
+          </p>
+        </section>
+
+        <!-- 3. Practice Information -->
+        <section>
+          <h2 class="section-title">Practice Information</h2>
+          <h3>Times and Locations</h3>
+          <ul>
+            <li>
+              5U-8U will practice at AYSO allowed parks and schools within the
+              city limits.
+            </li>
+            <li>
+              Alterra Park, Butterfield Ranch Elementary, Surrounding parks in
+              the area.
+            </li>
+            <li>
+              NO more than 2 hours in a week for 5U-8U, Practice are usually
+              from 45 to 60 min long.
+            </li>
+            <li>Coach picks day(s) and times convenient to them.</li>
+          </ul>
+          <p>
+            If a school site or park is not listed above, it means that AYSO
+            does not have approval to use these fields for practices or games.
+            If a coach wishes to practice at a site not listed, they must
+            contact their division coordinator for approval before practice may
+            commence at the requested location.
+          </p>
+          <p>
+            Practice sites at the above locations are not assigned and are on a
+            first come basis. No division has priority of the fields.
+          </p>
+          <p>
+            <strong
+              >COACHES DETERMINE THEIR PRACTICE TIME. ONCE TEAMS ARE MADE YOUR
+              COACH WILL REACH OUT WITH TIME AND LOCATION</strong
+            >
+          </p>
+          <h3>Off-Limits Locations</h3>
+          <ul>
+            <li>Ayala High School</li>
+            <li>Chaparral Elementary</li>
+            <li>Chino Hills High School</li>
+            <li>Country Springs Elementary</li>
+            <li>Eagle Canyon Elementary</li>
+            <li>English Springs Park</li>
+            <li>Fairfield Park</li>
+            <li>Glenmeade Elementary</li>
+            <li>Hunters Hill Park</li>
+            <li>Litel Elementary</li>
+            <li>Los Serranos Elementary</li>
+            <li>Oakridge Elementary</li>
+            <li>Canyon Hills Jr. High</li>
+            <li>Townsend Jr. High</li>
+          </ul>
+          <h3>Fields only available to 10U through 19U divisions:</h3>
+          <ul>
+            <li>Community Park</li>
+            <li>Grand Avenue Park</li>
+          </ul>
+          <p>
+            Practice spaces at Community Park and Grand Avenue Park are
+            assigned. If a team wishes to practice at one of these locations,
+            they must be reserved by contacting the Assistant RC at
+            <a href="mailto:arc@ayso779.com">arc@ayso779.com</a>.
+          </p>
+          <p>
+            The following are the practice field maps for the following sites:
+          </p>
+          <ul>
+            <li>Community Park TBD</li>
+            <li>Grand Avenue Park TBD</li>
+          </ul>
+          <p>
+            The following are the team practice field allocations for Community
+            Park and Grand Avenue Park:
+          </p>
+          <ul>
+            <li>Community Park TBD</li>
+            <li>Grand Avenue Park TBD</li>
+          </ul>
+        </section>
+
+        <!-- 4. Game/Match Guidelines (Collapsible for each division) -->
+        <section>
+          <h2 class="section-title">Game/Match Guidelines</h2>
+          <details>
+            <summary>5U and 6U Divisions</summary>
+            <ul>
+              <li>4 – 5 minute quarters with a 5 minute half time break.</li>
+              <li>Games are 5-V-5.</li>
+              <li>
+                Players are required to play a minimum of 3 quarters of the
+                game.
+              </li>
+              <li>Player substitutions are performed on a quarter basis.</li>
+              <li>
+                Direct free kicks only (indirect free kicks are not allowed).
+              </li>
+              <li>No goal kicks or corner kicks.</li>
+              <li>No throw-ins.</li>
+              <li>No offside infractions.</li>
+              <li>Goalkeepers are not permitted.</li>
+              <li>Each team provides referee.</li>
+              <li>Home team switches fields at half time.</li>
+              <li>Coaches are not allowed on fields.</li>
+              <li><strong>Scores and standings are not kept.</strong></li>
+            </ul>
+          </details>
+          <details>
+            <summary>8U Division</summary>
+            <ul>
+              <li>4 – 10 minute quarters with a 5 minute half time break.</li>
+              <li>
+                Games are 6-V-6. With Goal Keepers (keepers must be rotated)
+              </li>
+              <li>
+                Players are required to play a minimum of 3 quarters of the
+                game.
+              </li>
+              <li>Player substitutions are performed on a quarter basis.</li>
+              <li>Free kicks (direct and indirect) are not allowed.</li>
+              <li>Goal kicks, and corner kicks are performed.</li>
+              <li>Throw-ins are performed.</li>
+              <li>No offside infractions.</li>
+              <li>Each team provides referee.</li>
+              <li>Coaches are not allowed on field.</li>
+              <li><strong>Scores and standings are not kept.</strong></li>
+            </ul>
+          </details>
+          <details>
+            <summary>10U Division</summary>
+            <ul>
+              <li>2 – 25 minute halves with a 5 minute half time break.</li>
+              <li>
+                Games are 7-V-7. A minimum of 5 players on each team are
+                required for the game to be played.
+              </li>
+              <li>
+                Players are required to play a minimum of 3 quarters of the
+                game.
+              </li>
+              <li>Player substitutions are performed on a quarter basis.</li>
+              <li>Rules and regulations are per FIFA’s Laws of the Game.</li>
+              <li>Heading is not allowed.</li>
+              <li>Coaches are not allowed on field.</li>
+              <li>Scores and standings are kept.</li>
+              <li>
+                Teams are required to provide an assistant referee for their
+                game.
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>12U Division</summary>
+            <ul>
+              <li>2 – 30 minute halves with a 5 minute half time break.</li>
+              <li>
+                Games are 9-V-9. A minimum of 6 players on each team are
+                required for the game to be played.
+              </li>
+              <li>
+                Players are required to play a minimum of 3 quarters of the
+                game.
+              </li>
+              <li>Player substitutions are performed on a quarter basis.</li>
+              <li>Rules and regulations are per FIFA’s Laws of the Game.</li>
+              <li>Heading is not allowed.</li>
+              <li>Coaches are not allowed on field.</li>
+              <li>Scores and standings are kept.</li>
+              <li>
+                Teams are required to provide an assistant referee for their
+                game.
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>14U Division</summary>
+            <ul>
+              <li>2 – 35 minute halves with a 5 minute half time break.</li>
+              <li>
+                Games are 11-V-11. A minimum of 7 players on each team are
+                required for the game to be played.
+              </li>
+              <li>
+                Players are required to play a minimum of 3 quarters of the
+                game.
+              </li>
+              <li>Player substitutions are performed on a quarter basis.</li>
+              <li>Rules and regulations are per FIFA’s Laws of the Game.</li>
+              <li>Coaches are not allowed on field.</li>
+              <li>Scores and standings are kept.</li>
+              <li>
+                Teams are required to provide an assistant referee for their
+                game.
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>16U Division</summary>
+            <ul>
+              <li>2 – 40 minute halves with a 5 minute half time break.</li>
+              <li>
+                Games are 11-V-11. A minimum of 7 players on each team are
+                required for the game to be played.
+              </li>
+              <li>
+                Players are required to play a minimum of one half of the game.
+              </li>
+              <li>Free substitution of players is allowed.</li>
+              <li>Rules and regulations are per FIFA’s Laws of the Game.</li>
+              <li>Games are primarily played during the week.</li>
+              <li>Schedules, scores, and standings are through Area 1U.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>19U Division</summary>
+            <ul>
+              <li>2 – 45 minute halves with a 5 minute half time break.</li>
+              <li>
+                Games are 11-V-11. A minimum of 7 players on each team are
+                required for the game to be played.
+              </li>
+              <li>
+                Players are required to play a minimum of one half of the game.
+              </li>
+              <li>Free substitution of players is allowed.</li>
+              <li>Rules and regulations are per FIFA’s Laws of the Game.</li>
+              <li>Games are primarily played during the week.</li>
+              <li>Schedules, scores, and standings are through Area 1U.</li>
+            </ul>
+          </details>
+        </section>
+
+        <!-- 5. Standings & Points -->
+        <section>
+          <h2 class="section-title">
+            Point System for Standings (10U-14U only)
+          </h2>
+          <p>For regular season division standings only:</p>
+          <ul>
+            <li>Win = (3) points</li>
+            <li>Tie = (1) point</li>
+            <li>Loss = (0) points</li>
+            <li>Forfeit = (-1) points</li>
+            <li>Red Card = (-2) points</li>
+          </ul>
+          <p>
+            Referee Points: Referee points are used to determine eligibility for
+            the Fall Postseason Invitational Tournament and are not factored in
+            division standings.
+          </p>
+          <p>
+            Forfeits: A forfeit will be recorded as a 1-0 win for the opposing
+            team unless the match is a mutual forfeit. In this case, a (-1
+            point) will be recorded for both teams.
+          </p>
+          <p>
+            Goal Points: Points for scoring goals will not a component of the
+            regular season standings in any division.
+          </p>
+          <h3>Final Standings</h3>
+          <p>
+            Tiebreakers: Any "ties" in the Final Standings will be resolved
+            using the following tiebreaker sequence:
+          </p>
+          <ul>
+            <li>Head to head results</li>
+            <li>Fewest goals allowed during the regular season</li>
+            <li>
+              Goal differential (i.e. goals scored less goals allowed to a
+              maximum of 3 per match. The highest differential wins the
+              tiebreaker)
+            </li>
+            <li>Coin toss</li>
+          </ul>
+        </section>
+
+        <!-- 6. Awards -->
+        <section>
+          <h2 class="section-title">Trophies, Medals, and Pins</h2>
+          <p>
+            The following awards will be provided to each team at the end of the
+            season:
+          </p>
+          <ul>
+            <li>Trophies are provided to the 5U/6U/8U and VIP divisions.</li>
+            <li>
+              Medals are provided to the 10U through 14U divisions at the
+              completion of the team’s season.
+            </li>
+            <li>Pins are provided by Area 1U for the 16U and 19U divisions.</li>
+          </ul>
+        </section>
+
+        <!-- 7. Postseason Tournament -->
+        <section>
+          <h2 class="section-title">
+            Post Season Invitational Tournament (10U-14U only)
+          </h2>
+          <ul>
+            <li>
+              A post season invitational tournament is held at the conclusion of
+              the regular season for the U10 through U14 divisions. The only
+              requirement to be eligible for the post season invitational is
+              that a team must maintain 25 points.
+            </li>
+            <li>
+              Each team starts off with 30 points. 20 of these points are
+              referee points and 10 are team sportsmanship points.
+            </li>
+            <li>
+              Each team will be required to supply an AR for 10 games and a
+              Center Referee for approximately 5 games.
+            </li>
+            <li>
+              Each team will provide an AR for their own game to be positioned
+              on their sideline.
+            </li>
+            <li>
+              The Home team will be required to provide a Center Referee for the
+              game prior to their own.
+            </li>
+            <li>
+              In the instance of the last game of the day the Visiting team of
+              the second to last game will provide the Center Referee for the
+              Last game of the day.
+            </li>
+            <li>
+              Referees will be assigned to teams. Coaches will submit a referee
+              form with a list of their referees similar to that of a Tournament
+              Referee Form. Ref Admins will verify eligibility.
+            </li>
+            <li>
+              2 referee points are deducted for each missed center referee
+              assignment.
+            </li>
+            <li>
+              1 referee point is deducted for each missed assistant referee
+              assignment.
+            </li>
+            <li>
+              Sportsmanship points are deducted for coach ejections or warnings.
+              Sideline behavior is key to keeping your points.
+            </li>
+            <li>
+              A team not earning the required referee and sportsmanship points
+              will not be invited to participate in the post season invitational
+              tournament regardless of the team’s standings at the end of the
+              season.
+            </li>
+            <li>
+              The winners of the championship matches in each division will
+              automatically advance to the Area 1B Fall Tournament which will be
+              held in January.
+            </li>
+            <li>
+              The Referee and Coach Administration will determine who is
+              eligible based on points.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
