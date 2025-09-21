@@ -1,0 +1,616 @@
+/* Ayso-Dafault CSS */
+/********************************************************************/
+/* Skin */
+.Ayso-Default h1,
+.Ayso-Default h2,
+.Ayso-Default h3,
+.Ayso-Default h4,
+.Ayso-Default h5,
+.Ayso-Default h6 {
+  color: #000;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+}
+.Ayso-Default .Normal,
+.Ayso-Default .SubHead {
+  color: #484848;
+}
+.Ayso-Default .StandardButton {
+  background: #484848;
+  color: #fff;
+}
+.Ayso-Default .StandardButton:hover,
+.Ayso-Default .StandardButton:focus {
+  background: #000;
+}
+.Ayso-Default .skFooter {
+  padding: 30px 0;
+}
+.Ayso-Default .skWidth {
+  display: block;
+}
+
+/* Inner Skin */
+.Ayso-Default .LeftPane {
+  float: left;
+  width: 600px;
+}
+.Ayso-Default .RightPane {
+  float: right;
+  width: 315px;
+}
+.Ayso-Default .inner-width {
+  display: table;
+  max-width: 100%;
+}
+.Ayso-Default .inner-table {
+  display: table;
+  width: 100%;
+}
+.Ayso-Default .inner-cell {
+  display: table-cell;
+  float: none;
+  vertical-align: top;
+}
+.Ayso-Default .inner-width .Normal img {
+  max-width: 100%;
+}
+
+/* Topbar */
+.Ayso-Default .skArea {
+  background: #ffffff url(images/ayso-bg.jpg) center top no-repeat;
+}
+.Ayso-Default .skAction {
+  float: right;
+  position: relative;
+  z-index: 1;
+}
+.Ayso-Default .skTopbar img.link {
+  margin: 0 15px;
+}
+.Ayso-Default .skTopbar a.link,
+.Ayso-Default .skTopbar a.link:link,
+.Ayso-Default .skTopbar a.link:visited,
+.Ayso-Default .skTopbar .skBannerText {
+  color: #fff;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.Ayso-Default .skLogin a.link,
+.Ayso-Default .skLogin a.link:link,
+.Ayso-Default .skLogin a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 10px 13px;
+  margin: 0 0 0 12px;
+}
+.Ayso-Default .skLogin a.goog-te-menu-value,
+.Ayso-Default .skLogin a.goog-te-menu-value:link,
+.Ayso-Default .skLogin a.goog-te-menu-value:visited,
+.Ayso-Default .skLogin a.translate,
+.Ayso-Default .skLogin a.translate:link,
+.Ayso-Default .skLogin a.translate:visited,
+.Ayso-Default .skSocial a.link,
+.Ayso-Default .skSocial a.link:link,
+.Ayso-Default .skSocial a.link:visited {
+  text-indent: -999px;
+  height: 34px;
+  width: 34px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.Ayso-Default .skSocial a.link,
+.Ayso-Default .skSocial a.link:link,
+.Ayso-Default .skSocial a.link:visited {
+  margin: 2px 10px 0 0;
+}
+.Ayso-Default a.goog-te-menu-value,
+.Ayso-Default a.goog-te-menu-value:link,
+.Ayso-Default a.goog-te-menu-value:visited {
+  margin: 2px 4px 0 0;
+}
+/* Header */
+.Ayso-Default .skHead {
+  margin-top: -26px;
+  background-position: center center;
+}
+.Ayso-Default .skHead .skWidth {
+  position: relative;
+}
+.Ayso-Default .skHead .logo {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: auto;
+  left: auto;
+  float: left;
+}
+.Ayso-Default .skHead .logo a {
+  display: block;
+}
+.Ayso-Default .skHead .trnlogo {
+  margin: 0 0 0 -80px;
+}
+.Ayso-Default .skHead .logo img {
+  height: 180px;
+  width: 170px;
+  margin: 8px 0 0 0;
+  filter: drop-shadow(0 0 5px rgba(149, 149, 149, 0.19));
+}
+.Ayso-Default .skHead .trnlogo img {
+  height: auto;
+  width: auto;
+  margin: 0;
+}
+.Ayso-Default .skHead {
+  background-image: url(images/ayso-banner-stripe.png);
+}
+.Ayso-Default .skHead .head {
+  color: #fff;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+  padding: 80px 0 0 300px;
+  display: block;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Ayso-Default .skHead .head.clear {
+  clear: inherit;
+}
+
+/* Navigation */
+.Ayso-Default #dnnStandardMenu .root .txt {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+}
+.Ayso-Default #dnnStandardMenu .root .mi1 .mi .txt:after {
+  display: none;
+}
+.Ayso-Default #dnnStandardMenu .root .mi2 .txt {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-transform: none;
+  padding: 6px 8px;
+}
+
+/* Slider */
+.Ayso-Default .r960365 ul.pager li {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4b4b4b;
+}
+.Ayso-Default .r960365 ul.pager li:before {
+  background-color: #7a7a7a;
+}
+
+/* News */
+.Ayso-Default ul.news .date {
+  font-weight: normal;
+}
+.Ayso-Default .skNews .readmore a.link,
+.Ayso-Default .skNews .readmore a.link:link,
+.Ayso-Default .skNews .readmore a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 9px 0;
+}
+#csNews.skTabsCnt .readmore {
+  bottom: 0;
+  display: inline-block;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+.Ayso-Default .cbContainer.expanded:after,
+.Ayso-Default #skCard-Stack:after {
+  content: none;
+}
+/* Tabs */
+.Ayso-Default .skSocialTab a.skSocialBtn {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+}
+.Ayso-Default ul.skTabs li.item a.link,
+.Ayso-Default ul.skTabs li.item a.link:link,
+.Ayso-Default ul.skTabs li.item a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.Ayso-Default ul.tweet_list li:before {
+  content: "";
+  position: absolute;
+  width: 68px;
+  height: 50px;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Ayso-Default ul.tweet_list li {
+  border-top-color: #757475;
+}
+.Ayso-Default ul.tweet_list li {
+  border-bottom: 0px;
+}
+.Ayso-Default .tweet_time {
+  display: block;
+  font-style: italic;
+}
+.Ayso-Default .tweet_text {
+  color: #363636;
+}
+.Ayso-Default .skTabsCnt {
+  color: #363636;
+  padding: 31px 30px 32px;
+}
+.Ayso-Default .skTabsCnt .readmore a.link,
+.Ayso-Default .skTabsCnt .readmore a.link:link,
+.Ayso-Default .skTabsCnt .readmore a.link:visited {
+  background-size: 100% 100%;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+/* National news */
+.Ayso-Default ul.Ayso-news {
+  margin: 0;
+  padding: 0;
+}
+.Ayso-Default ul.Ayso-news li.item {
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  border-bottom: 1px solid #757475;
+}
+.Ayso-Default ul.Ayso-news li.item:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.Ayso-Default ul.Ayso-news li.last {
+  border: none;
+}
+.Ayso-Default ul.Ayso-news img {
+  float: left;
+  width: 100px;
+}
+.Ayso-Default ul.Ayso-news .detail {
+  padding: 0 0 0 110px;
+}
+.Ayso-Default ul.Ayso-news h3.head,
+.Ayso-Default ul.Ayso-news h3.head a.link,
+.Ayso-Default ul.Ayso-news h3.head a.link:link,
+.Ayso-Default ul.Ayso-news h3.head a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 26px;
+  margin: 0;
+  padding: 6px 0;
+  text-transform: uppercase;
+}
+.Ayso-Default ul.Ayso-news span.summary {
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  padding: 0 0 6px 0;
+  display: block;
+}
+.Ayso-Default ul.Ayso-news span.Date {
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+/* Event */
+.Ayso-Default ul.events .date {
+  font-size: 12px;
+}
+.Ayso-Default ul.events h3.head,
+.Ayso-Default ul.events a.link,
+.Ayso-Default ul.events a.link:link,
+.Ayso-Default ul.events a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.Ayso-Default ul.events li.item:before {
+  width: 46px;
+  height: 46px;
+  left: 4px;
+  top: 20px;
+  transform: inherit;
+}
+.Ayso-Default ul.events li.item.first:before {
+  top: 4px;
+}
+/* Container */
+.Ayso-Default .cbContainer h2.head {
+  color: #fff;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.Ayso-Default .cbContainer h2.head:before {
+  color: #aaaaaa;
+}
+.Ayso-Default .cbContainer.expanded h2.head:before {
+  color: #aaaaaa;
+}
+.Ayso-Default .dtContainer h2.head {
+  background: #484848;
+  color: #fff;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.Ayso-Default .dtContainer h2.head:after {
+  border-top: 10px solid #484848;
+}
+
+/* Documents */
+.Ayso-Default .documents a.link,
+.Ayso-Default .documents a.link:link,
+.Ayso-Default .documents a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+/* Field Status */
+.Ayso-Default ul.field li.item {
+  border-color: #757475;
+}
+.Ayso-Default ul.field li.item.partial:after {
+  color: #e0700c;
+}
+.Ayso-Default ul.field .name {
+  color: #fff;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.Ayso-Default ul.field .date {
+  color: #484848;
+}
+.Ayso-Default .skFieldStatus .readmore a.link,
+.Ayso-Default .skFieldStatus .readmore a.link:link,
+.Ayso-Default .skFieldStatus .readmore a.link:visited {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+/* Sponsor */
+.Ayso-Default .skFeaturedSponsor .embedCode {
+  color: #363636;
+}
+.Ayso-Default .skSponsor {
+  padding: 30px 0;
+}
+.Ayso-Default .skSponsor h2.head {
+  text-align: center;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #484848;
+}
+.Ayso-Default .clubSponsor {
+  max-width: 600px;
+  _width: 600px;
+  margin: auto;
+}
+.Ayso-Default .clubSponsor h2.head {
+  position: relative;
+}
+.Ayso-Default .clubSponsor h2.head:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #a0a0a0;
+}
+.Ayso-Default .clubSponsor h2.head span {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+}
+.Ayso-Default .clubSponsor .content {
+  padding: 0 30px;
+}
+.Ayso-Default .clubSponsor .skSponsor .prev,
+.Ayso-Default .clubSponsor .skSponsor .next {
+  height: 50px;
+  width: 25px;
+  margin-top: -25px;
+}
+.Ayso-Default .clubSponsor .next,
+.Ayso-Default .skSponsor .next {
+  transform: rotate(00deg);
+}
+.Ayso-Default .clubSponsor .prev,
+.Ayso-Default .skSponsor .prev {
+  transform: rotate(180deg);
+}
+
+/* Site Link */
+.Ayso-Default .ftContainer h2.head {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Club Info */
+.Ayso-Default .cbInfo h2.cbName {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 20px;
+}
+.Ayso-Default .cbInfo,
+.Ayso-Default .cbInfo p.cbAddress {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.Ayso-Default .cbInfo a,
+.Ayso-Default .cbInfo a:link,
+.Ayso-Default .cbInfo a:visited {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+/* Mobile Nav */
+.Ayso-Default #mobNav > ul > li span,
+.Ayso-Default #mobNav > ul > li a,
+.Ayso-Default #mobNav > ul > li a:link,
+.Ayso-Default #mobNav > ul > li a:visited {
+  color: #a6a6a6;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.Ayso-Default #mobNav > ul > li a:hover,
+.Ayso-Default #mobNav > ul > li a:focus,
+.Ayso-Default #mobNav > ul > li a:active {
+  color: #fff;
+}
+.Ayso-Default #mobNav > ul > li > a:hover,
+.Ayso-Default #mobNav > ul > li > a:focus,
+.Ayso-Default #mobNav > ul > li > a:active {
+  background: #222;
+}
+
+@media screen and (max-width: 1100px) {
+  .Ayso-Default .skHead .trnlogo {
+    margin: 0;
+  }
+  .Ayso-Default .skHead .head {
+    padding-left: 380px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .Ayso-Default .nationalSponsor .content {
+    padding: 0 30px;
+  }
+  .Ayso-Default .inner-width,
+  .Ayso-Default .inner-table,
+  .Ayso-Default .inner-cell {
+    display: block;
+  }
+  .Ayso-Default.Inner-Skin .LeftPane {
+    width: 50%;
+  }
+  .Ayso-Default.Inner-Skin .RightPane {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .Ayso-Default.Inner-Skin .LeftPane {
+    float: left;
+    width: 60%;
+  }
+  .Ayso-Default.Inner-Skin .RightPane {
+    float: right;
+    width: 38%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Ayso-Default .skTopbar .skBannerText {
+    max-width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .Ayso-Default .skHead {
+    margin: auto;
+  }
+  .Ayso-Default .skAction {
+    float: none;
+    padding: 20px 0;
+    text-align: center;
+  }
+  .Ayso-Default .skHead .head {
+    color: #484848;
+    text-shadow: 0 0 10px #fff;
+  }
+  .Ayso-Default .skSocial,
+  .Ayso-Default .skLogin,
+  .Ayso-Default .skLogin a.link,
+  .Ayso-Default .skLogin a.link:link,
+  .Ayso-Default .skLogin a.link:visited,
+  .Ayso-Default .skLogin #google_translate_element {
+    float: none;
+    display: inline-block;
+  }
+  .Ayso-Default .skHead {
+    text-align: center;
+  }
+  .Ayso-Default.Inner-Skin .LeftPane,
+  .Ayso-Default.Inner-Skin .RightPane {
+    float: none;
+    width: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Ayso-Default .skTopbar .skBannerText {
+    display: block;
+    max-width: 60%;
+  }
+  .Ayso-Default ul.Ayso-news img {
+    display: none;
+  }
+  .Ayso-Default ul.Ayso-news .detail {
+    padding: 0;
+  }
+  .Ayso-Default .skHead .logo {
+    width: 35%;
+    height: auto;
+  }
+  .Ayso-Default .skHead .logo img {
+    width: auto;
+    height: auto;
+    margin: auto;
+  }
+  .Ayso-Default .skLogin {
+    display: block;
+  }
+  .Ayso-Default .skLogin a.link,
+  .Ayso-Default .skLogin a.link:link,
+  .Ayso-Default .skLogin a.link:visited {
+    margin: 0 6px;
+  }
+}
+
+/* Ayso-Burgundy CSS */
+/********************************************************************/
+/* Menu CSS */
+.Ayso-Burgundy #dnnStandardMenu .root .mi1 .txt {
+  font-family: "Oswald", sans-serif;
+}
+.Ayso-Burgundy #dnnStandardMenu .root .mi2 .txt {
+  font-family: "lato", sans-serif;
+}
+
+/* Menu CSS */
+.Ayso-Liteblue #dnnStandardMenu .root .mi1 .txt {
+  font-family: "Oswald", sans-serif;
+}
+.Ayso-Liteblue #dnnStandardMenu .root .mi2 .txt {
+  font-family: "lato", sans-serif;
+}
+
+/* NO KIDS AYSO 
+/** Sanket Naik - 29-04-2016 ******/
+
+/* Topbar */
+.Ayso-Default.Ayso-kids .skArea {
+  background: #efefef url(images/ayso-nokids-bg.jpg) center top no-repeat;
+}

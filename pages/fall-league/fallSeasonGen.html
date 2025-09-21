@@ -34,12 +34,24 @@
         );
         font-size: 16px;
       }
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol,
+      li {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        color: var(--gray-800);
+      }
       *,
       *:before,
       *:after {
         box-sizing: border-box;
-        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-        color: var(--gray-800);
       }
       html,
       body {
@@ -111,23 +123,23 @@
         scrollbar-width: thin;
       }
       section {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
       h2.section-title {
         font-size: 1.2rem;
         color: var(--green-dark);
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
+        margin-top: 2rem !important;
+        margin-bottom: 1rem !important;
         text-align: center;
         font-weight: 700;
       }
       h3 {
         font-size: 1rem;
         color: var(--green);
-        margin-top: 0.25rem;
-        margin-bottom: 0.15rem;
+        margin-top: 0.25rem !important;
+        margin-bottom: 0.5rem !important;
         font-weight: 600;
-        padding: 0;
+        padding: 0 !important;
       }
       ul,
       ol {
@@ -201,6 +213,53 @@
       }
       footer {
         display: none;
+      }
+      .board-wrapper h2.section-title,
+      .board-wrapper h3 {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--green-dark) !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0.75rem !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .board-wrapper h3 {
+        color: var(--green) !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        margin-top: 0.25rem !important;
+      }
+      .board-wrapper h2.section-title {
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        margin-top: 2rem !important;
+      }
+      .board-wrapper p {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--gray-800) !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0.75rem !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+      }
+      .board-wrapper ul,
+      .board-wrapper ol {
+        font-size: 1rem !important;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--gray-800) !important;
+        margin: 0.5rem 0 1.5rem 1.5rem !important;
+        padding: 0 !important;
+      }
+      .board-wrapper li {
+        font-size: 1rem !important;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--gray-800) !important;
+        margin-bottom: 0.5rem !important;
       }
     </style>
   </head>

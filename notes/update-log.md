@@ -1,5 +1,9 @@
 # Changelog
 
+2025-09-21
+
+- Updated the Fall General Page
+
 2025-09-17
 
 - Updated Board Members page
