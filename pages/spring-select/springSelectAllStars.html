@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AYSO Region 779 | Spring All-Star & Select Program</title>
+    <meta
+      name="description"
+      content="AYSO Region 779 Spring All-Star & Select Travel Program information."
+    />
+    <style>
+      :root {
+        --green-dark: #0b5d13;
+        --green: #128a1d;
+        --green-light: #33cc55;
+        --bg: #fff;
+        --white: #fff;
+        --gray-100: #eef2f4;
+        --gray-200: #e2e8ec;
+        --gray-300: #d0d9df;
+        --gray-600: #4b5b63;
+        --gray-800: #243036;
+        --radius-lg: 18px;
+        --radius-md: 10px;
+        --radius-sm: 5px;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06),
+          0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.12),
+          0 3px 6px -1px rgba(0, 0, 0, 0.08);
+        --gradient-header: linear-gradient(
+          90deg,
+          var(--green) 0%,
+          var(--green-dark) 100%
+        );
+        font-size: 16px;
+      }
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol,
+      li {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        color: var(--gray-800);
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        padding: 1.25rem 1rem 0.5rem;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+      }
+      .brand-row img {
+        max-width: 190px;
+        height: auto;
+        width: 40vw;
+        min-width: 120px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+      }
+      h1.board-title {
+        margin: 0;
+        font-size: clamp(2rem, 3.6vw, 2.75rem);
+        line-height: 1.05;
+        letter-spacing: 0.5px;
+        color: var(--green-dark);
+        font-weight: 700;
+      }
+      .tagline {
+        font-size: 1rem;
+        color: var(--gray-600);
+        margin-top: 0.35rem;
+      }
+      .board-wrapper {
+        max-width: 1080px;
+        width: 100%;
+        margin: 0 auto 0;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 1.25rem 1.25rem 1.5rem;
+        overflow: visible;
+      }
+      .section-header-bar {
+        background: var(--gradient-header);
+        color: #fff;
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-md);
+        margin: 0 0 1.25rem;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+      }
+      .section-header-bar h2,
+      .section-header-bar > div {
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+      }
+      .section-header-bar h2 {
+        font-size: 1.25rem;
+        letter-spacing: 0.5px;
+        color: #fff;
+        font-weight: 700;
+        text-align: left;
+      }
+      .section-header-bar > div {
+        text-align: right;
+        font-size: 0.8rem;
+        opacity: 0.9;
+        color: #fff;
+        white-space: nowrap;
+      }
+      .table-container {
+        width: 100%;
+        overflow: auto;
+        scrollbar-width: thin;
+      }
+      section {
+        margin-bottom: 1rem;
+      }
+      h2.section-title {
+        font-size: 1.2rem;
+        color: var(--green-dark);
+        margin-top: 2rem !important;
+        margin-bottom: 1rem !important;
+        text-align: center;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 1rem;
+        color: var(--green);
+        margin-top: 0.25rem !important;
+        margin-bottom: 0.5rem !important;
+        font-weight: 600;
+        padding: 0 !important;
+      }
+      ul,
+      ol {
+        margin: 0.5rem 0 1.5rem 1.5rem;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin: 0.75rem 0;
+        line-height: 1.6;
+      }
+      details {
+        margin-bottom: 1.2rem;
+        background: var(--gray-100);
+        border-radius: var(--radius-sm);
+        padding: 0.5rem 1rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-200);
+      }
+      details summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--green-dark);
+        font-size: 1rem;
+        outline: none;
+      }
+      details[open] summary {
+        color: var(--green);
+      }
+      @media (max-width: 820px) {
+        .board-wrapper {
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0.75rem 0.75rem 2rem;
+        }
+      }
+      @media (max-width: 640px) {
+        .board-wrapper {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+        h1.board-title {
+          font-size: 2rem;
+        }
+        .section-header-bar h2 {
+          font-size: 1rem;
+        }
+        h2.section-title {
+          font-size: 1rem;
+        }
+        h3,
+        p,
+        ul,
+        li {
+          font-size: 0.95rem;
+        }
+        .section-header-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+        .section-header-bar h2,
+        .section-header-bar > div {
+          white-space: normal;
+          text-align: left;
+        }
+      }
+      @media print {
+        header,
+        .section-header-bar,
+        .tagline {
+          display: none;
+        }
+        .board-wrapper {
+          box-shadow: none;
+          border-radius: 0;
+          padding: 0;
+        }
+      }
+      footer {
+        display: none;
+      }
+      .board-wrapper h2.section-title,
+      .board-wrapper h3 {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--green-dark) !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0.75rem !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .board-wrapper h3 {
+        color: var(--green) !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        margin-top: 0.25rem !important;
+      }
+      .board-wrapper h2.section-title {
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        margin-top: 2rem !important;
+      }
+      .board-wrapper p {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--gray-800) !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0.75rem !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+      }
+      .board-wrapper ul,
+      .board-wrapper ol {
+        font-size: 1rem !important;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--gray-800) !important;
+        margin: 0.5rem 0 1.5rem 1.5rem !important;
+        padding: 0 !important;
+      }
+      .board-wrapper li {
+        font-size: 1rem !important;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+        color: var(--gray-800) !important;
+        margin-bottom: 0.5rem !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand-row" style="justify-content: center">
+        <!-- Swap: Show Spring All-Star and Spring Select logos instead of AYSO 779 logo -->
+        <img
+          src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20all%20star%20logo%20medium.png"
+          alt="Spring All-Star Logo"
+          style="width: 190px; height: 230px; margin-right: 1.5rem"
+        />
+        <img
+          src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20select%20logo%20medium.png"
+          alt="Spring Select Logo"
+          style="width: 187px; height: 235px"
+        />
+        <div>
+          <h1 class="board-title">Spring All-Star &amp; Select Program</h1>
+          <div class="tagline">
+            AYSO Region 779 • Chino Hills, CA • EST. 1991
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="board-wrapper" aria-labelledby="springAllStarHeading">
+      <div class="section-header-bar">
+        <h2 id="springAllStarHeading">
+          Spring All-Star &amp; Select Travel Program
+        </h2>
+        <div>
+          Last updated: <time datetime="2025-09-28">September 2025</time>
+        </div>
+      </div>
+      <div class="table-container">
+        <!-- Program Overview -->
+        <section>
+          <h2 class="section-title">Program Overview</h2>
+          <p>
+            The AYSO Spring All-Star &amp; Select Travel Program is an exciting
+            opportunity for players in the 10U–19U divisions to take their game
+            to the next level! These teams play in competitive league games and
+            tournaments across Southern California, offering players the chance
+            to sharpen their skills while enjoying the fun, challenge, and
+            camaraderie of soccer.
+          </p>
+          <p>
+            The program is designed for players who have demonstrated strong
+            soccer ability, a positive attitude, good sportsmanship, and a
+            cooperative team spirit. Practices begin in December with the season
+            running through June/July. No formal tryouts are held—coaches select
+            players directly for Spring All-Star &amp; Select teams.
+          </p>
+          <p>
+            Participation requires a higher level of commitment from both
+            players and families. Players are expected to attend all practices
+            and games, support their teammates, and represent AYSO with pride.
+            Teams compete against neighboring AYSO regions and enter
+            tournaments, which may involve travel on Fridays, Saturdays, and
+            Sundays.
+          </p>
+          <p>
+            <strong>Family Involvement:</strong> Spring All-Star &amp; Select
+            teams are financially self-supporting. Families participate in
+            fundraising, and parent involvement is essential. The program builds
+            skills, responsibility, teamwork, and lasting friendships.
+          </p>
+          <p>
+            For more information, please email:
+            <a href="mailto:competitiveprograms@ayso779.org"
+              >competitiveprograms@ayso779.org</a
+            >
+          </p>
+        </section>
+
+        <!-- Coaches -->
+        <section>
+          <h2 class="section-title">Coaches</h2>
+          <p>
+            Coaches interested in leading a Spring All-Star or Select team must
+            complete a Spring Coach Application using the form below.<br />
+            (Applications are not open at this time. Please check back in soon.)
+          </p>
+          <h3>Prerequisites for Coaches:</h3>
+          <ul>
+            <li>Be a current, registered AYSO volunteer.</li>
+            <li>
+              Hold the appropriate division coaching certification.
+              <b>(Note: 10U coaches must be 12U certified.)</b>
+            </li>
+            <li>
+              Have current AYSO Safe Haven, CDC Concussion Awareness, Sudden
+              Cardiac Arrest, SafeSport certification, and Live Scan clearance.
+            </li>
+            <li>Have at least one year of coaching experience.</li>
+            <li>
+              Be in good standing with Region 779, with no prior disciplinary
+              issues.
+            </li>
+            <li>
+              Be able to provide and maintain a minimum of six referees for the
+              season.
+            </li>
+            <li>
+              Be willing to follow Spring All-Star &amp; Select guidelines and
+              uphold AYSO philosophies.
+            </li>
+          </ul>
+          <p>
+            Submitting an application does not guarantee an interview or
+            selection. All applications are reviewed by the Board Select
+            Committee, with final approval made by the Regional Commissioner.
+            The RC, Select Coordinator, and Executive Board reserve the right to
+            approve or deny coaches.
+          </p>
+          <p>
+            <strong>Important:</strong> Coaches may not approach or confirm
+            players for roster spots in any way until they have been officially
+            selected and approved. Doing so is not permitted under AYSO Spring
+            All-Star &amp; Select guidelines.
+          </p>
+        </section>
+
+        <!-- Player Eligibility -->
+        <section>
+          <h2 class="section-title">Player Eligibility</h2>
+          <ul>
+            <li>
+              10U–14U players: Play at least 70% of the regular fall season
+              games and a minimum of 75% of each game.
+            </li>
+            <li>
+              16U–19U players: Play at least 50% of the regular fall season
+              games and a minimum of 50% of each game.
+            </li>
+            <li>
+              AYSO EXTRA and Alliance players are not eligible to participate on
+              a Spring All-Star or Select team as rostered players or guest
+              players.
+            </li>
+          </ul>
+          <p>
+            The Spring program is intended for players who demonstrate strong
+            soccer skills and show a positive attitude, enthusiasm, fair play,
+            and a cooperative team spirit.
+          </p>
+        </section>
+
+        <!-- Commitment & Expectations -->
+        <section>
+          <h2 class="section-title">Commitment &amp; Expectations</h2>
+          <ul>
+            <li>Punctually attend all practices and games.</li>
+            <li>Show responsibility toward coaches and teammates.</li>
+            <li>
+              Prioritize Spring soccer equally alongside other sports or
+              activities.
+            </li>
+            <li>
+              Teams may participate in both Spring League (Area play) and
+              tournaments. Tournaments include Sunday play and may require
+              travel.
+            </li>
+            <li>Most teams play 5–7 tournaments between January and June.</li>
+            <li>
+              Each team is self-funded. Parents should expect a cost of
+              approximately $600 per player.
+            </li>
+            <li>
+              Families are expected to support team fundraising efforts, which
+              help offset costs for all players.
+            </li>
+            <li>
+              All families of players are also required to volunteer at the
+              Region 779-hosted tournament in March.
+            </li>
+          </ul>
+        </section>
+
+        <!-- FAQ (no dropdowns, just plain Q&A) -->
+        <section>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p>
+            <strong>Do Spring Teams have tryouts?</strong><br />
+            No. Spring players are selected directly by the coach based on their
+            talent and performance during the Fall Core season.
+          </p>
+          <p>
+            <strong
+              >Can players participate in both Spring and Club soccer?</strong
+            ><br />
+            No. Players selected for Spring All-Star or Select are expected not
+            to participate in a Club program during the Spring season. The time
+            commitment for both programs is too demanding, and players who join
+            a Club team after accepting a spot on a Spring team may lose their
+            Spring roster position.
+          </p>
+          <p>
+            <strong>How Many Tournaments do Spring Teams Participate In?</strong
+            ><br />
+            There is no limit, but most teams play between 5–7 tournaments in
+            Spring from January through June.
+          </p>
+          <p>
+            <strong>What is the commitment level for Spring soccer?</strong
+            ><br />
+            A high level of commitment is expected from the coaches, players,
+            and the parents. Other obligations must be disclosed prior to
+            accepting an offer to play Spring soccer. Some players are involved
+            in other sports and activities, Select/All-Star coaches require that
+            training sessions and games take equal precedence with other
+            activities. Parents will be required to volunteer at the Region 779
+            hosted tournament in March.
+          </p>
+        </section>
+      </div>
+      <!-- Add this image at the bottom, centered -->
+      <div style="text-align: center; margin-top: 2rem">
+        <img
+          src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/2025%20images/2025%20as%20teams.png"
+          alt="Spring Teams"
+          style="max-width: 100%; height: auto"
+        />
+      </div>
+    </main>
+  </body>
+</html>
