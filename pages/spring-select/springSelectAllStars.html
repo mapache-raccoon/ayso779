@@ -75,9 +75,31 @@
         max-width: 190px;
         height: auto;
         width: 40vw;
-        min-width: 120px;
+        min-width: 80px;
         object-fit: contain;
         filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+      }
+      @media (max-width: 640px) {
+        .brand-row {
+          flex-direction: column !important;
+          gap: 0.5rem !important;
+          padding: 0.5rem 0 !important;
+        }
+        .brand-row img {
+          max-width: 110px !important;
+          width: 60vw !important;
+          min-width: 60px !important;
+          margin-right: 0 !important;
+          margin-bottom: 0 !important;
+        }
+        .board-title {
+          font-size: 1.3rem !important;
+          text-align: center;
+        }
+        .tagline {
+          font-size: 0.9rem !important;
+          text-align: center;
+        }
       }
       h1.board-title {
         margin: 0;
@@ -288,26 +310,76 @@
         color: var(--gray-800) !important;
         margin-bottom: 0.5rem !important;
       }
+      .custom-brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+      }
+      .logo-stack {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .logo-stack img {
+        max-width: 120px;
+        width: 30vw;
+        min-width: 60px;
+        height: auto;
+        object-fit: contain;
+      }
+      .header-text-stack {
+        text-align: center;
+      }
+      @media (max-width: 640px) {
+        .custom-brand-row {
+          flex-direction: column !important;
+          gap: 0.5rem !important;
+          padding: 0.5rem 0 !important;
+        }
+        .logo-stack img {
+          max-width: 110px !important;
+          width: 60vw !important;
+          min-width: 60px !important;
+          margin-right: 0 !important;
+          margin-bottom: 0 !important;
+        }
+        .board-title {
+          font-size: 1.3rem !important;
+          text-align: center;
+        }
+        .tagline {
+          font-size: 0.9rem !important;
+          text-align: center;
+        }
+      }
+      .brand-row.custom-brand-row .logo-stack img {
+        max-width: 160px !important;
+        width: 30vw !important;
+        min-width: 60px !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
     </style>
   </head>
   <body>
     <header>
-      <div class="brand-row" style="justify-content: center">
-        <!-- Swap: Show Spring All-Star and Spring Select logos instead of AYSO 779 logo -->
-        <img
-          src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20all%20star%20logo%20medium.png"
-          alt="Spring All-Star Logo"
-          style="width: 190px; height: 230px; margin-right: 1.5rem"
-        />
-        <img
-          src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20select%20logo%20medium.png"
-          alt="Spring Select Logo"
-          style="width: 187px; height: 235px"
-        />
-        <div>
+      <div class="brand-row custom-brand-row">
+        <div class="logo-stack">
+          <img
+            src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20all%20star%20logo%20medium.png"
+            alt="Spring All-Star Logo"
+          />
+          <img
+            src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20select%20logo%20medium.png"
+            alt="Spring Select Logo"
+          />
+        </div>
+        <div class="header-text-stack">
           <h1 class="board-title">Spring All-Star &amp; Select Program</h1>
           <div class="tagline">
-            AYSO Region 779 • Chino Hills, CA • EST. 1991
+            AYSO Region 779 &bull; Chino Hills, CA &bull; EST. 1991
           </div>
         </div>
       </div>
