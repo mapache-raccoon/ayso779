@@ -1,5 +1,9 @@
 # Changelog
 
+2025-09-28
+
+- Updated the Spring Select and All Star page
+
 2025-09-21
 
 - Updated the Fall General Page
