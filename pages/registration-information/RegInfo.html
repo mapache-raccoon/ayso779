@@ -104,22 +104,37 @@
         overflow: visible !important;
       }
       .section-header-bar {
+        /* Spring All-Star header: strict layout to preserve look */
         background: var(--gradient-header) !important;
         color: #fff !important;
         padding: 1rem 1.25rem !important;
         border-radius: var(--radius-md) !important;
         margin: 0 0 1.25rem !important;
         display: flex !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
         align-items: center !important;
-        gap: 0.75rem 1.5rem !important;
+        justify-content: space-between !important;
+        gap: 0 !important;
+      }
+      .section-header-bar h2,
+      .section-header-bar > div {
+        margin: 0 !important;
+        padding: 0 !important;
+        white-space: nowrap !important;
       }
       .section-header-bar h2 {
-        flex: 1 !important;
-        margin: 0 !important;
         font-size: 1.25rem !important;
         letter-spacing: 0.5px !important;
         color: #fff !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+      }
+      .section-header-bar > div {
+        text-align: right !important;
+        font-size: 0.8rem !important;
+        opacity: 0.9 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
       }
       .table-container {
         width: 100% !important;
@@ -127,7 +142,43 @@
         scrollbar-width: thin !important;
       }
       section {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1rem !important;
+      }
+      /* Strong, specific spacing rules to prevent external overrides */
+      html body .board-wrapper > .table-container section,
+      html body .board-wrapper section {
+        margin-bottom: 1rem !important;
+      }
+      /* Enforce host-like padding & margin for ALL H2 in the board — my spacing wins */
+      body .board-wrapper h2,
+      body .board-wrapper h2.section-title,
+      body .board-wrapper .section-header-bar h2,
+      body .board-wrapper #regHeader h2 {
+        margin: 1.25rem 0 0.6rem !important; /* host-like spacing */
+        padding: 0.5rem 0 !important; /* host-like padding */
+        line-height: 1.2 !important;
+        font-weight: 700 !important;
+      }
+      /* Slightly tighter on small screens while still enforced */
+      @media (max-width: 640px) {
+        body .board-wrapper h2,
+        body .board-wrapper h2.section-title {
+          margin: 0.9rem 0 0.4rem !important;
+          padding: 0.35rem 0 !important;
+        }
+      }
+      /* tighten h3 and the following paragraph */
+      html body .board-wrapper h3 {
+        margin-top: 0.15rem !important;
+        margin-bottom: 0.08rem !important;
+      }
+      html body .board-wrapper h3 + p {
+        margin-top: 0.08rem !important;
+      }
+      /* ensure paragraphs immediately after headings don't introduce extra gap */
+      html body .board-wrapper h2 + p,
+      html body .board-wrapper h3 + p {
+        margin-top: 0.35rem !important;
       }
       .board-wrapper h2.section-title {
         font-size: 1.2rem !important;
@@ -144,12 +195,16 @@
         font-size: 1rem !important;
         color: var(--green) !important;
         margin-top: 0.25rem !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.15rem !important;
         font-weight: 600 !important;
         padding: 0 !important;
         background: none !important;
         border: none !important;
         box-shadow: none !important;
+      }
+      /* tighten space between an h3 and the following paragraph */
+      .board-wrapper h3 + p {
+        margin-top: 0.15rem !important;
       }
       .board-wrapper ul,
       .board-wrapper ol {
@@ -192,9 +247,64 @@
         text-align: left !important;
       }
       .board-wrapper th {
-        background: var(--green-light) !important;
+        background: var(--green) !important;
         color: #fff !important;
         font-weight: 600 !important;
+      }
+      /* Lock table appearance to match the Spring All-Star style and resist overrides */
+      .board-wrapper table {
+        background: var(--gray-100) !important;
+        border-collapse: collapse !important;
+        border-radius: var(--radius-sm) !important;
+        overflow: hidden !important;
+      }
+      .board-wrapper thead th,
+      .board-wrapper th {
+        background: var(--green) !important;
+        background-image: none !important; /* prevent gradients */
+        color: #fff !important;
+        font-weight: 600 !important;
+        border: 1px solid var(--gray-200) !important;
+      }
+      /* ensure body cells keep the subtle light background and clear borders */
+      .board-wrapper tbody td {
+        background: transparent !important;
+        border: 1px solid var(--gray-200) !important;
+      }
+      /* guard against injected box-shadows or background-image overrides */
+      .board-wrapper table,
+      .board-wrapper table * {
+        box-shadow: none !important;
+        background-image: none !important;
+      }
+      /* responsive preservation */
+      @media (max-width: 640px) {
+        .board-wrapper table,
+        .board-wrapper th,
+        .board-wrapper td {
+          font-size: 0.95rem !important;
+        }
+      }
+      /* Strong lock for the section header to resist Sports Connect overrides */
+      body .board-wrapper #regHeader {
+        background: var(--gradient-header) !important;
+        color: #fff !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: var(--radius-md) !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0 !important;
+      }
+      body .board-wrapper #regHeader h2,
+      body .board-wrapper #regHeader > div {
+        margin: 0 !important;
+        padding: 0 !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+        display: flex !important;
+        align-items: center !important;
       }
       @media (max-width: 820px) {
         .board-wrapper {
@@ -227,6 +337,17 @@
         .board-wrapper th,
         .board-wrapper td {
           font-size: 0.95rem !important;
+        }
+        /* stack header on small screens (Spring All-Star behavior) */
+        .section-header-bar {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 0.5rem !important;
+        }
+        .section-header-bar h2,
+        .section-header-bar > div {
+          white-space: normal !important;
+          text-align: left !important;
         }
       }
       @media print {
@@ -263,12 +384,23 @@
       </div>
     </header>
     <main class="board-wrapper" aria-labelledby="regInfoHeading">
-      <div class="section-header-bar">
+      <div
+        id="regHeader"
+        class="section-header-bar"
+        style="
+          background: var(--gradient-header) !important;
+          color: #fff !important;
+          padding: 1rem 1.25rem !important;
+          border-radius: var(--radius-md) !important;
+          display: flex !important;
+          flex-wrap: nowrap !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          gap: 0 !important;
+        "
+      >
         <h2 id="regInfoHeading">Welcome to Chino Hills AYSO Region 779!</h2>
-        <div style="font-size: 0.8rem; opacity: 0.9; color: #fff">
-          Last updated:
-          <time datetime="2025-09-20" style="color: #fff">October 2025</time>
-        </div>
+        <div>Last updated: <time datetime="2025-09-20">October 2025</time></div>
       </div>
       <div class="table-container">
         <section>
@@ -292,7 +424,15 @@
             </li>
           </ul>
           <ol>
-            <li>Create your account (parent info first, then player info).</li>
+            <li>
+              Create your account (parent info first, then player info).
+              <br />
+              <strong>
+                Please carefully check all the information you enter for errors
+                before submitting and moving on to the e-Signature portion of
+                the registration form; these errors are difficult to fix.
+              </strong>
+            </li>
             <li>
               Upload proof of birth (birth certificate required for all
               players).
@@ -304,7 +444,9 @@
                 </li>
               </ul>
             </li>
-            <li>Complete all screens—including payment—even if waitlisted.</li>
+            <li>
+              Complete all screens, including payment, even if waitlisted.
+            </li>
             <li>
               Watch for confirmation emails:
               <ul>
@@ -361,12 +503,42 @@
           </table>
           <ul>
             <li>
-              $25 National Player Membership (AYSO) <b>(Non-Refundable)</b>
+              <strong>National Player Membership (AYSO):</strong>
+              $25.00 (annual; added as a separate line item during registration)
+              <strong>(Non‑Refundable, Non‑Transferable)</strong>
             </li>
             <li>
-              $2.75 Transaction Fee (per checkout) <b>(Non-Refundable)</b>
+              <strong>Transaction Fee:</strong> $2.75 (per checkout)
+              <strong>(Non‑Refundable)</strong>
             </li>
           </ul>
+          <h3>National Player Membership</h3>
+          <p>
+            National AYSO requires every player to have an annual National
+            Player Membership once per membership year (August 1st – July 31st).
+            This membership must be renewed each year for players participating
+            in any AYSO program and is separate from Chino Hills Region 779’s
+            program fees. The national fee is collected at registration as a
+            separate line item.
+          </p>
+          <p>The National Player Membership includes:</p>
+          <ul>
+            <li>Player ID Card</li>
+            <li>All AYSO member benefits</li>
+            <li>Eligibility to be placed on a team</li>
+            <li>Insurance coverage while participating in AYSO activities</li>
+            <li>
+              Ability to register for eligible programs in other AYSO Regions,
+              Areas, or Sections during the same membership year without paying
+              the national fee again
+            </li>
+          </ul>
+          <p>
+            <em>
+              If your player withdraws from the program, the National Player
+              Membership fee cannot be refunded per AYSO National policy.
+            </em>
+          </p>
           <p><b>Refund Deadline:</b> August 15, 2025</p>
           <ul>
             <li>
@@ -405,18 +577,40 @@
           </ul>
         </section>
         <section>
-          <h2 class="section-title">🙋‍♂️ Want to Volunteer?</h2>
-          <p>AYSO runs 100% on volunteers—and we’d love to have you!</p>
-          <h3>Why Volunteer?</h3>
+          <h2 class="section-title">🙋‍♂️ Become a Volunteer!</h2>
+          <p>
+            AYSO runs 100% on volunteers, which means the program can't happen
+            without people like you. No experience? No problem! Just bring your
+            enthusiasm and we'll show you the rest.
+          </p>
+          <h3>Why should you volunteer?</h3>
           <ul>
-            <li>Make a positive impact on kids</li>
-            <li>Build community and friendships</li>
-            <li>Learn new skills (training provided)</li>
-            <li>Flexible roles for any schedule</li>
-            <li>Quality time with your child</li>
-            <li>It’s fun!</li>
+            <li>
+              <strong>Make a Positive Impact</strong> - Help kids grow through
+              teamwork, sportsmanship, and confidence.
+            </li>
+            <li>
+              <strong>Be Part of a Community</strong> - Build friendships and be
+              part of a neighborhood team.
+            </li>
+            <li>
+              <strong>Learn New Skills</strong> - Training and support are
+              provided for coaches, referees, event organizers, and more.
+            </li>
+            <li>
+              <strong>Flexible Commitment</strong> - Roles for every schedule,
+              from one-day event helpers to full-season coaches.
+            </li>
+            <li>
+              <strong>Quality Time with Your Kids</strong> - Be on the field,
+              share their growth, and create lasting memories.
+            </li>
+            <li>
+              <strong>It’s Fun!</strong> - Enjoy the game, the camaraderie, and
+              helping players succeed.
+            </li>
           </ul>
-          <h3>How to Sign Up:</h3>
+          <h3>How to Sign Up</h3>
           <ol>
             <li>Log in or create an account</li>
             <li>Complete the Volunteer Application</li>
@@ -436,6 +630,28 @@
             Some roles include short, hands-on field sessions. Once cleared,
             you’ll be matched with a team and added to the communication system.
           </p>
+          <h3>Board Meetings</h3>
+          <p>
+            Board meetings are open to the public and are held on the third
+            Wednesday of each month at Grand Avenue Park. Next meeting:
+            <strong>October 15, 2025</strong>.
+          </p>
+          <div
+            style="
+              background: #fffbe6;
+              border-left: 4px solid var(--green);
+              padding: 0.6rem;
+              margin-top: 0.6rem;
+              border-radius: 6px;
+            "
+            aria-live="polite"
+          >
+            <strong>We are recruiting new board members.</strong>
+            &nbsp;If you’re interested in helping shape our programs and
+            operations, please attend a meeting or contact our Registrar at
+            <a href="mailto:registrar@ayso779.org">registrar@ayso779.org</a> to
+            learn more.
+          </div>
         </section>
         <section>
           <h2 class="section-title">📅 Age Divisions</h2>
@@ -444,54 +660,44 @@
               <tr>
                 <th>Division</th>
                 <th>Birthdate Range</th>
-                <th>Age as of Dec 31</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Playground</td>
-                <td>3 years old</td>
-                <td>On or before Dec 31</td>
+                <td>3 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>5U</td>
-                <td>4 years old</td>
-                <td>On or before Dec 31</td>
+                <td>4 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>6U</td>
-                <td>5 years old</td>
-                <td>On or before Dec 31</td>
+                <td>5 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>8U</td>
-                <td>6–7 years old</td>
-                <td>On or before Dec 31</td>
+                <td>6 to 7 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>10U</td>
-                <td>8–9 years old</td>
-                <td>On or before Dec 31</td>
+                <td>8 to 9 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>12U</td>
-                <td>10–11 years old</td>
-                <td>On or before Dec 31</td>
+                <td>10 to 11 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>14U</td>
-                <td>12–13 years old</td>
-                <td>On or before Dec 31</td>
+                <td>12 to 13 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>16U</td>
-                <td>14–15 years old</td>
-                <td>On or before Dec 31</td>
+                <td>14 to 15 years old (On or before Dec 31)</td>
               </tr>
               <tr>
                 <td>19U</td>
-                <td>16–18 years old</td>
-                <td>On or before Dec 31</td>
+                <td>16 to 18 years old (On or before Dec 31)</td>
               </tr>
             </tbody>
           </table>
