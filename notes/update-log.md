@@ -1,5 +1,9 @@
 # Changelog
 
+2025-11-17
+
+- Added Playoff Bracket to Fall 2025
+
 2025-09-28
 
 - Updated the Spring Select and All Star page
