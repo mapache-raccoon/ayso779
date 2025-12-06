@@ -1,5 +1,9 @@
 # Changelog
 
+2025-12-05
+
+- Adjusted Board Members Page
+
 2025-11-17
 
 - Added Playoff Bracket to Fall 2025
