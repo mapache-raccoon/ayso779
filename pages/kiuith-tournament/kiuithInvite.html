@@ -7,70 +7,46 @@
       Kickin’ It Up In The Hills — AYSO Region 779 Invitational (2026)
     </title>
     <style>
-      :root {
+      /* Scoped styles to avoid interfering with hosting platform styles.
+         Apply to the #kiuith-invite container only. */
+      #kiuith-invite {
         --max-width: 880px;
         --accent: #0b5;
-      }
-      body {
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-        line-height: 1.45;
+        /* Increase base font-size for readability inside host pages */
+        font-size: 16px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
         color: #222;
         padding: 24px;
         background: #fff;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
-      main {
-        max-width: var(--max-width);
-        margin: 0 auto;
-      }
-        /* Header layout: left logo, centered title block, right logo */
-        header{ display:flex; align-items:center; gap:12px; }
-        .logo{ width:114px; max-height:114px; object-fit:contain; }
-        .header-center{ flex:1; text-align:center; }
-        .header-center .line-1{ font-size:0.95rem; color:#333 }
-        .header-center .line-2{ font-size:1.15rem; font-weight:700; margin:.15rem 0 }
-        .header-center .line-3{ font-size:0.95rem; letter-spacing:0.03em }
-      header h1 {
-        font-size: 1.6rem;
-        margin: 0 0 0.25rem;
-      }
-      header p {
-        margin: 0.25rem 0 1rem;
-        color: #333;
-      }
-      h2 {
-        font-size: 1.05rem;
-        margin: 0.25rem 0 0.1rem; /* tighter spacing above/below headings */
-        color: #083;
-      }
-      p { margin: 0 0 0.15rem; }
-      ul {
-        margin: 0.06rem 0 0.6rem 1.25rem;
-      }
-      /* restore vertical gap between sections for readability */
-      section { margin-bottom: 1rem; }
-      address {
-        font-style: normal;
-        line-height: 1.4;
-      }
-      footer {
-        margin-top: 1.5rem;
-        color: #444;
-        border-top: 1px solid #eee;
-        padding-top: 1rem;
-      }
-      a {
-        color: var(--accent);
-      }
-      pre,
-      code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
-          monospace;
-      }
+      /* Center the invite content and constrain width inside the host page */
+      #kiuith-invite { max-width: var(--max-width); margin: 0 auto; }
+      /* Header layout: left logo, centered title block, right logo */
+      #kiuith-invite header { display: flex; align-items: center; gap: 12px; }
+      #kiuith-invite .logo { width: 114px; max-height: 114px; object-fit: contain; }
+      #kiuith-invite .header-center { flex: 1; text-align: center; }
+      /* Slightly larger, cleaner title sizing */
+      #kiuith-invite .header-center .line-1 { font-size: 1rem; color: #333; }
+      #kiuith-invite .header-center .line-2 { font-size: 1.35rem; font-weight: 700; margin: .15rem 0; }
+      #kiuith-invite .header-center .line-3 { font-size: 1rem; letter-spacing: 0.03em; }
+      #kiuith-invite header h1 { font-size: 1.9rem; margin: 0 0 0.25rem; }
+      #kiuith-invite header p { margin: 0.25rem 0 1rem; color: #333; }
+      #kiuith-invite h2 { font-size: 1.2rem; margin: 0.35rem 0 0.15rem; color: #083; }
+      #kiuith-invite p { margin: 0 0 0.25rem; font-size: 1rem; }
+      #kiuith-invite ul { margin: 0.25rem 0 0.8rem 1.4rem; font-size: 1rem; }
+      #kiuith-invite section { margin-bottom: 1.2rem; }
+      #kiuith-invite address { font-style: normal; line-height: 1.5; font-size: 1rem; }
+      #kiuith-invite footer { margin-top: 1.5rem; color: #444; border-top: 1px solid #eee; padding-top: 1rem; }
+      #kiuith-invite a { color: var(--accent); }
+      #kiuith-invite pre, #kiuith-invite code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; }
     </style>
   </head>
   <body>
-    <main>
+    <main id="kiuith-invite">
       <header>
           <img class="logo" src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/kiuith2026/ayso_trad.png" alt="AYSO logo">
           <div class="header-center" role="banner">
