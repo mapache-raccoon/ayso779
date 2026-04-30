@@ -1,0 +1,582 @@
+<!-- ===== GLOBAL STYLE: COPY THIS INTO EVERY CONTENT WINDOW ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --black-primary: #040707;
+    --white-primary: #ffffff;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --gold-soft: #f5ecd2;
+    --gray-100: #f4f6f7;
+    --gray-200: #dde4e8;
+    --gray-600: #4b5b63;
+    --gray-800: #243036;
+    --radius: 10px;
+
+    font-size: 15px !important;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-800) !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    padding-left: 0.25rem !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2 {
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: var(--green-mid) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 p {
+    margin: 0 0 0.85rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    color: var(--gray-800) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 ul,
+  .r779 ol {
+    margin: 0.25rem 0 1rem 1.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.55 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    color: var(--gray-800) !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779 strong {
+    color: var(--black-primary) !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  .r779 a.r779-button,
+  .r779 a.r779-button:visited {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.56rem 0.95rem !important;
+    border-radius: 8px !important;
+    border: 1px solid #0e4429 !important;
+    background: #0e4429 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .r779 a.r779-button:hover,
+  .r779 a.r779-button:focus,
+  .r779 a.r779-button:active {
+    background: #128039 !important;
+    border-color: #128039 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.85rem 1rem !important;
+    margin: 0.9rem 0 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779-callout-alt {
+    background: #fffaf0 !important;
+    border-left: 4px solid #c69214 !important;
+  }
+
+  .r779-highlight-note {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.28rem 0.55rem !important;
+    background: #fff1c8 !important;
+    border: 1px solid #e2c46b !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    color: #5c4600 !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-points-grid {
+    margin: 0.45rem 0 1rem !important;
+    display: grid !important;
+    gap: 0.55rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)) !important;
+  }
+
+  .r779-points-item {
+    border: 1px solid var(--gray-200) !important;
+    border-radius: 10px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f5faf7 100%) !important;
+    padding: 0.55rem 0.7rem !important;
+    text-align: center !important;
+  }
+
+  .r779-points-item strong {
+    display: block !important;
+    margin-bottom: 0.12rem !important;
+    color: var(--green-primary) !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+  }
+
+  .r779-points-value {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    color: var(--black-primary) !important;
+  }
+
+  .r779-points-value.pos {
+    color: #1f7a3d !important;
+  }
+
+  .r779-points-value.neutral {
+    color: #4b5b63 !important;
+  }
+
+  .r779-points-value.neg {
+    color: #b42318 !important;
+  }
+
+  .r779-hero {
+    background: linear-gradient(
+      135deg,
+      var(--green-primary) 0%,
+      var(--green-mid) 100%
+    ) !important;
+    border-radius: var(--radius) !important;
+    padding: 1.5rem 1.8rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-hero h2 {
+    color: var(--white-primary) !important;
+    margin: 0 0 0.35rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+  }
+
+  .r779-badge {
+    display: inline-block !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 0.2rem 0.85rem !important;
+    margin-top: 0.65rem !important;
+    margin-bottom: 0.65rem !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-grid {
+    display: grid !important;
+    gap: 0.6rem !important;
+  }
+
+  .r779-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+
+  .r779-item {
+    background: var(--green-light) !important;
+    border-left: 3px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.75rem 0.85rem !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-welcome {
+    text-align: center !important;
+  }
+
+  .r779-welcome .r779-grid,
+  .r779-welcome .r779-item {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .r779-philosophy-block {
+    max-width: 860px !important;
+    margin: 0.75rem auto 1.15rem !important;
+    padding: 1rem !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    text-align: left !important;
+  }
+
+  .r779-philosophy-block h3 {
+    margin: 0 0 0.75rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.2rem !important;
+  }
+
+  .r779-philosophy-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+
+  .r779-philosophy-list li {
+    margin: 0 !important;
+    padding: 0.75rem 0.9rem !important;
+    list-style: none !important;
+    border: 1px solid #d3e3da !important;
+    border-radius: 9px !important;
+    background: #f1f8f4 !important;
+    color: var(--green-primary) !important;
+    font-size: 1.12rem !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-core-callout {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .r779-philosophy-list li::marker {
+    content: "" !important;
+  }
+
+  .r779-season-panel {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+  }
+
+  .r779-season-panel h3 {
+    margin-top: 0 !important;
+  }
+
+  .r779-season-kicker {
+    display: inline-block !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0.24rem 0.7rem !important;
+    border-radius: 999px !important;
+    background: var(--gold-soft) !important;
+    color: var(--green-primary) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.4px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-note {
+    font-size: 15px !important;
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .r779-location-list {
+    columns: 2 !important;
+    column-gap: 1.6rem !important;
+    margin: 0.35rem 0 1rem 1.2rem !important;
+  }
+
+  .r779-location-list li {
+    break-inside: avoid !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1.1rem !important;
+    }
+
+    .r779-hero h2 {
+      font-size: 1.25rem !important;
+    }
+
+    .r779-grid-2,
+    .r779-philosophy-list {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-philosophy-block,
+    .r779-season-panel {
+      padding: 0.8rem !important;
+    }
+
+    .r779-location-list {
+      columns: 1 !important;
+    }
+  }
+
+  .r779 details {
+    margin-bottom: 0.6rem !important;
+    background: var(--gray-100) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--gray-200) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .r779 details summary {
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    color: var(--green-primary) !important;
+    padding: 0.65rem 1rem !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+  }
+
+  .r779 details summary::before {
+    content: "▶" !important;
+    font-size: 0.65rem !important;
+    color: var(--green-mid) !important;
+    transition: transform 0.2s !important;
+    flex-shrink: 0 !important;
+  }
+
+  .r779 details[open] summary::before {
+    content: "▼" !important;
+  }
+
+  .r779 details[open] summary {
+    color: var(--green-mid) !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+  }
+
+  .r779 details > ul {
+    margin: 0.5rem 0 0.75rem 1.75rem !important;
+    padding: 0 0.5rem 0 0 !important;
+  }
+
+  .r779-feature-title {
+    margin-top: 1.45rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .r779-feature-details > p,
+  .r779-feature-details > ul,
+  .r779-feature-details > ol,
+  .r779-feature-details > div {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  .r779-feature-details > ol {
+    padding-left: 1.5rem !important;
+  }
+</style>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: EPIC ABOUT - COPY THIS BLOCK INTO THE EPIC ABOUT CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779 r779-welcome">
+  <div class="r779-hero">
+    <h2>AYSO EPIC</h2>
+    <p>Everyone Plays In our Community</p>
+  </div>
+
+  <p>
+    AYSO EPIC (<strong>E</strong>veryone <strong>P</strong>lays
+    <strong>I</strong>n our <strong>C</strong>ommunity) is AYSO's inclusive
+    soccer program for children and adults with physical, developmental, or
+    intellectual disabilities. EPIC ensures that every athlete can participate
+    fully in the AYSO experience - from wearing a uniform and playing on a team
+    to scoring goals and celebrating with family and friends.
+  </p>
+
+  <p>
+    The program provides the additional support players may need while keeping
+    the focus on fun, belonging, and personal growth. EPIC is built on AYSO's
+    Six Philosophies and is designed to create a safe, welcoming environment
+    where players of all abilities can learn the game, build confidence, and be
+    part of a community that celebrates their strengths.
+  </p>
+
+  <p>
+    EPIC also includes the support of EPIC Buddies, trained volunteers who
+    assist players on the field, encourage participation, and help create a
+    positive, social, and empowering experience for every athlete.
+  </p>
+
+  <div class="r779-callout r779-core-callout">
+    Formerly known as VIP, the program has been renamed EPIC, highlighting
+    AYSO's belief that everyone deserves a place to play. The name is new, but
+    the purpose remains the same: creating a supportive, fun soccer environment
+    for athletes of all abilities.
+  </div>
+</div>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: EPIC REGION 779 - COPY THIS BLOCK INTO THE REGION APPROACH CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Region 779's EPIC Program</h2>
+  </div>
+
+  <p>
+    AYSO 779's EPIC Program provides a quality soccer experience for children
+    and adults whose physical, developmental, or intellectual disabilities make
+    it difficult to participate on mainstream teams. EPIC focuses on fun,
+    safety, and skill development while honoring each player's individual needs
+    and abilities.
+  </p>
+
+  <p>
+    EPIC is open to players ages 4 and up, with no upper age limit, ensuring
+    that children, teens, and adults all have a place to play.
+  </p>
+
+  <p>
+    Our program is built on AYSO's Six Philosophies and emphasizes a supportive,
+    encouraging environment where every player can learn, grow, and enjoy the
+    game.
+  </p>
+
+  <h3>Key Dates</h3>
+  <div class="r779-grid r779-grid-2">
+    <div class="r779-season-panel">
+      <span class="r779-season-kicker">Registration</span>
+      <ul>
+        <li><strong>Opens:</strong> May 1, 2026.</li>
+        <li><strong>Closes:</strong> July 10, 2026.</li>
+      </ul>
+      <a
+        class="r779-button"
+        href="https://www.ayso779.org/Default.aspx?tabid=976118"
+        target="_blank"
+        rel="noopener"
+        >Register Today</a
+      >
+    </div>
+
+    <div class="r779-season-panel">
+      <span class="r779-season-kicker">Season</span>
+      <ul>
+        <li><strong>Picture Day:</strong> TBD.</li>
+        <li><strong>First Game:</strong> September 12, 2026.</li>
+        <li><strong>Last Game:</strong> November 14, 2026.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Season Schedule</h3>
+  <p>
+    All EPIC games are held on Saturday mornings at Chino Hills Community Park.
+    The season includes 10 games, plus optional participation in local EPIC
+    tournaments with other Southern California Regions.
+  </p>
+
+  <h3>Season Overview</h3>
+  <p>Your EPIC registration includes:</p>
+  <ul>
+    <li>10 scheduled games.</li>
+    <li>Full uniform (jersey, shorts, socks).</li>
+    <li>Pictures.</li>
+    <li>End-of-season trophy.</li>
+  </ul>
+
+  <h3>Game &amp; Match Guidelines</h3>
+  <p>
+    EPIC games are designed to be fun, inclusive, and flexible, ensuring every
+    player can participate fully and confidently.
+  </p>
+  <ul>
+    <li>Games are played in a supportive, low-pressure environment.</li>
+    <li>EPIC Buddies assist players on the field as needed.</li>
+    <li>Coaches focus on positive encouragement and individual success.</li>
+    <li>Game formats may be adjusted to meet player needs.</li>
+    <li>
+      The emphasis is always on participation, teamwork, and joy - not scores or
+      standings.
+    </li>
+  </ul>
+  <p>
+    EPIC teams may also participate in one or two local EPIC tournaments, giving
+    players additional opportunities to play and connect with other Regions.
+  </p>
+
+  <h3>Volunteers</h3>
+  <p>
+    EPIC is powered by volunteers who help create a safe, joyful, and inclusive
+    experience. We welcome:
+  </p>
+  <ul>
+    <li>Coaches.</li>
+    <li>EPIC Buddies.</li>
+  </ul>
+  <p>
+    No soccer experience is required - just a willingness to support our players
+    and share in the fun.
+  </p>
+
+  <h3>Questions?</h3>
+  <p>Do you have any questions or require help? Reach out to us!</p>
+  <div class="r779-callout r779-callout-alt">
+    <p><strong>John Guillen</strong>, EPIC Program Coordinator</p>
+    <a class="r779-button" href="mailto:epic@779.org">Email Coordinator</a>
+  </div>
+</div>
