@@ -330,6 +330,27 @@
     text-transform: uppercase !important;
   }
 
+  .r779-price-row {
+    list-style: none !important;
+    margin: 0.35rem 0 !important;
+    padding: 0.55rem 0.7rem !important;
+    border: 1px solid #d8e7dc !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 8px !important;
+    background: #f3faf6 !important;
+  }
+
+  .r779-price-amount {
+    display: inline-block !important;
+    margin-left: 0.35rem !important;
+    padding: 0.1rem 0.45rem !important;
+    border-radius: 6px !important;
+    background: #e2f2e8 !important;
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.2px !important;
+  }
+
   .r779-note {
     font-size: 15px !important;
     color: var(--gray-600) !important;
@@ -513,9 +534,22 @@
       <div class="r779-season-panel">
         <span class="r779-season-kicker">Registration</span>
         <ul>
-          <li><strong>Opens:</strong> May 1, 2026.</li>
-          <li><strong>Closes:</strong> July 10, 2026.</li>
+          <li><strong>Early Bird:</strong> May 1 - May 26, 2026.</li>
+          <li class="r779-price-row">
+            <strong>Early Bird Price:</strong>
+            <span class="r779-price-amount">$235.00</span>
+          </li>
+          <li><strong>Regular Registration:</strong> May 27 - July 10, 2026.</li>
+          <li class="r779-price-row">
+            <strong>Regular Price:</strong>
+            <span class="r779-price-amount">$260.00</span>
+          </li>
         </ul>
+        <p class="r779-note">
+          A nonrefundable National Player Fee of $25.00 per player and a service fee apply
+          at checkout. We recommend registering all players in one transaction
+          to avoid paying multiple service fees.
+        </p>
         <a
           class="r779-button"
           href="https://www.ayso779.org/Default.aspx?tabid=976118"
@@ -532,7 +566,7 @@
           <li><strong>Picture Day:</strong> TBD.</li>
           <li><strong>First Game:</strong> September 12, 2026.</li>
           <li><strong>Last Game:</strong> November 14, 2026.</li>
-          <li><strong>Post-Season:</strong> Week of November 15–21, 2026.</li>
+          <li><strong>Post-Season (10U-14U):</strong> Week of November 15–21, 2026.</li>
         </ul>
       </div>
     </div>
@@ -569,7 +603,7 @@
         <li>Goal kicks and corner kicks are performed.</li>
         <li>Throw-ins are performed.</li>
         <li>No offside infractions.</li>
-        <li>Each team provides referee.</li>
+        <li>Home team provides referee.</li>
         <li>Coaches are not allowed on field.</li>
         <li><strong>Scores and standings are not kept.</strong></li>
       </ul>

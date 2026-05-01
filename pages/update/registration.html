@@ -287,10 +287,11 @@
     text-align: left !important;
   }
 
-  .r779-philosophy-block h3 {
+  .r779-welcome .r779-philosophy-block h3 {
     margin: 0 0 0.75rem !important;
     text-align: center !important;
     color: var(--green-primary) !important;
+    font-size: 1.65rem !important;
   }
 
   .r779-philosophy-list {
@@ -302,7 +303,7 @@
     gap: 0.65rem !important;
   }
 
-  .r779-philosophy-list li {
+  .r779-welcome .r779-philosophy-list li {
     position: relative !important;
     margin: 0 !important;
     padding: 0.75rem 0.9rem !important;
@@ -311,7 +312,7 @@
     border-radius: 9px !important;
     background: #f1f8f4 !important;
     color: var(--green-primary) !important;
-    font-size: 1rem !important;
+    font-size: 1.6rem !important;
     font-weight: 600 !important;
     line-height: 1.3 !important;
   }
@@ -343,6 +344,52 @@
     text-decoration: none !important;
   }
 
+  .r779-programs {
+    max-width: 760px !important;
+    margin: 1.1rem auto 0 !important;
+    padding: 1rem !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+  }
+
+  .r779-welcome .r779-programs h3 {
+    margin: 0 0 0.5rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.65rem !important;
+  }
+
+  .r779-program-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.55rem !important;
+    justify-content: center !important;
+  }
+
+  .r779-welcome .r779-program-buttons .r779-btn {
+    margin-top: 0 !important;
+    min-width: 130px !important;
+    text-align: center !important;
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  .r779-welcome .r779-callout {
+    font-size: 1.26rem !important;
+  }
+
+  .r779-alert .r779-callout {
+    font-size: calc(0.96rem + 0.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-alert .r779-note {
+    font-size: calc(0.86rem + 0.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
   @media (max-width: 600px) {
     .r779-hero {
       padding: 1.1rem !important;
@@ -367,6 +414,10 @@
 
     .r779-video-wrap {
       max-width: 100% !important;
+    }
+
+    .r779-program-buttons .r779-btn {
+      width: 100% !important;
     }
   }
 </style>
@@ -429,6 +480,56 @@
       allowfullscreen
     ></iframe>
   </div>
+
+  <div class="r779-programs">
+    <h3>Our Programs</h3>
+    <div class="r779-program-buttons">
+      <a
+        class="r779-btn"
+        href="https://www.ayso779.org/Default.aspx?tabid=976115"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Kickstart</a
+      >
+      <a
+        class="r779-btn"
+        href="https://www.ayso779.org/Default.aspx?tabid=976111"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Core</a
+      >
+      <a
+        class="r779-btn"
+        href="https://www.ayso779.org/Default.aspx?tabid=976114"
+        target="_blank"
+        rel="noopener noreferrer"
+        >EPIC</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- SECTION: ALERT - COPY ONLY THIS BLOCK INTO THE ALERT CONTENT WINDOW -->
+<!-- ===================================================================== -->
+<div class="r779 r779-alert">
+  <div class="r779-callout">
+    <strong>Early Bird:</strong> May 1 - May 26 ($235).<br />
+    <strong>Price Increase:</strong> Price goes to $260 May 27 - July 10.
+  </div>
+
+  <p class="r779-note">
+    A nonrefundable
+    <a
+      href="https://wiki.ayso.org/wiki/National_Player_Fee"
+      target="_blank"
+      rel="noopener noreferrer"
+      >National Player Fee</a
+    >
+    of $25.00 per player and a service fee apply at checkout. We recommend
+    registering all players in one transaction to avoid paying multiple service
+    fees.
+  </p>
 </div>
 
 <!-- ======================================================================== -->
