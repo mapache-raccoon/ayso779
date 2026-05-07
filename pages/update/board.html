@@ -1,0 +1,867 @@
+<!-- ===== GLOBAL STYLE: COPY THIS INTO EVERY CONTENT WINDOW ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --black-primary: #040707;
+    --white-primary: #ffffff;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --gold-soft: #f5ecd2;
+    --gray-100: #f4f6f7;
+    --gray-200: #dde4e8;
+    --gray-600: #4b5b63;
+    --gray-800: #243036;
+    --radius: 10px;
+
+    font-size: 15px !important;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-800) !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2 {
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: var(--green-mid) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 p {
+    margin: 0 0 0.85rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    color: var(--gray-800) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 ul,
+  .r779 ol {
+    margin: 0.25rem 0 1rem 1.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.55 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    color: var(--gray-800) !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779 strong {
+    color: var(--black-primary) !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  .r779 a.r779-button,
+  .r779 a.r779-button:visited {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.56rem 0.95rem !important;
+    border-radius: 8px !important;
+    border: 1px solid #0e4429 !important;
+    background: #0e4429 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .r779 a.r779-button:hover,
+  .r779 a.r779-button:focus,
+  .r779 a.r779-button:active {
+    background: #128039 !important;
+    border-color: #128039 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.85rem 1rem !important;
+    margin: 0.9rem 0 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779-callout-alt {
+    background: #fffaf0 !important;
+    border-left: 4px solid #c69214 !important;
+  }
+
+  .r779-highlight-note {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.28rem 0.55rem !important;
+    background: #fff1c8 !important;
+    border: 1px solid #e2c46b !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    color: #5c4600 !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-points-grid {
+    margin: 0.45rem 0 1rem !important;
+    display: grid !important;
+    gap: 0.55rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)) !important;
+  }
+
+  .r779-points-item {
+    border: 1px solid var(--gray-200) !important;
+    border-radius: 10px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f5faf7 100%) !important;
+    padding: 0.55rem 0.7rem !important;
+    text-align: center !important;
+  }
+
+  .r779-points-item strong {
+    display: block !important;
+    margin-bottom: 0.12rem !important;
+    color: var(--green-primary) !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+  }
+
+  .r779-points-value {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    color: var(--black-primary) !important;
+  }
+
+  .r779-points-value.pos {
+    color: #1f7a3d !important;
+  }
+
+  .r779-points-value.neutral {
+    color: #4b5b63 !important;
+  }
+
+  .r779-points-value.neg {
+    color: #b42318 !important;
+  }
+
+  .r779-hero {
+    background: linear-gradient(
+      135deg,
+      var(--green-primary) 0%,
+      var(--green-mid) 100%
+    ) !important;
+    border-radius: var(--radius) !important;
+    padding: 1.5rem 1.8rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-hero h2 {
+    color: var(--white-primary) !important;
+    margin: 0 0 0.35rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+  }
+
+  .r779-badge {
+    display: inline-block !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 0.2rem 0.85rem !important;
+    margin-top: 0.65rem !important;
+    margin-bottom: 0.65rem !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-grid {
+    display: grid !important;
+    gap: 0.6rem !important;
+  }
+
+  .r779-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+
+  .r779-item {
+    background: var(--green-light) !important;
+    border-left: 3px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.75rem 0.85rem !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-welcome {
+    text-align: center !important;
+  }
+
+  .r779-welcome .r779-grid,
+  .r779-welcome .r779-item {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .r779-philosophy-block {
+    max-width: 860px !important;
+    margin: 0.75rem auto 1.15rem !important;
+    padding: 1rem !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    text-align: left !important;
+  }
+
+  .r779-philosophy-block h3 {
+    margin: 0 0 0.75rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.2rem !important;
+  }
+
+  .r779-philosophy-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+
+  .r779-philosophy-list li {
+    margin: 0 !important;
+    padding: 0.75rem 0.9rem !important;
+    list-style: none !important;
+    border: 1px solid #d3e3da !important;
+    border-radius: 9px !important;
+    background: #f1f8f4 !important;
+    color: var(--green-primary) !important;
+    font-size: 1.12rem !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-core-callout {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .r779-philosophy-list li::marker {
+    content: "" !important;
+  }
+
+  .r779-season-panel {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+  }
+
+  .r779-season-panel h3 {
+    margin-top: 0 !important;
+  }
+
+  .r779-season-kicker {
+    display: inline-block !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0.24rem 0.7rem !important;
+    border-radius: 999px !important;
+    background: var(--gold-soft) !important;
+    color: var(--green-primary) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.4px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-price-row {
+    list-style: none !important;
+    margin: 0.35rem 0 !important;
+    padding: 0.55rem 0.7rem !important;
+    border: 1px solid #d8e7dc !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 8px !important;
+    background: #f3faf6 !important;
+  }
+
+  .r779-price-amount {
+    display: inline-block !important;
+    margin-left: 0.35rem !important;
+    padding: 0.1rem 0.45rem !important;
+    border-radius: 6px !important;
+    background: #e2f2e8 !important;
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  .r779-note {
+    font-size: 15px !important;
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .r779-location-list {
+    columns: 2 !important;
+    column-gap: 1.6rem !important;
+    margin: 0.35rem 0 1rem 1.2rem !important;
+  }
+
+  .r779-location-list li {
+    break-inside: avoid !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1.1rem !important;
+    }
+
+    .r779-hero h2 {
+      font-size: 1.25rem !important;
+    }
+
+    .r779-grid-2,
+    .r779-philosophy-list {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-philosophy-block,
+    .r779-season-panel {
+      padding: 0.8rem !important;
+    }
+
+    .r779-location-list {
+      columns: 1 !important;
+    }
+  }
+
+  .r779 details {
+    margin-bottom: 0.6rem !important;
+    background: var(--gray-100) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--gray-200) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .r779 details summary {
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    color: var(--green-primary) !important;
+    padding: 0.65rem 1rem !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+  }
+
+  .r779 details summary::before {
+    content: "▶" !important;
+    font-size: 0.65rem !important;
+    color: var(--green-mid) !important;
+    transition: transform 0.2s !important;
+    flex-shrink: 0 !important;
+  }
+
+  .r779 details[open] summary::before {
+    content: "▼" !important;
+  }
+
+  .r779 details[open] summary {
+    color: var(--green-mid) !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+  }
+
+  .r779 details > ul {
+    margin: 0.5rem 0 0.75rem 1.75rem !important;
+    padding: 0 0.5rem 0 0 !important;
+  }
+
+  .r779-feature-title {
+    margin-top: 1.45rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .r779-feature-details > p,
+  .r779-feature-details > ul,
+  .r779-feature-details > ol,
+  .r779-feature-details > div {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  .r779-feature-details > ol {
+    padding-left: 1.5rem !important;
+  }
+
+  /* ── Board-specific table styles ── */
+  .r779-board-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .r779-board-table caption {
+    caption-side: bottom !important;
+    font-size: 13px !important;
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+    padding: 0.5rem 0 0 !important;
+    text-align: left !important;
+  }
+
+  .r779-board-table thead tr {
+    background: var(--green-primary) !important;
+    color: #fff !important;
+  }
+
+  .r779-board-table thead th {
+    padding: 0.65rem 0.85rem !important;
+    text-align: left !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.4px !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  .r779-board-table tbody tr {
+    border-bottom: 1px solid var(--gray-200) !important;
+    transition: background 0.15s !important;
+  }
+
+  .r779-board-table tbody tr:last-child {
+    border-bottom: none !important;
+  }
+
+  .r779-board-table tbody tr:hover {
+    background: var(--green-light) !important;
+  }
+
+  .r779-board-table tbody td {
+    padding: 0.6rem 0.85rem !important;
+    color: var(--gray-800) !important;
+    font-size: 15px !important;
+    border: none !important;
+    background: none !important;
+    vertical-align: middle !important;
+  }
+
+  .r779-board-table tbody tr.open-row td {
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+  }
+
+  .r779-board-table tbody tr.open-row {
+    background: #fffdf5 !important;
+  }
+
+  .r779-board-table tbody tr.open-row:hover {
+    background: #fff8e1 !important;
+  }
+
+  .r779-board-table .open {
+    color: #8a6a00 !important;
+    font-style: italic !important;
+  }
+
+  .r779-board-table a.email-link {
+    display: inline-block !important;
+    padding: 0.22rem 0.65rem !important;
+    border-radius: 6px !important;
+    background: var(--green-light) !important;
+    border: 1px solid #b4d5c0 !important;
+    color: var(--green-primary) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+  }
+
+  .r779-board-table a.email-link:hover {
+    background: var(--green-primary) !important;
+    color: #fff !important;
+    border-color: var(--green-primary) !important;
+  }
+
+  .r779-position-subnote {
+    margin-top: 0.12rem !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    color: var(--gray-600) !important;
+    font-weight: 600 !important;
+  }
+
+  .r779-board-legend {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-size: 13px !important;
+    color: var(--gray-600) !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .r779-open-dot {
+    display: inline-block !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #f5c842 !important;
+    border: 1.5px solid #c69214 !important;
+    flex-shrink: 0 !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-board-table thead {
+      display: none !important;
+    }
+
+    .r779-board-table tbody tr {
+      display: block !important;
+      margin-bottom: 0.75rem !important;
+      border: 1px solid var(--gray-200) !important;
+      border-radius: 8px !important;
+      padding: 0.5rem 0.75rem !important;
+    }
+
+    .r779-board-table tbody td {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 0.35rem 0 !important;
+      font-size: 14px !important;
+      border-bottom: 1px solid var(--gray-100) !important;
+    }
+
+    .r779-board-table tbody td:last-child {
+      border-bottom: none !important;
+    }
+
+    .r779-board-table tbody td::before {
+      content: attr(data-label) !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      color: var(--gray-600) !important;
+      letter-spacing: 0.3px !important;
+      margin-right: 0.5rem !important;
+      flex-shrink: 0 !important;
+    }
+  }
+</style>
+
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Region 779 Board</h2>
+    <p>Meet the volunteers who lead and support AYSO Region 779</p>
+  </div>
+
+  <div class="r779-callout">
+    💚 We are always looking for new volunteers who want to contribute to our
+    players' experience and community. Interested in joining the Region 779
+    Board or helping a program?
+    <a href="mailto:rc@ayso779.org">Email the Regional Commissioner</a>.
+  </div>
+
+  <h3 style="margin-top: 1.35rem !important">
+    Region Leadership &amp; Program Contacts
+  </h3>
+  <div style="overflow-x: auto !important">
+    <table
+      class="r779-board-table"
+      role="table"
+      aria-describedby="boardCaption"
+    >
+      <caption id="boardCaption">
+        Have a passion to help? Email the Regional Commissioner to learn how to
+        get involved.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Position</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Position">Regional Commissioner</td>
+          <td data-label="Name">Steve Young</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:rc@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Assistant Regional Commissioner</td>
+          <td data-label="Name">Krista Hahn</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:arc@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Treasurer</td>
+          <td data-label="Name">Jeanette Nugent</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:treasurer@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Secretary</td>
+          <td data-label="Name">Kayla Warmkessel</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:secretary@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Registrar</td>
+          <td data-label="Name">Gianina Donoso</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:registrar@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Co-Registrar</td>
+          <td data-label="Name">Liz Tafolla</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:registrar@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Safety Director</td>
+          <td data-label="Name">Stacy Solorio</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:safety@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">CVPA</td>
+          <td data-label="Name">Krista Hahn</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:cvpa@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Coach Administrator</td>
+          <td data-label="Name">Steve Young</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:coachadmin@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Coach Coordinator</td>
+          <td data-label="Name">Jason Tinsley</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:coach@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Referee Administrator</td>
+          <td data-label="Name">Tim Vallez</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:ref@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Referee Coordinator</td>
+          <td data-label="Name">Maynor Ramos</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:ref@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr class="open-row">
+          <td data-label="Position">Referee Mentor</td>
+          <td data-label="Name" class="open">[Position Open]</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:ref@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">
+            Competitive Programs
+            <div class="r779-position-subnote">(EXTRA and Spring Select)</div>
+          </td>
+          <td data-label="Name">Jason Hahn</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:comp@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Tournament Director</td>
+          <td data-label="Name">Kayla Warmkessel</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:tdirectors@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Spring Open Coordinator</td>
+          <td data-label="Name">Gianina Donoso | Martin Narveson</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:springopen@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">EPIC Program Coordinator</td>
+          <td data-label="Name">John Guillen</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:vip@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">16/19U Coordinator</td>
+          <td data-label="Name">Jason Tinsley</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:16u19u@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">14U Coordinator</td>
+          <td data-label="Name">Leo Ramos</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:14u@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">12U Coordinator</td>
+          <td data-label="Name">Alex Solorio</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:12u@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">10U Coordinator</td>
+          <td data-label="Name">Maggy Gomez</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:10u@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">8U Coordinator</td>
+          <td data-label="Name">Maynor Ramos</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:8u@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">6U Coordinator</td>
+          <td data-label="Name">Jessica Duran</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:6u@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Kickstart Coordinator</td>
+          <td data-label="Name">Stacy Solorio</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:kickstart@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Team Parent / Sponsors Coordinator</td>
+          <td data-label="Name">Stacy Solorio</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:teamparent@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Publicity / Social Media Coordinator</td>
+          <td data-label="Name">Erin Vallez | Gianina Donoso | Maggy Gomez</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:publicity@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Purchasing</td>
+          <td data-label="Name">
+            Martin Narveson | Maynor Ramos | Jessica Duran | Maggy Gomez
+          </td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:purchaser@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Technology</td>
+          <td data-label="Name">Martin Narveson</td>
+          <td data-label="Email">
+            <a class="email-link" href="mailto:technology@ayso779.org">Email</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Position">Field Coordinator</td>
+          <td data-label="Name">Richard Viola</td>
+          <td data-label="Email"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="r779-board-legend" aria-hidden="true">
+    <span class="r779-open-dot"></span>
+    <span>Open Volunteer Opportunity</span>
+  </div>
+
+  <div
+    class="r779-callout r779-callout-alt"
+    style="margin-top: 1.25rem !important"
+  >
+    AYSO Region 779 is proudly run by volunteers. Response times may vary
+    depending on your question or concern, as we work to connect you with the
+    right person. We appreciate your patience and understanding.
+  </div>
+</div>
