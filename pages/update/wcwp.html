@@ -1,0 +1,812 @@
+<!--
+	AYSO 779 REGISTRATION CONTENT SOURCE
+	1) Copy the GLOBAL STYLE block into each Sports Connect content window.
+	2) Then copy only the section block you need (Welcome, Listings, Contact, Age, Waitlist).
+-->
+
+<!-- ===== GLOBAL STYLE: COPY THIS INTO EVERY CONTENT WINDOW ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --black-primary: #040707;
+    --white-primary: #ffffff;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --gray-100: #f4f6f7;
+    --gray-200: #dde4e8;
+    --gray-600: #4b5b63;
+    --gray-800: #243036;
+    --radius: 10px;
+
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-800) !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2 {
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: var(--green-mid) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 p {
+    margin: 0 0 0.85rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    color: var(--gray-800) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 ul,
+  .r779 ol {
+    margin: 0.25rem 0 1rem 1.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.55 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 strong {
+    color: var(--black-primary) !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  .r779-card {
+    background: var(--gray-100) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 8px !important;
+    padding: 0.85rem 1rem !important;
+    box-shadow: none !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.85rem 1rem !important;
+    margin: 0.9rem 0 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 0.96rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779-hero {
+    background: linear-gradient(
+      135deg,
+      var(--green-primary) 0%,
+      var(--green-mid) 100%
+    ) !important;
+    border-radius: var(--radius) !important;
+    padding: 1.5rem 1.8rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-hero h2 {
+    color: var(--white-primary) !important;
+    margin: 0 0 0.35rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+  }
+
+  .r779-badge {
+    display: inline-block !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 0.2rem 0.85rem !important;
+    margin-top: 0.65rem !important;
+    margin-bottom: 0.65rem !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-grid {
+    display: grid !important;
+    gap: 0.6rem !important;
+  }
+
+  .r779-grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+  }
+
+  .r779-grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  }
+
+  .r779-item {
+    background: var(--green-light) !important;
+    border-left: 3px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-listing {
+    background: var(--gray-100) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  .r779-listing-name {
+    font-size: 0.93rem !important;
+    font-weight: 600 !important;
+    color: var(--black-primary) !important;
+  }
+
+  .r779-listing-fee {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    white-space: nowrap !important;
+  }
+
+  .r779-note {
+    font-size: 0.86rem !important;
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .r779-waitlist-list {
+    list-style: none !important;
+    margin: 0.25rem 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  .r779-waitlist-list li {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 0.9rem !important;
+    margin: 0 0 0.65rem !important;
+    line-height: 1.5 !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779-waitlist-list li::marker {
+    content: "" !important;
+  }
+
+  .r779-waitlist-list li strong {
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+  }
+
+  .r779-age-img {
+    display: block !important;
+    max-width: 90% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    margin: 0.7rem auto 1rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+    cursor: zoom-in !important;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease !important;
+  }
+
+  .r779-age-img:hover {
+    transform: scale(1.03) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22) !important;
+  }
+
+  .r779-event-gif {
+    display: block !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    height: auto !important;
+    margin: 0.35rem auto 1rem !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .r779-spirit-gifs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+    margin: 0.45rem 0 0.6rem !important;
+  }
+
+  .r779-spirit-gif {
+    width: 100% !important;
+    display: block !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--gray-200) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-video-wrap {
+    width: 100% !important;
+    max-width: 50% !important;
+    margin-top: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16) !important;
+    background: #000 !important;
+  }
+
+  .r779-video-wrap iframe {
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    border: 0 !important;
+  }
+
+  .r779-welcome {
+    text-align: center !important;
+  }
+
+  .r779-welcome .r779-grid {
+    justify-content: center !important;
+  }
+
+  .r779-welcome .r779-item {
+    text-align: center !important;
+  }
+
+  .r779-philosophy-block {
+    max-width: 860px !important;
+    margin: 0.75rem auto 1.15rem !important;
+    padding: 1rem !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    text-align: left !important;
+  }
+
+  .r779-welcome .r779-philosophy-block h3 {
+    margin: 0 0 0.75rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.65rem !important;
+  }
+
+  .r779-philosophy-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+
+  .r779-welcome .r779-philosophy-list li {
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0.75rem 0.9rem !important;
+    list-style: none !important;
+    border: 1px solid #d3e3da !important;
+    border-radius: 9px !important;
+    background: #f1f8f4 !important;
+    color: var(--green-primary) !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+  }
+
+  .r779-philosophy-list li::marker {
+    content: "" !important;
+  }
+
+  .r779 a.r779-btn {
+    display: inline-block !important;
+    background: var(--green-primary) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    padding: 0.55rem 1.25rem !important;
+    border-radius: 6px !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    letter-spacing: 0.3px !important;
+    margin-top: 0.65rem !important;
+  }
+
+  .r779 a.r779-btn:hover {
+    background: var(--green-mid) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .r779-programs {
+    max-width: 760px !important;
+    margin: 1.1rem auto 0 !important;
+    padding: 1rem !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+  }
+
+  .r779-welcome .r779-programs h3 {
+    margin: 0 0 0.5rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.65rem !important;
+  }
+
+  .r779-program-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.55rem !important;
+    justify-content: center !important;
+  }
+
+  .r779-welcome .r779-program-buttons .r779-btn {
+    margin-top: 0 !important;
+    min-width: 130px !important;
+    text-align: center !important;
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  .r779-welcome .r779-callout {
+    font-size: 1.26rem !important;
+  }
+
+  .r779-ticket-card {
+    max-width: 760px !important;
+    margin: 0.7rem auto 0.8rem !important;
+    padding: 0.75rem 0.9rem !important;
+    text-align: left !important;
+  }
+
+  .r779-ticket-card h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779-ticket-card p {
+    margin: 0 0 0.85rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .r779-ticket-pricing {
+    margin: 0 0 0.85rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-ticket-card ul {
+    margin: 0.25rem 0 1rem 1rem !important;
+    padding: 0 !important;
+  }
+
+  .r779-ticket-card .r779-btn {
+    margin-top: 0.55rem !important;
+  }
+
+  .r779-ticket-cta {
+    text-align: center !important;
+  }
+
+  .r779-timing-card {
+    max-width: 760px !important;
+    margin: 0.7rem auto 0.8rem !important;
+    padding: 0.65rem 0.85rem !important;
+  }
+
+  .r779-timing-card h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779-timing-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .r779-timing-list li {
+    margin: 0 !important;
+    padding: 0.45rem 0 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+    border-bottom: 1px solid #e7ecef !important;
+  }
+
+  .r779-timing-list li:last-child {
+    border-bottom: none !important;
+  }
+
+  .r779-timing-note {
+    margin: 0.45rem 0 0 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.35 !important;
+    color: var(--gray-600) !important;
+  }
+
+  .r779-location-subnote {
+    margin-top: 0.35rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.5 !important;
+    color: var(--gray-600) !important;
+  }
+
+  .r779-timing-location {
+    margin-top: 0.55rem !important;
+    padding-top: 0.55rem !important;
+    border-top: 1px solid #d8e2e7 !important;
+    text-align: left !important;
+  }
+
+  .r779-timing-location p {
+    margin: 0.2rem 0 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .r779-alert .r779-callout {
+    font-size: calc(0.96rem + 0.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-alert .r779-note {
+    font-size: calc(0.86rem + 0.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1.1rem !important;
+    }
+
+    .r779-hero h2 {
+      font-size: 1.25rem !important;
+    }
+
+    .r779-grid-2,
+    .r779-grid-3 {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-philosophy-block {
+      padding: 0.8rem !important;
+    }
+
+    .r779-philosophy-list {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-video-wrap {
+      max-width: 100% !important;
+    }
+
+    .r779-spirit-gifs {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-program-buttons .r779-btn {
+      width: 100% !important;
+    }
+  }
+</style>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: WORLD CUP WATCH PARTY - COPY THIS BLOCK INTO THE SECTION 1 CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779 r779-welcome">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>AYSO 779 World Cup Watch Party</h2>
+    <p>Join us for a night of soccer, community, and fun</p>
+  </div>
+
+  <img
+    class="r779-event-gif"
+    src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3pnZXY5cnpkajY1YjNyb3B3eGg4cDNzaXl6MDZ3anFnemd0ZGxkNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3orieY6fcOi1HgBIiY/giphy.gif"
+    alt="Soccer crowd cheering"
+    loading="lazy"
+  />
+
+  <p>
+    Join AYSO Region 779 for an unforgettable World Cup Watch Party as we cheer
+    on the world’s biggest stars and celebrate the global game together. Bring
+    your family, teammates, and soccer friends for an evening packed with
+    energy, community, and fun.
+  </p>
+
+  <p>
+    We’ll have contests, games, food, raffles, and a giant screen to enjoy the
+    match in true World Cup style.
+  </p>
+
+  <div
+    class="r779-card r779-ticket-card"
+    style="
+      max-width: 760px !important;
+      margin: 0.7rem auto 0.8rem !important;
+      padding: 0.75rem 0.9rem !important;
+      text-align: left !important;
+    "
+  >
+    <h3>Purchasing Tickets (Zeffy)</h3>
+    <p>
+      Tickets are available through Zeffy, our secure nonprofit ticketing
+      platform.
+    </p>
+    <p class="r779-ticket-pricing">
+      2 Adult Combo for $35 • $20 per adult • $10 for kids (Under 18)
+    </p>
+    <p>
+      Zeffy allows AYSO 779 to keep 100% of the ticket price at checkout. During
+      checkout, Zeffy may show an optional tip - this is not required. You can
+      set the tip to $0 if you prefer.
+    </p>
+    <p>
+      Leaving a small tip helps Zeffy continue offering zero-fee tools to
+      nonprofits and helps our region keep more of the proceeds.
+    </p>
+
+    <h3>Refund Policy</h3>
+    <p>
+      Refunds are available up to 72 hours before the event. After that window,
+      refunds are only granted for medical or family emergencies or other
+      extreme circumstances.
+    </p>
+
+    <div class="r779-ticket-cta">
+      <a
+        class="r779-btn"
+        href="https://www.zeffy.com/en-US/ticketing/world-cup-watch-party-2"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="
+          display: inline-block !important;
+          background: #0e4429 !important;
+          color: #ffffff !important;
+          text-decoration: none !important;
+          font-weight: 700 !important;
+          padding: 0.55rem 1.25rem !important;
+          border-radius: 6px !important;
+        "
+      >
+        Buy Tickets on Zeffy
+      </a>
+    </div>
+  </div>
+
+  <div
+    class="r779-card r779-ticket-card"
+    style="
+      max-width: 760px !important;
+      margin: 0.7rem auto 0.8rem !important;
+      padding: 0.75rem 0.9rem !important;
+      text-align: left !important;
+    "
+  >
+    <h3>Bring Your Soccer Spirit</h3>
+    <p>Help us turn the Community Center into a World Cup atmosphere.</p>
+
+    <div
+      class="r779-spirit-gifs"
+      style="
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.6rem !important;
+        margin: 0.45rem 0 0.6rem !important;
+      "
+    >
+      <img
+        class="r779-spirit-gif"
+        src="https://i.giphy.com/media/hXJ1MWMzY7Af32UIUD/giphy.gif"
+        alt="USA soccer eagle spirit gif"
+        loading="lazy"
+      />
+      <img
+        class="r779-spirit-gif"
+        src="https://i.giphy.com/media/3o6Mb5JAFEn8nhtZu0/giphy.gif"
+        alt="US soccer fans spirit gif"
+        loading="lazy"
+      />
+    </div>
+
+    <p>
+      Wear your favorite national team jersey, AYSO gear, scarves, flags, or
+      face paint.
+    </p>
+    <p>
+      Kids and adults are encouraged to go all-in. The louder and more colorful,
+      the better.
+    </p>
+    <p>Let’s make the room feel like a stadium.</p>
+  </div>
+
+  <div
+    class="r779-card r779-timing-card"
+    style="
+      max-width: 760px !important;
+      margin: 0.7rem auto 0.8rem !important;
+      padding: 0.65rem 0.85rem !important;
+      text-align: left !important;
+    "
+  >
+    <h3>Event Timing &amp; Location</h3>
+    <ul class="r779-timing-list">
+      <li><strong>Doors Open:</strong> 5:15 PM</li>
+      <li><strong>Pre-Game Activities:</strong> 5:15–6:00 PM</li>
+      <li><strong>Kickoff:</strong> 6:00 PM</li>
+      <li><strong>Halftime Contests &amp; Raffles:</strong> During halftime</li>
+      <li><strong>End of Game Raffles:</strong> After the game</li>
+      <li><strong>Event Ends:</strong> Approximately 8:30 PM</li>
+    </ul>
+
+    <div class="r779-timing-location">
+      <p>
+        <strong>Location:</strong> Chino Hills Community Center, 14250 Peyton
+        Dr, Chino Hills, CA 91709
+      </p>
+      <p><strong>Parking:</strong> Plenty of parking is available on-site.</p>
+      <p class="r779-location-subnote">
+        Come early to get the best seats and enjoy all the activities.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="r779-card r779-ticket-card"
+    style="
+      max-width: 760px !important;
+      margin: 0.7rem auto 0.8rem !important;
+      padding: 0.75rem 0.9rem !important;
+      text-align: left !important;
+    "
+  >
+    <h3>Raffles, Contests &amp; Games</h3>
+
+    <p><strong>Raffles</strong></p>
+    <p>
+      We’ll be running a cashless raffle throughout the event featuring a
+      variety of prizes and packages donated by local businesses or purchased by
+      the region.
+    </p>
+    <p>
+      Raffle winners will be announced at halftime and again near the end of the
+      match.
+    </p>
+
+    <p><strong>Contests</strong></p>
+    <p>
+      Bring your AYSO spirit or rep your favorite World Cup nation. We’ll be
+      selecting:
+    </p>
+    <ul>
+      <li>Most Spirited Kid</li>
+      <li>Most Spirited Adult</li>
+    </ul>
+    <p>More contests may be added as we get closer to the event.</p>
+
+    <p><strong>Games &amp; Activities</strong></p>
+    <p>
+      We’ll have a mix of family-friendly games and activities available before
+      the match, during the match, and outside the venue.
+    </p>
+    <p>
+      These will be simple, fun stations designed to keep kids and families
+      entertained while still being able to enjoy the game atmosphere.
+    </p>
+  </div>
+
+  <div
+    class="r779-card r779-ticket-card"
+    style="
+      max-width: 760px !important;
+      margin: 0.7rem auto 0.8rem !important;
+      padding: 0.75rem 0.9rem !important;
+      text-align: left !important;
+    "
+  >
+    <h3>Food &amp; Drinks</h3>
+    <p>Food, snacks, and drinks are included with your ticket.</p>
+    <p>
+      We’ll have a variety of simple, family-friendly options available
+      throughout the event.
+    </p>
+    <p>Final menu details will be shared closer to the event date.</p>
+  </div>
+
+  <div
+    class="r779-card r779-ticket-card"
+    style="
+      max-width: 520px !important;
+      margin: 0.7rem auto 0.8rem !important;
+      padding: 0.55rem 0.75rem !important;
+      text-align: center !important;
+    "
+  >
+    <h3 style="margin: 0 0 0.25rem !important; font-size: 1.15rem !important">
+      Contact
+    </h3>
+    <p style="margin: 0 0 0.45rem !important; font-size: 1.05rem !important">
+      Have any questions or concerns? Please email us.
+    </p>
+
+    <div class="r779-ticket-cta">
+      <a
+        class="r779-btn"
+        href="mailto:events@ayso779.org"
+        style="
+          display: inline-block !important;
+          background: #0e4429 !important;
+          color: #ffffff !important;
+          text-decoration: none !important;
+          font-weight: 700 !important;
+          font-size: 0.9rem !important;
+          padding: 0.45rem 0.95rem !important;
+          border-radius: 6px !important;
+        "
+      >
+        events@ayso779.org
+      </a>
+    </div>
+  </div>
+
+  <div class="r779-callout r779-core-callout">
+    This is a family-friendly event open to all ages - players, parents,
+    coaches, volunteers, and fans. You do not need to be registered for AYSO to
+    attend.
+  </div>
+</div>
