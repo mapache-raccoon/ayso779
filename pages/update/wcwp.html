@@ -369,6 +369,35 @@
     text-decoration: none !important;
   }
 
+  .r779 a.r779-zeffy-btn {
+    background: #0e4429 !important;
+    color: #ffffff !important;
+    transition:
+      background 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease !important;
+  }
+
+  .r779 a.r779-zeffy-btn:hover {
+    background: #cfe4d6 !important;
+    color: #0e4429 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .r779 a.r779-email-btn {
+    transition:
+      background 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease !important;
+  }
+
+  .r779 a.r779-email-btn:hover {
+    background: #cfe4d6 !important;
+    color: #0e4429 !important;
+    transform: translateY(-1px) !important;
+    text-decoration: none !important;
+  }
+
   .r779-programs {
     max-width: 760px !important;
     margin: 1.1rem auto 0 !important;
@@ -431,6 +460,27 @@
     color: var(--green-primary) !important;
   }
 
+  .r779-price-box {
+    margin: 0.25rem 0 0.9rem !important;
+    padding: 0.85rem 0.95rem !important;
+    border: 1.5px solid #c9dbce !important;
+    border-radius: 10px !important;
+    background: #f7fbf8 !important;
+  }
+
+  .r779-price-box-line {
+    display: block !important;
+    margin: 0 0 0.35rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-price-box-line:last-child {
+    margin-bottom: 0 !important;
+  }
+
   .r779-ticket-card ul {
     margin: 0.25rem 0 1rem 1rem !important;
     padding: 0 !important;
@@ -442,6 +492,40 @@
 
   .r779-ticket-cta {
     text-align: center !important;
+  }
+
+  .r779-contact-card {
+    max-width: 480px !important;
+    margin: 0.45rem auto 0.6rem !important;
+    padding: 0.45rem 0.7rem !important;
+    text-align: center !important;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease !important;
+  }
+
+  .r779-contact-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: #b8cfbe !important;
+    box-shadow: 0 6px 16px rgba(14, 68, 41, 0.08) !important;
+  }
+
+  .r779-contact-card h3 {
+    margin: 0 0 0.2rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  .r779-contact-card p {
+    margin: 0 0 0.35rem !important;
+    font-size: 0.98rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-contact-card .r779-btn {
+    margin-top: 0 !important;
+    font-size: 0.88rem !important;
+    padding: 0.4rem 0.85rem !important;
   }
 
   .r779-timing-card {
@@ -552,7 +636,9 @@
 <div class="r779 r779-welcome">
   <div class="r779-hero" style="text-align: center !important">
     <h2>AYSO 779 World Cup Watch Party</h2>
-    <p>Join us for a night of soccer, community, and fun</p>
+    <p>
+      Join us Friday, June 12, 2026 for a night of soccer, community, and fun
+    </p>
   </div>
 
   <img
@@ -588,9 +674,13 @@
       Tickets are available through Zeffy, our secure nonprofit ticketing
       platform.
     </p>
-    <p class="r779-ticket-pricing">
-      2 Adult Combo for $35 • $20 per adult • $10 for kids (Under 18)
-    </p>
+    <div class="r779-price-box">
+      <span class="r779-price-box-line"
+        >$35 - 2 Adult Combo (Limited Quantity)</span
+      >
+      <span class="r779-price-box-line">$20 - Adult</span>
+      <span class="r779-price-box-line">$10 - Kids (Under 18)</span>
+    </div>
     <p>
       Zeffy allows AYSO 779 to keep 100% of the ticket price at checkout. During
       checkout, Zeffy may show an optional tip - this is not required. You can
@@ -610,14 +700,12 @@
 
     <div class="r779-ticket-cta">
       <a
-        class="r779-btn"
+        class="r779-btn r779-zeffy-btn"
         href="https://www.zeffy.com/en-US/ticketing/world-cup-watch-party-2"
         target="_blank"
         rel="noopener noreferrer"
         style="
           display: inline-block !important;
-          background: #0e4429 !important;
-          color: #ffffff !important;
           text-decoration: none !important;
           font-weight: 700 !important;
           padding: 0.55rem 1.25rem !important;
@@ -686,10 +774,14 @@
   >
     <h3>Event Timing &amp; Location</h3>
     <ul class="r779-timing-list">
+      <li><strong>Date:</strong> Friday, June 12, 2026</li>
       <li><strong>Doors Open:</strong> 5:15 PM</li>
       <li><strong>Pre-Game Activities:</strong> 5:15–6:00 PM</li>
       <li><strong>Kickoff:</strong> 6:00 PM</li>
-      <li><strong>Halftime Contests &amp; Raffles:</strong> During halftime</li>
+      <li>
+        <strong>Halftime Contests &amp; Raffles:</strong> During halftime (20
+        minutes)
+      </li>
       <li><strong>End of Game Raffles:</strong> After the game</li>
       <li><strong>Event Ends:</strong> Approximately 8:30 PM</li>
     </ul>
@@ -769,33 +861,36 @@
   </div>
 
   <div
-    class="r779-card r779-ticket-card"
+    class="r779-card r779-ticket-card r779-contact-card"
     style="
-      max-width: 520px !important;
-      margin: 0.7rem auto 0.8rem !important;
-      padding: 0.55rem 0.75rem !important;
+      max-width: 480px !important;
+      margin: 0.45rem auto 0.6rem !important;
+      padding: 0.45rem 0.7rem !important;
       text-align: center !important;
     "
   >
-    <h3 style="margin: 0 0 0.25rem !important; font-size: 1.15rem !important">
+    <h3 style="margin: 0 0 0.2rem !important; font-size: 1.1rem !important">
       Contact
     </h3>
-    <p style="margin: 0 0 0.45rem !important; font-size: 1.05rem !important">
+    <p
+      style="
+        margin: 0 0 0.35rem !important;
+        font-size: 0.98rem !important;
+        line-height: 1.45 !important;
+      "
+    >
       Have any questions or concerns? Please email us.
     </p>
 
     <div class="r779-ticket-cta">
       <a
-        class="r779-btn"
+        class="r779-btn r779-zeffy-btn"
         href="mailto:events@ayso779.org"
         style="
           display: inline-block !important;
-          background: #0e4429 !important;
-          color: #ffffff !important;
           text-decoration: none !important;
           font-weight: 700 !important;
-          font-size: 0.9rem !important;
-          padding: 0.45rem 0.95rem !important;
+          padding: 0.55rem 1.25rem !important;
           border-radius: 6px !important;
         "
       >
