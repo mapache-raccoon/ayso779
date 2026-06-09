@@ -1,0 +1,580 @@
+<!-- ===== AYSO 779 Sponsor Page ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --white: #ffffff;
+    --gray-100: #f5f7f8;
+    --gray-200: #dde4e8;
+    --gray-700: #3f4f56;
+    --gray-900: #1e2a2f;
+    --gold: #b78517;
+    --gold-soft: #fff3d9;
+    --silver: #60707a;
+    --silver-soft: #eef2f5;
+    --bronze: #8b5a2b;
+    --bronze-soft: #f9eee3;
+
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-900) !important;
+    font-size: 15px !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2,
+  .r779 h3,
+  .r779 h4,
+  .r779 p,
+  .r779 ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+    color: #fff !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  .r779 h3 {
+    font-size: 1.35rem !important;
+    line-height: 1.25 !important;
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+    margin: 1.1rem 0 0.55rem !important;
+  }
+
+  .r779 h4 {
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    color: var(--gray-900) !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .r779 p {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+    color: var(--gray-900) !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+  }
+
+  .r779-hero {
+    background: var(--green-primary) !important;
+    border-radius: 3px !important;
+    padding: 1.25rem 1.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 2px !important;
+    padding: 0.8rem 1rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--gray-900) !important;
+    font-size: 0.96rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-tier {
+    border: 1px solid var(--gray-200) !important;
+    border-radius: 3px !important;
+    margin-bottom: 1rem !important;
+    overflow: hidden !important;
+    background: #fff !important;
+  }
+
+  .r779-tier-head {
+    padding: 0.75rem 1rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .r779-tier-head h3 {
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: 1.2rem !important;
+  }
+
+  .r779-tier-badge {
+    display: inline-block !important;
+    border-radius: 2px !important;
+    padding: 0.16rem 0.45rem !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.4px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #fff !important;
+  }
+
+  .r779-tier-gold .r779-tier-head {
+    background: #b78517 !important;
+  }
+
+  .r779-tier-silver .r779-tier-head {
+    background: #60707a !important;
+  }
+
+  .r779-tier-bronze .r779-tier-head {
+    background: #8b5a2b !important;
+  }
+
+  .r779-tier-body {
+    padding: 0.85rem !important;
+  }
+
+  .r779-tier-gold .r779-tier-body {
+    background: var(--gold-soft) !important;
+  }
+
+  .r779-tier-silver .r779-tier-body {
+    background: var(--silver-soft) !important;
+  }
+
+  .r779-tier-bronze .r779-tier-body {
+    background: var(--bronze-soft) !important;
+  }
+
+  .r779-sponsor-grid {
+    display: grid !important;
+    gap: 0.65rem !important;
+  }
+
+  .r779-grid-gold {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .r779-grid-silver,
+  .r779-grid-bronze {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .r779-sponsor-card {
+    border: 1px solid #cfd9de !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    padding: 0.8rem !important;
+  }
+
+  .r779-sponsor-list {
+    list-style: none !important;
+    margin: 0 0 0.65rem !important;
+    padding: 0 !important;
+  }
+
+  .r779-sponsor-list li {
+    margin: 0 0 0.35rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+    color: var(--gray-700) !important;
+  }
+
+  .r779-sponsor-list strong {
+    color: var(--gray-900) !important;
+    margin-right: 0.2rem !important;
+  }
+
+  .r779-logo {
+    width: 100% !important;
+    height: 110px !important;
+    border-radius: 2px !important;
+    border: 1px dashed #b5c5cc !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #f4f8fa !important;
+    color: #5d6d75 !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    padding: 0.6rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  .r779-name {
+    font-size: 1.02rem !important;
+    font-weight: 800 !important;
+    color: var(--gray-900) !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+  }
+
+  .r779 a.r779-link {
+    display: block !important;
+    width: fit-content !important;
+    margin: 0.38rem auto 0.45rem auto !important;
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+  }
+
+  .r779-email {
+    margin-bottom: 0.45rem !important;
+  }
+
+  .r779-address {
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.1rem !important;
+    padding: 0.4rem 0.55rem !important;
+    border: 1px solid #d3dde1 !important;
+    border-radius: 2px !important;
+    background: #f5f8f9 !important;
+    color: var(--gray-700) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .r779-address strong {
+    color: var(--gray-900) !important;
+    margin-right: 0.2rem !important;
+  }
+
+  .r779-phone {
+    margin-top: -0.1rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 0.9rem !important;
+    color: var(--gray-700) !important;
+    text-align: left !important;
+    padding: 0.4rem 0.55rem !important;
+    border: 1px solid #d3dde1 !important;
+    border-radius: 2px !important;
+    background: #f5f8f9 !important;
+    line-height: 1.35 !important;
+  }
+
+  .r779-phone strong {
+    color: var(--gray-900) !important;
+    margin-right: 0.2rem !important;
+  }
+
+  .r779 a.r779-phone-link {
+    color: var(--green-primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  .r779 a.r779-phone-link:hover,
+  .r779 a.r779-phone-link:focus {
+    color: var(--green-mid) !important;
+    text-decoration: underline !important;
+  }
+
+  .r779 a.r779-address-link {
+    color: var(--green-primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  .r779 a.r779-address-link:hover,
+  .r779 a.r779-address-link:focus {
+    text-decoration: underline !important;
+  }
+
+  .r779 a.r779-email-btn,
+  .r779 a.r779-social-chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--green-primary) !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    padding: 0.45rem 0.95rem !important;
+    border-radius: 6px !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    letter-spacing: 0.3px !important;
+    margin-top: 0.25rem !important;
+    transition: background 0.15s ease !important;
+  }
+
+  .r779 a.r779-email-btn:hover,
+  .r779 a.r779-email-btn:focus,
+  .r779 a.r779-social-chip:hover,
+  .r779 a.r779-social-chip:focus {
+    background: var(--green-mid) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    transform: none !important;
+    text-decoration: none !important;
+  }
+
+  .r779 a.r779-link:hover,
+  .r779 a.r779-link:focus {
+    color: var(--green-mid) !important;
+    text-decoration: underline !important;
+  }
+
+  .r779-social-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
+    margin-top: 0.45rem !important;
+  }
+
+  .r779-shoutout {
+    border-top: 1px solid var(--gray-200) !important;
+    margin-top: 0.55rem !important;
+    padding-top: 0.5rem !important;
+    font-size: 0.9rem !important;
+    color: var(--gray-700) !important;
+    font-style: italic !important;
+  }
+
+  .r779-footer-note {
+    margin-top: 1rem !important;
+    border: 1px solid var(--gray-200) !important;
+    border-radius: 10px !important;
+    background: var(--gray-100) !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 0.95rem !important;
+    color: var(--gray-700) !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1rem !important;
+    }
+
+    .r779 h2 {
+      font-size: 1.35rem !important;
+    }
+
+    .r779-tier-head {
+      align-items: flex-start !important;
+      flex-direction: column !important;
+      gap: 0.4rem !important;
+    }
+
+    .r779-grid-gold,
+    .r779-grid-silver,
+    .r779-grid-bronze {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 900px) {
+    .r779-grid-silver,
+    .r779-grid-bronze {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+</style>
+
+<div class="r779">
+  <section class="r779-hero">
+    <h2>AYSO Region 779 Sponsors</h2>
+    <p>
+      Thank you to the businesses and families that support our players and our
+      mission.
+    </p>
+  </section>
+
+  <section class="r779-tier r779-tier-gold">
+    <div class="r779-tier-head">
+      <h3>Gold Sponsors</h3>
+      <span class="r779-tier-badge">Top Tier</span>
+    </div>
+    <div class="r779-tier-body">
+      <div class="r779-sponsor-grid r779-grid-gold">
+        <article class="r779-sponsor-card">
+          <div class="r779-name">John Edgar Insurance</div>
+          <div class="r779-logo">Logo Placeholder - John Edgar Insurance</div>
+          <div class="r779-address">
+            <strong>Address:</strong>
+            <a
+              class="r779-address-link"
+              href="https://www.google.com/maps/search/?api=1&query=3560+Grand+Avenue+Suite+Q+Chino+Hills+CA+91709-1491"
+              target="_blank"
+              rel="noopener"
+              >3560 Grand Avenue Suite Q, Chino Hills, CA 91709-1491</a
+            >
+          </div>
+          <div class="r779-phone">
+            <strong>Phone:</strong>
+            <a class="r779-phone-link" href="tel:+19093429603">909-342-9603</a>
+          </div>
+          <div class="r779-social-row">
+            <a class="r779-email-btn" href="mailto:John@JohnEdgarInsurance.com"
+              >Email</a
+            >
+            <a
+              class="r779-social-chip"
+              href="https://www.instagram.com/johnedgarinsurance/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              class="r779-social-chip"
+              href="https://www.facebook.com/JohnEdgarInsurance"
+              target="_blank"
+              rel="noopener"
+              >Facebook</a
+            >
+          </div>
+          <a
+            class="r779-link"
+            href="https://www.johnedgarinsurance.com/"
+            target="_blank"
+            rel="noopener"
+            >johnedgarinsurance.com</a
+          >
+        </article>
+
+        <article class="r779-sponsor-card">
+          <div class="r779-name">South County Orthodontics</div>
+          <div class="r779-logo">
+            Logo Placeholder - South County Orthodontics
+          </div>
+          <div class="r779-address">
+            <strong>Address:</strong>
+            <a
+              class="r779-address-link"
+              href="https://www.google.com/maps/search/?api=1&query=802+Crown+Valley+Pkwy+Laguna+Niguel+CA+92677"
+              target="_blank"
+              rel="noopener"
+              >802 Crown Valley Pkwy, Laguna Niguel, CA 92677</a
+            >
+          </div>
+          <div class="r779-social-row">
+            <a class="r779-email-btn" href="mailto:info@southcountyortho.com"
+              >Email</a
+            >
+            <a
+              class="r779-social-chip"
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              class="r779-social-chip"
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener"
+              >Facebook</a
+            >
+          </div>
+          <a
+            class="r779-link"
+            href="https://southcountyortho.com/"
+            target="_blank"
+            rel="noopener"
+            >southcountyortho.com</a
+          >
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="r779-tier r779-tier-silver">
+    <div class="r779-tier-head">
+      <h3>Silver Sponsors</h3>
+      <span class="r779-tier-badge">Community Partner</span>
+    </div>
+    <div class="r779-tier-body">
+      <div class="r779-sponsor-grid r779-grid-silver">
+        <article class="r779-sponsor-card">
+          <div class="r779-name">OC Family Dental</div>
+          <a
+            class="r779-link"
+            href="https://ocfamilydental.com"
+            target="_blank"
+            rel="noopener"
+            >ocfamilydental.com</a
+          >
+        </article>
+
+        <article class="r779-sponsor-card">
+          <div class="r779-name">Summit Print &amp; Promo</div>
+          <a
+            class="r779-link"
+            href="https://summitprintpromo.com"
+            target="_blank"
+            rel="noopener"
+            >summitprintpromo.com</a
+          >
+        </article>
+
+        <article class="r779-sponsor-card">
+          <div class="r779-name">Canyon Grill</div>
+          <a
+            class="r779-link"
+            href="https://canyongrill.com"
+            target="_blank"
+            rel="noopener"
+            >canyongrill.com</a
+          >
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="r779-tier r779-tier-bronze">
+    <div class="r779-tier-head">
+      <h3>Bronze Sponsors</h3>
+      <span class="r779-tier-badge">Supporter</span>
+    </div>
+    <div class="r779-tier-body">
+      <div class="r779-sponsor-grid r779-grid-bronze">
+        <article class="r779-sponsor-card">
+          <div class="r779-name">Ridgeview Auto Care</div>
+          <div class="r779-shoutout">
+            "Have a great season, Region 779 players!"
+          </div>
+        </article>
+
+        <article class="r779-sponsor-card">
+          <div class="r779-name">Parkside Realty Group</div>
+          <div class="r779-shoutout">
+            "Proud to support local youth soccer. Have fun!"
+          </div>
+        </article>
+
+        <article class="r779-sponsor-card">
+          <div class="r779-name">Lakeview Market</div>
+          <div class="r779-shoutout">
+            "Good luck this season and play with heart!"
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="r779-callout">
+    Interested in becoming a sponsor? Email
+    <a href="mailto:sponsors@ayso779.org">sponsors@ayso779.org</a> and we will
+    send details for current sponsorship opportunities.
+  </div>
+</div>
