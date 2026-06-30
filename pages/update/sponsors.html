@@ -1,5 +1,54 @@
 <!-- ===== AYSO 779 Sponsor Page ===== -->
 <style>
+  /* Hard override shield against Sports Connect skin CSS */
+  .Ayso-Default #r779-sponsors.r779,
+  .Ayso-Default #r779-sponsors.r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .Ayso-Default #r779-sponsors.r779 {
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: #1e2a2f !important;
+  }
+
+  .Ayso-Default #r779-sponsors.r779 h2,
+  .Ayso-Default #r779-sponsors.r779 h3,
+  .Ayso-Default #r779-sponsors.r779 h4,
+  .Ayso-Default #r779-sponsors.r779 p,
+  .Ayso-Default #r779-sponsors.r779 a {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+  }
+
+  .Ayso-Default #r779-sponsors .r779-sponsor-grid {
+    display: grid !important;
+  }
+
+  .Ayso-Default #r779-sponsors .r779-tier-silver .r779-grid-silver {
+    display: grid !important;
+    grid-template-columns: minmax(280px, 430px) !important;
+    justify-content: center !important;
+    justify-items: center !important;
+    width: 100% !important;
+  }
+
+  .Ayso-Default #r779-sponsors .r779-tier-silver .r779-sponsor-card {
+    width: min(430px, 100%) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .Ayso-Default #r779-sponsors .r779-social-row {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .Ayso-Default #r779-sponsors .r779-tier-gold .r779-logo {
+    border: none !important;
+  }
+
   .r779 {
     --green-primary: #0e4429;
     --green-mid: #1a6b3c;
@@ -175,6 +224,20 @@
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 
+  .r779-tier-silver .r779-grid-silver {
+    display: grid !important;
+    grid-template-columns: minmax(280px, 430px) !important;
+    justify-content: center !important;
+    justify-items: center !important;
+    width: 100% !important;
+  }
+
+  .r779-tier-silver .r779-sponsor-card {
+    width: min(430px, 100%) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
   .r779-sponsor-card {
     border: 1px solid #cfd9de !important;
     border-radius: 3px !important;
@@ -215,6 +278,16 @@
     text-align: center !important;
     padding: 0.6rem !important;
     margin-bottom: 0.45rem !important;
+  }
+
+  .r779-tier-gold .r779-logo {
+    border: none !important;
+    height: 140px !important;
+    padding: 0.35rem !important;
+  }
+
+  .r779-tier-gold .r779-logo-img {
+    max-height: 132px !important;
   }
 
   .r779-logo-img {
@@ -348,6 +421,7 @@
   .r779-social-row {
     display: flex !important;
     flex-wrap: wrap !important;
+    justify-content: center !important;
     gap: 0.35rem !important;
     margin-top: 0.45rem !important;
   }
@@ -359,6 +433,7 @@
     font-size: 0.9rem !important;
     color: var(--gray-700) !important;
     font-style: italic !important;
+    text-align: center !important;
   }
 
   .r779-footer-note {
@@ -391,6 +466,18 @@
     .r779-grid-bronze {
       grid-template-columns: 1fr !important;
     }
+
+    .r779-tier-silver .r779-grid-silver {
+      grid-template-columns: minmax(260px, 430px) !important;
+      justify-content: center !important;
+      justify-items: center !important;
+    }
+
+    .Ayso-Default #r779-sponsors .r779-tier-silver .r779-grid-silver {
+      grid-template-columns: minmax(260px, 430px) !important;
+      justify-content: center !important;
+      justify-items: center !important;
+    }
   }
 
   @media (min-width: 601px) and (max-width: 900px) {
@@ -398,10 +485,22 @@
     .r779-grid-bronze {
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
+
+    .r779-tier-silver .r779-grid-silver {
+      grid-template-columns: minmax(280px, 430px) !important;
+      justify-content: center !important;
+      justify-items: center !important;
+    }
+
+    .Ayso-Default #r779-sponsors .r779-tier-silver .r779-grid-silver {
+      grid-template-columns: minmax(280px, 430px) !important;
+      justify-content: center !important;
+      justify-items: center !important;
+    }
   }
 </style>
 
-<div class="r779">
+<div id="r779-sponsors" class="r779">
   <section class="r779-hero">
     <h2>AYSO Region 779 Sponsors</h2>
     <p>
@@ -468,45 +567,46 @@
         </article>
 
         <article class="r779-sponsor-card">
-          <div class="r779-name">South County Orthodontics</div>
+          <div class="r779-name">Larios Market</div>
           <div class="r779-logo">
-            Logo Placeholder - South County Orthodontics
+            <img
+              class="r779-logo-img"
+              src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/sponsors/larioslogo8x11sinfondo01.png"
+              alt="Larios Market logo"
+            />
           </div>
           <div class="r779-address">
             <strong>Address:</strong>
             <a
               class="r779-address-link"
-              href="https://www.google.com/maps/search/?api=1&query=802+Crown+Valley+Pkwy+Laguna+Niguel+CA+92677"
+              href="https://www.google.com/maps/search/?api=1&query=4008+Chino+Hills+Pkwy+Chino+Hills+CA"
               target="_blank"
               rel="noopener"
-              >802 Crown Valley Pkwy, Laguna Niguel, CA 92677</a
+              >4008 Chino Hills Pkwy, Chino Hills, CA 91709</a
             >
           </div>
+          <div class="r779-phone">
+            <strong>Phone:</strong>
+            <a class="r779-phone-link" href="tel:+19096062222">909-606-2222</a>
+          </div>
           <div class="r779-social-row">
-            <a class="r779-email-btn" href="mailto:info@southcountyortho.com"
+            <a class="r779-email-btn" href="mailto:larioscatering@gmail.com"
               >Email</a
             >
             <a
               class="r779-social-chip"
-              href="https://instagram.com"
+              href="https://www.instagram.com/lariosmeatmarket/"
               target="_blank"
               rel="noopener"
               >Instagram</a
             >
-            <a
-              class="r779-social-chip"
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener"
-              >Facebook</a
-            >
           </div>
           <a
             class="r779-link"
-            href="https://southcountyortho.com/"
+            href="https://lariosmarket.com/"
             target="_blank"
             rel="noopener"
-            >southcountyortho.com</a
+            >lariosmarket.com</a
           >
         </article>
       </div>
@@ -520,36 +620,13 @@
     <div class="r779-tier-body">
       <div class="r779-sponsor-grid r779-grid-silver">
         <article class="r779-sponsor-card">
-          <div class="r779-name">OC Family Dental</div>
-          <a
-            class="r779-link"
-            href="https://ocfamilydental.com"
-            target="_blank"
-            rel="noopener"
-            >ocfamilydental.com</a
-          >
-        </article>
-
-        <article class="r779-sponsor-card">
-          <div class="r779-name">Summit Print &amp; Promo</div>
-          <a
-            class="r779-link"
-            href="https://summitprintpromo.com"
-            target="_blank"
-            rel="noopener"
-            >summitprintpromo.com</a
-          >
-        </article>
-
-        <article class="r779-sponsor-card">
-          <div class="r779-name">Canyon Grill</div>
-          <a
-            class="r779-link"
-            href="https://canyongrill.com"
-            target="_blank"
-            rel="noopener"
-            >canyongrill.com</a
-          >
+          <div class="r779-name">Now Accepting Silver Sponsors</div>
+          <p>Reach local families and support AYSO Region 779 players.</p>
+          <div class="r779-social-row">
+            <a class="r779-email-btn" href="mailto:sponsors@ayso779.org"
+              >Email</a
+            >
+          </div>
         </article>
       </div>
     </div>
@@ -562,24 +639,13 @@
     <div class="r779-tier-body">
       <div class="r779-sponsor-grid r779-grid-bronze">
         <article class="r779-sponsor-card">
-          <div class="r779-name">Ridgeview Auto Care</div>
-          <div class="r779-shoutout">
-            "Have a great season, Region 779 players!"
-          </div>
+          <div class="r779-name">Sunbelt Cup Company</div>
+          <div class="r779-shoutout">"Have a great season"</div>
         </article>
 
         <article class="r779-sponsor-card">
-          <div class="r779-name">Parkside Realty Group</div>
-          <div class="r779-shoutout">
-            "Proud to support local youth soccer. Have fun!"
-          </div>
-        </article>
-
-        <article class="r779-sponsor-card">
-          <div class="r779-name">Lakeview Market</div>
-          <div class="r779-shoutout">
-            "Good luck this season and play with heart!"
-          </div>
+          <div class="r779-name">The Birss Family</div>
+          <div class="r779-shoutout">"Go Brooklyn! Score a goal"</div>
         </article>
       </div>
     </div>
