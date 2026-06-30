@@ -1,0 +1,1002 @@
+<!--
+	AYSO 779 REGISTRATION CONTENT SOURCE
+	1) Copy the GLOBAL STYLE block into each Sports Connect content window.
+	2) Then copy only the section block you need (Welcome, Listings, Contact, Age, Waitlist).
+-->
+
+<!-- ===== GLOBAL STYLE: COPY THIS INTO EVERY CONTENT WINDOW ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --black-primary: #040707;
+    --white-primary: #ffffff;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --gray-100: #f4f6f7;
+    --gray-200: #dde4e8;
+    --gray-600: #4b5b63;
+    --gray-800: #243036;
+    --radius: 10px;
+
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-800) !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2 {
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: var(--green-mid) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 p {
+    margin: 0 0 0.85rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    color: var(--gray-800) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 ul,
+  .r779 ol {
+    margin: 0.25rem 0 1rem 1.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.55 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 strong {
+    color: var(--black-primary) !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  .r779-card {
+    background: var(--gray-100) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 8px !important;
+    padding: 0.85rem 1rem !important;
+    box-shadow: none !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.85rem 1rem !important;
+    margin: 0.9rem 0 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 0.96rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779-hero {
+    background: linear-gradient(
+      135deg,
+      var(--green-primary) 0%,
+      var(--green-mid) 100%
+    ) !important;
+    border-radius: var(--radius) !important;
+    padding: 1.5rem 1.8rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-hero h2 {
+    color: var(--white-primary) !important;
+    margin: 0 0 0.35rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+  }
+
+  .r779-badge {
+    display: inline-block !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 0.2rem 0.85rem !important;
+    margin-top: 0.65rem !important;
+    margin-bottom: 0.65rem !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-grid {
+    display: grid !important;
+    gap: 0.6rem !important;
+  }
+
+  .r779-grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+  }
+
+  .r779-grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  }
+
+  .r779-item {
+    background: var(--green-light) !important;
+    border-left: 3px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-listing {
+    background: var(--gray-100) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  .r779-listing-name {
+    font-size: 0.93rem !important;
+    font-weight: 600 !important;
+    color: var(--black-primary) !important;
+  }
+
+  .r779-listing-fee {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    white-space: nowrap !important;
+  }
+
+  .r779-note {
+    font-size: 0.86rem !important;
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .r779-waitlist-list {
+    list-style: none !important;
+    margin: 0.25rem 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  .r779-waitlist-list li {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 0.9rem !important;
+    margin: 0 0 0.65rem !important;
+    line-height: 1.5 !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779-waitlist-list li::marker {
+    content: "" !important;
+  }
+
+  .r779-waitlist-list li strong {
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+  }
+
+  .r779-age-img {
+    display: block !important;
+    max-width: 90% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    margin: 0.7rem auto 1rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+    cursor: zoom-in !important;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease !important;
+  }
+
+  .r779-age-img:hover {
+    transform: scale(1.03) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22) !important;
+  }
+
+  .r779-event-gif {
+    display: block !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    height: auto !important;
+    margin: 0.35rem auto 1rem !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .r779-logo {
+    display: block !important;
+    width: 100% !important;
+    max-width: 220px !important;
+    height: auto !important;
+    margin: 0.35rem auto 1rem !important;
+    padding: 0.3rem 0.45rem !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--gray-200) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-spirit-gifs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+    margin: 0.45rem 0 0.6rem !important;
+  }
+
+  .r779-spirit-gif {
+    width: 100% !important;
+    display: block !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--gray-200) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-video-wrap {
+    width: 100% !important;
+    max-width: 50% !important;
+    margin-top: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16) !important;
+    background: #000 !important;
+  }
+
+  .r779-video-wrap iframe {
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    border: 0 !important;
+  }
+
+  .r779-welcome {
+    text-align: center !important;
+  }
+
+  .r779-welcome .r779-grid {
+    justify-content: center !important;
+  }
+
+  .r779-welcome .r779-item {
+    text-align: center !important;
+  }
+
+  .r779-philosophy-block {
+    max-width: 860px !important;
+    margin: 0.75rem auto 1.15rem !important;
+    padding: 1rem !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    text-align: left !important;
+  }
+
+  .r779-welcome .r779-philosophy-block h3 {
+    margin: 0 0 0.75rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.65rem !important;
+  }
+
+  .r779-philosophy-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+
+  .r779-welcome .r779-philosophy-list li {
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0.75rem 0.9rem !important;
+    list-style: none !important;
+    border: 1px solid #d3e3da !important;
+    border-radius: 9px !important;
+    background: #f1f8f4 !important;
+    color: var(--green-primary) !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+  }
+
+  .r779-philosophy-list li::marker {
+    content: "" !important;
+  }
+
+  .r779 a.r779-btn {
+    display: inline-block !important;
+    background: var(--green-primary) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    padding: 0.55rem 1.25rem !important;
+    border-radius: 6px !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    letter-spacing: 0.3px !important;
+    margin-top: 0.65rem !important;
+  }
+
+  .r779 a.r779-btn:hover {
+    background: var(--green-mid) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .r779 a.r779-zeffy-btn {
+    background: #0e4429 !important;
+    color: #ffffff !important;
+    transition:
+      background 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease !important;
+  }
+
+  .r779 a.r779-zeffy-btn:hover {
+    background: #cfe4d6 !important;
+    color: #0e4429 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .r779 a.r779-email-btn {
+    transition:
+      background 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease !important;
+  }
+
+  .r779 a.r779-email-btn:hover {
+    background: #cfe4d6 !important;
+    color: #0e4429 !important;
+    transform: translateY(-1px) !important;
+    text-decoration: none !important;
+  }
+
+  .r779-programs {
+    max-width: 760px !important;
+    margin: 1.1rem auto 0 !important;
+    padding: 1rem !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+  }
+
+  .r779-welcome .r779-programs h3 {
+    margin: 0 0 0.5rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.65rem !important;
+  }
+
+  .r779-program-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.55rem !important;
+    justify-content: center !important;
+  }
+
+  .r779-welcome .r779-program-buttons .r779-btn {
+    margin-top: 0 !important;
+    min-width: 130px !important;
+    text-align: center !important;
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  .r779-welcome .r779-callout {
+    font-size: 1.26rem !important;
+  }
+
+  .r779-ticket-card {
+    max-width: 760px !important;
+    margin: 0.7rem auto 0.8rem !important;
+    padding: 0.75rem 0.9rem !important;
+    text-align: left !important;
+  }
+
+  .r779-ticket-card h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779-ticket-card p {
+    margin: 0 0 0.85rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .r779-ticket-pricing {
+    margin: 0 0 0.85rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-price-box {
+    margin: 0.25rem 0 0.9rem !important;
+    padding: 0.85rem 0.95rem !important;
+    border: 1.5px solid #c9dbce !important;
+    border-radius: 10px !important;
+    background: #f7fbf8 !important;
+  }
+
+  .r779-price-box-line {
+    display: block !important;
+    margin: 0 0 0.35rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-price-box-line:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .r779-price-magic {
+    display: block !important;
+    margin: 0.6rem 0 0 !important;
+    padding: 0.7rem 0.8rem !important;
+    border: 1.5px solid #f1c95a !important;
+    border-radius: 10px !important;
+    background: linear-gradient(
+      135deg,
+      #fff8d8 0%,
+      #ffeeb8 55%,
+      #fff8d8 100%
+    ) !important;
+    color: #5a3f00 !important;
+    font-size: 1.08rem !important;
+    line-height: 1.4 !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    box-shadow: 0 4px 12px rgba(241, 201, 90, 0.28) !important;
+  }
+
+  .r779-ticket-card ul {
+    margin: 0.25rem 0 1rem 1rem !important;
+    padding: 0 !important;
+  }
+
+  .r779-ticket-card .r779-btn {
+    margin-top: 0.55rem !important;
+  }
+
+  .r779-ticket-cta {
+    text-align: center !important;
+  }
+
+  .r779-contact-card {
+    max-width: 480px !important;
+    margin: 0.45rem auto 0.6rem !important;
+    padding: 0.45rem 0.7rem !important;
+    text-align: center !important;
+    transition:
+      box-shadow 0.18s ease,
+      border-color 0.18s ease !important;
+  }
+
+  .r779-contact-card:hover {
+    border-color: #b8cfbe !important;
+    box-shadow: 0 6px 16px rgba(14, 68, 41, 0.08) !important;
+  }
+
+  .r779-contact-card h3 {
+    margin: 0 0 0.2rem !important;
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .r779-contact-card p {
+    margin: 0 0 0.35rem !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .r779-contact-card a {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+  }
+
+  .r779-contact-card .r779-btn {
+    margin-top: 0 !important;
+    font-size: 0.88rem !important;
+    padding: 0.4rem 0.85rem !important;
+  }
+
+  .r779-faq-wrap {
+    max-width: 820px !important;
+    margin: 0.6rem auto 0 !important;
+  }
+
+  .r779-faq-item {
+    margin: 0 0 0.55rem !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  .r779-faq-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .r779-faq-item summary {
+    list-style: none !important;
+    cursor: pointer !important;
+    padding: 0.78rem 2.2rem 0.78rem 0.85rem !important;
+    font-size: 1.08rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: var(--green-primary) !important;
+    position: relative !important;
+    background: #f7fbf8 !important;
+  }
+
+  .r779-faq-item summary::-webkit-details-marker {
+    display: none !important;
+  }
+
+  .r779-faq-item summary::after {
+    content: "\25BE" !important;
+    position: absolute !important;
+    right: 0.8rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.9rem !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-faq-item[open] summary::after {
+    content: "\25B4" !important;
+  }
+
+  .r779-faq-answer {
+    padding: 0.78rem 0.9rem 0.85rem !important;
+    border-top: 1px solid #dfe7eb !important;
+  }
+
+  .r779-faq-answer p {
+    margin: 0 0 0.6rem !important;
+    font-size: 1.05rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .r779-faq-answer p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .r779-faq-answer ul {
+    margin: 0 0 0.35rem 1.2rem !important;
+    font-size: 1.02rem !important;
+  }
+
+  .r779-faq-answer li {
+    font-size: 1.02rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .r779-timing-card {
+    max-width: 760px !important;
+    margin: 0.7rem auto 0.8rem !important;
+    padding: 0.65rem 0.85rem !important;
+  }
+
+  .r779-timing-card h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779-timing-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .r779-timing-list li {
+    margin: 0 !important;
+    padding: 0.45rem 0 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+    border-bottom: 1px solid #e7ecef !important;
+  }
+
+  .r779-timing-list li:last-child {
+    border-bottom: none !important;
+  }
+
+  .r779-timing-note {
+    margin: 0.45rem 0 0 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.35 !important;
+    color: var(--gray-600) !important;
+  }
+
+  .r779-location-subnote {
+    margin-top: 0.35rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.5 !important;
+    color: var(--gray-600) !important;
+  }
+
+  .r779-timing-location {
+    margin-top: 0.55rem !important;
+    padding-top: 0.55rem !important;
+    border-top: 1px solid #d8e2e7 !important;
+    text-align: left !important;
+  }
+
+  .r779-timing-location p {
+    margin: 0.2rem 0 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .r779-alert .r779-callout {
+    font-size: calc(0.96rem + 0.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-alert .r779-note {
+    font-size: calc(0.86rem + 0.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1.1rem !important;
+    }
+
+    .r779-hero h2 {
+      font-size: 1.25rem !important;
+    }
+
+    .r779-grid-2,
+    .r779-grid-3 {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-philosophy-block {
+      padding: 0.8rem !important;
+    }
+
+    .r779-philosophy-list {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-video-wrap {
+      max-width: 100% !important;
+    }
+
+    .r779-spirit-gifs {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-program-buttons .r779-btn {
+      width: 100% !important;
+    }
+  }
+</style>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: STRYKERS CAMP OVERVIEW - COPY THIS BLOCK INTO THE OVERVIEW CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Empire Strykers Summer Camp</h2>
+  </div>
+
+  <img
+    class="r779-logo"
+    src="https://digitalshift-assets.sfo2.cdn.digitaloceanspaces.com/pw/aba8ae91-7747-4d87-8524-03ceb02c7326/logo-1736014895003807547.png"
+    alt="Empire Strykers logo"
+  />
+
+  <p>
+    AYSO Region 779 is proud to host the
+    <strong>Empire Strykers Summer Camp</strong> at
+    <strong>Grand Avenue Park</strong>. This four-day camp is operated entirely
+    by the Empire Strykers professional indoor soccer organization and led by
+    their professional athletes. Players will enjoy high-energy training, skill
+    development, fun challenges, and a scrimmage - all in a positive,
+    player-first environment.
+  </p>
+
+  <p>
+    This camp is open to <strong>boys and girls ages 5-17</strong>, and all
+    skill levels are welcome.
+  </p>
+
+  <img
+    class="r779-event-gif"
+    src="https://digitalshift-assets.sfo2.cdn.digitaloceanspaces.com/pw/aba8ae91-7747-4d87-8524-03ceb02c7326/p-f28e4a53-0e74-4423-ad79-27afdfd3f27a/1703042138-full.jpg"
+    alt="Empire Strykers camp action photo"
+    style="max-width: 364px !important"
+  />
+</div>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: STRYKERS CAMP DATES TIME LOCATION - COPY THIS BLOCK INTO THE DATES/TIME/LOCATION CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Dates, Time, Location</h2>
+  </div>
+
+  <div class="r779-card r779-timing-card">
+    <ul class="r779-timing-list">
+      <li><strong>July 21-24</strong></li>
+      <li><strong>Standard Hours:</strong> 9:00 AM - 12:00 PM</li>
+      <li>
+        <strong>Extreme Heat Hours:</strong> 8:00 AM - 11:00 AM (Empire Strykers
+        will adjust if needed)
+      </li>
+      <li><strong>Location:</strong> Grand Avenue Park, Chino Hills</li>
+    </ul>
+
+    <div class="r779-timing-location">
+      <p>
+        Parents must arrive <strong>15 minutes before camp ends</strong> for
+        pickup. Staff will not remain on site afterward.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: STRYKERS CAMP REGISTRATION - COPY THIS BLOCK INTO THE REGISTRATION CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Registration</h2>
+  </div>
+
+  <div class="r779-card r779-ticket-card">
+    <p>
+      Registration is handled directly by <strong>Empire Strykers</strong>
+      through their official system.
+    </p>
+
+    <p
+      class="r779-ticket-pricing"
+      style="margin-bottom: 0.3rem !important; text-align: center !important"
+    >
+      <strong>Price:</strong> $165
+    </p>
+
+    <div class="r779-price-box" style="margin-bottom: 0.3rem !important">
+      <span class="r779-price-box-line"
+        >INCLUDES SOCCER BALL, CAMP T-SHIRT, &amp; 1 TICKET TO EMPIRE STRYKERS
+        HOME GAME</span
+      >
+    </div>
+
+    <div class="r779-ticket-cta" style="margin-top: 0 !important">
+      <a
+        class="r779-btn"
+        href="https://campscui.active.com/orgs/OntarioFury?orglink=camps-registration&e4q=7a738508-9b35-4c5c-befe-9449a4a2bc41&e4p=5a5923a9-979c-4da4-a9a7-f0931a912e2c&e4ts=1782679200&e4c=active&e4e=snlvcmpscui00001load&e4rt=Safetynet&e4h=08b8fa6e7f78089c0894584e6a6f9273#/selectSessions/3822931"
+        target="_blank"
+        rel="noopener"
+        style="margin-top: 0 !important"
+        >Register Here</a
+      >
+    </div>
+
+    <p>
+      <strong>Note:</strong> All payments, refunds, and registration questions
+      must be directed to Empire Strykers.
+    </p>
+
+    <div class="r779-contact-card r779-card">
+      <h3>Empire Strykers Contact</h3>
+      <p><a href="tel:909-457-0252">909-457-0252</a></p>
+      <p>
+        <a href="mailto:ticketing@theempirestrykers.com"
+          >ticketing@theempirestrykers.com</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================================================= -->
+<!-- SECTION: STRYKERS CAMP FAQ - COPY THIS BLOCK INTO THE FAQ CONTENT WINDOW -->
+<!-- ======================================================================================= -->
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Empire Strykers Soccer Camps - FAQ</h2>
+  </div>
+
+  <div class="r779-faq-wrap">
+    <details class="r779-faq-item" open>
+      <summary>1. What ages can attend the camp?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          Strykers camps are open to <strong>boys and girls ages 5-17</strong>.
+        </p>
+        <p>Training groups may be separated by age.</p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>2. What skill levels are accepted?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          All skill levels are welcome - from beginners to advanced players.
+          Campers are grouped by age and ability to ensure appropriate training.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>3. What should my child bring to camp?</summary>
+      <div class="r779-faq-answer">
+        <p>Campers should bring:</p>
+        <ul>
+          <li>Soccer cleats</li>
+          <li>Shin guards</li>
+          <li>Water bottle</li>
+          <li>Sunscreen</li>
+          <li>Packed snacks (not provided)</li>
+          <li>Extra sweat towel (optional)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>4. What are the camp hours?</summary>
+      <div class="r779-faq-answer">
+        <p>Typical day camps run from <strong>9:00 AM to 12:00 PM</strong>.</p>
+        <p>
+          Some camps operate from <strong>8:00 AM to 11:00 AM</strong> (used
+          during extreme heat).
+        </p>
+        <p>
+          You may drop off your camper, but you must arrive
+          <strong>15 minutes before camp ends</strong> for pickup. Staff will
+          <strong>not</strong> remain on location after camp concludes.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>5. Who are the coaches?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          All coaches are
+          <strong>Empire Strykers professional athletes</strong>.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>6. Are there any games or tournaments during camp?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          Yes - campers participate in a <strong>scrimmage</strong> during the
+          week.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>7. What happens if it rains?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          Most camps continue in <strong>light rain</strong>. If weather
+          conditions become unsafe, sessions may be
+          <strong>rescheduled</strong>.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>8. Is there medical staff or first aid on site?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          Yes - camps have trained staff available to handle minor injuries or
+          emergencies.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>9. Can parents watch the training sessions?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          In many cases, parents are welcome to observe. Some camps may limit
+          access for safety and focus.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>10. How do I register and pay?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          Registration is completed <strong>online</strong> through the Empire
+          Strykers registration system.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>11. What is the cancellation and refund policy?</summary>
+      <div class="r779-faq-answer">
+        <p>
+          <strong>No refunds.</strong> Campers may be
+          <strong>rescheduled</strong> to a different date or location.
+        </p>
+      </div>
+    </details>
+
+    <details class="r779-faq-item">
+      <summary>12. Will players receive a camp T-shirt or gear?</summary>
+      <div class="r779-faq-answer">
+        <p>Yes - camps include a <strong>T-shirt and soccer ball</strong>.</p>
+      </div>
+    </details>
+  </div>
+</div>
