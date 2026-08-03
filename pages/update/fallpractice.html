@@ -85,6 +85,12 @@
     color: var(--black-primary) !important;
   }
 
+  .r779-warning,
+  .r779-warning strong {
+    color: #b42318 !important;
+    font-weight: 800 !important;
+  }
+
   .r779 a {
     color: var(--green-primary) !important;
     text-decoration: underline !important;
@@ -130,6 +136,55 @@
   .r779-callout-alt {
     background: #fffaf0 !important;
     border-left: 4px solid #c69214 !important;
+  }
+
+  .r779-referee-policy {
+    border-left-width: 6px !important;
+    background: #fff4e4 !important;
+    font-size: 1.12rem !important;
+    line-height: 1.72 !important;
+    font-weight: 700 !important;
+  }
+
+  .r779-referee-policy strong {
+    color: #8a4f00 !important;
+  }
+
+  .r779-volunteer-spotlight {
+    margin-top: 1.15rem !important;
+    padding: 1.15rem 1.15rem 1.2rem !important;
+    border-left: 8px solid #ffd24a !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, #0e4429 0%, #145f35 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 26px rgba(4, 7, 7, 0.28) !important;
+  }
+
+  .r779-volunteer-spotlight .r779-volunteer-kicker {
+    display: inline-block !important;
+    margin-bottom: 0.55rem !important;
+    padding: 0.18rem 0.65rem !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.45px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-volunteer-spotlight p {
+    margin: 0 !important;
+    color: #ffffff !important;
+    font-size: 1.22rem !important;
+    line-height: 1.7 !important;
+    font-weight: 600 !important;
+    text-wrap: pretty !important;
+  }
+
+  .r779-volunteer-spotlight strong {
+    color: #ffd24a !important;
   }
 
   .r779-highlight-note {
@@ -324,6 +379,27 @@
     text-transform: uppercase !important;
   }
 
+  .r779-price-row {
+    list-style: none !important;
+    margin: 0.35rem 0 !important;
+    padding: 0.55rem 0.7rem !important;
+    border: 1px solid #d8e7dc !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 8px !important;
+    background: #f3faf6 !important;
+  }
+
+  .r779-price-amount {
+    display: inline-block !important;
+    margin-left: 0.35rem !important;
+    padding: 0.1rem 0.45rem !important;
+    border-radius: 6px !important;
+    background: #e2f2e8 !important;
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.2px !important;
+  }
+
   .r779-note {
     font-size: 15px !important;
     color: var(--gray-600) !important;
@@ -426,173 +502,166 @@
   .r779-feature-details > ol {
     padding-left: 1.5rem !important;
   }
+
+  .r779-responsive-image {
+    display: block !important;
+    width: min(100%, 860px) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-responsive-image {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 180px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    .r779-video-wrap {
+      max-width: 100% !important;
+    }
+  }
+
+  .r779-video-wrap {
+    width: 100% !important;
+    max-width: 50% !important;
+    margin-top: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16) !important;
+    background: #000 !important;
+  }
+
+  .r779-video-wrap iframe {
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    border: 0 !important;
+  }
+
+  .r779-video-caption {
+    margin-top: 0.45rem !important;
+    text-align: center !important;
+    color: var(--gray-600) !important;
+    font-size: 1rem !important;
+    font-style: italic !important;
+    line-height: 1.5 !important;
+  }
 </style>
 
-<!-- ======================================================================================= -->
-<!-- SECTION: KICKSTART ABOUT - COPY THIS BLOCK INTO THE KICKSTART ABOUT CONTENT WINDOW -->
-<!-- ======================================================================================= -->
 <div class="r779 r779-welcome">
   <div class="r779-hero">
-    <h2>AYSO Kickstart</h2>
-    <p>The first step in the AYSO player pathway, built for 3–4 year‑olds</p>
+    <h2>Practice Overview</h2>
   </div>
 
   <p>
-    AYSO Kickstart is our early‑childhood soccer program for 3–4 year‑olds,
-    giving our youngest players a joyful, low‑pressure introduction to the game.
-    In Region 779, Kickstart creates a welcoming space where children explore,
-    move, and build confidence through simple, play‑based activities. It's
-    designed specifically for early learners and grounded in AYSO's Six
-    Philosophies.
+    Coaches select their own practice day, time, and location - max 2 days a
+    week. If a coach cannot attend, an assistant coach may run practice as long
+    as they hold the same certification level - one of the many reasons every
+    team benefits from having both a head coach and an assistant coach. Weather
+    or field conditions may cancel practice; coordinators will notify coach when
+    extreme heat or city-mandated park closures make fields unusable. Parents
+    should remain at practice to support their player and be available in case
+    of an emergency.
   </p>
-
-  <div class="r779-philosophy-block">
-    <h3>What Makes Kickstart Different</h3>
-    <ul class="r779-philosophy-list">
-      <li>
-        <strong>Child-Centered Play:</strong> Activities are designed so
-        children explore and create freely, rather than following adult-driven
-        structure.
-      </li>
-      <li>
-        <strong>Sandlot-Style Format:</strong> A jamboree experience with
-        nonstop action and small-sided play. No standings, no waiting around -
-        just play.
-      </li>
-      <li>
-        <strong>Built on Research:</strong> Developed through a national U.S.
-        Soccer project focused on creating the best possible first soccer
-        experience.
-      </li>
-      <li>
-        <strong>Families Are Part of It:</strong> Parents help on the field and
-        contribute to the welcoming, energetic environment.
-      </li>
-      <li>
-        <strong>A Foundation for What's Next:</strong> Kickstart builds ball
-        familiarity, group comfort, and confidence so players are ready for 6U
-        team-based soccer.
-      </li>
-    </ul>
-  </div>
-
-  <img
-    src="https://ayso.org/wp-content/uploads/2026/04/2026-04-Kickstart_Activity3_BigMatchClip.gif"
-    alt="Kickstart activity"
-    style="
-      width: 100%;
-      max-width: 600px;
-      margin: 1rem auto;
-      display: block;
-      border-radius: 10px;
-    "
-  />
-
-  <div class="r779-callout r779-core-callout">
-    In Region 779, Kickstart replaces our previous Playground program and brings
-    our 5U players under one unified, intentionally designed experience. Every
-    child, regardless of age or experience, begins with the same joyful,
-    welcoming entry point into the AYSO family.
-  </div>
-</div>
-
-<!-- ======================================================================================= -->
-<!-- SECTION: KICKSTART REGION 779 - COPY THIS BLOCK INTO THE REGION APPROACH CONTENT WINDOW -->
-<!-- ======================================================================================= -->
-<div class="r779">
-  <div class="r779-hero" style="text-align: center !important">
-    <h2>Region 779's Approach to Kickstart</h2>
-  </div>
-
-  <p>
-    In Region 779, Kickstart is designed to be simple, welcoming, and easy for
-    families to join. We want young players to enjoy the game, grow in
-    confidence, and build a strong foundation before moving into 6U soccer.
-  </p>
-
-  <h3>Key Dates</h3>
-  <div class="r779-grid r779-grid-2">
-    <div class="r779-season-panel">
-      <span class="r779-season-kicker">Season</span>
-      <ul>
-        <li><strong>First Session:</strong> August 28, 2026</li>
-        <li><strong>Picture Day:</strong> August 29, 2026</li>
-
-        <li>
-          <strong>Last Session:</strong> TBD (Will be an actual game on
-          Saturday).
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <h3>What Does a Kickstart Season Include?</h3>
-  <div class="r779-grid r779-grid-2">
-    <div class="r779-season-panel">
-      <span class="r779-season-kicker">Season Format</span>
-      <ul>
-        <li>1 day a week</li>
-        <li>Simple, age-appropriate activities</li>
-        <li>Movement, ball familiarity, and guided play</li>
-        <li>A fun routine that is easy for families to follow</li>
-      </ul>
-    </div>
-
-    <div class="r779-season-panel">
-      <span class="r779-season-kicker">What To Bring</span>
-      <ul>
-        <li><strong>Shin guards</strong> (required)</li>
-        <li>Soccer cleats or athletic shoes</li>
-        <li>Water bottle</li>
-        <li>Soccer ball (if listed in your season communication)</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3>Why Choose Kickstart?</h3>
-  <div class="r779-season-panel">
-    <p><strong>Parents choose Kickstart because it:</strong></p>
-    <ul>
-      <li>Feels welcoming and low-pressure</li>
-      <li>Fits into modern family schedules</li>
-      <li>Focuses on fun, development, and child ownership</li>
-      <li>Builds confidence instead of stress</li>
-      <li>Is run by an organization they trust</li>
-      <li>Encourages parent participation and support</li>
-    </ul>
-    <p>
-      For many children, Kickstart is their first organized activity, and the
-      program is designed to make that experience positive and memorable.
-    </p>
-  </div>
-
-  <h3>Development</h3>
-  <p>
-    Kickstart creates a strong foundation for future soccer participation by:
-  </p>
-  <ul>
-    <li>Introducing basic ball familiarity and movement</li>
-    <li>Building comfort in a group play environment</li>
-    <li>Encouraging listening, sharing, and simple directions</li>
-    <li>Supporting a confident transition into team-based soccer</li>
-  </ul>
 
   <div class="r779-callout">
-    The goal is not to rush development, but to help every child grow at their
-    own pace and build long-term enjoyment of the game.
-  </div>
-
-  <h3>Questions?</h3>
-  <p>Do you have any questions or require help? Reach out to us!</p>
-  <div class="r779-callout r779-callout-alt">
-    <p><strong>Stacy Solorio</strong>, Kickstart Coordinator</p>
-    <a class="r779-button" href="mailto:kickstart@ayso779.org"
-      >Email Coordinator</a
+    <span class="r779-warning"
+      ><strong>Please do not drop off your child and leave.</strong></span
     >
+    If you need to step away briefly, communicate directly with your coach.
+  </div>
+</div>
+<br /><br />
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>6U-8U Practice Locations</h2>
   </div>
 
-  <div class="r779-callout r779-callout-alt">
-    Kickstart sessions are run by trained volunteers committed to making each
-    player's first soccer experience positive, safe, and fun.
+  <p>
+    6U-8U teams may practice at
+    <strong>AYSO-approved locations within Chino Hills</strong>. Because
+    approval varies by site, coaches should confirm with their
+    <strong>Division Coordinator</strong> before choosing a practice location.
+    Parks with <strong>restroom access</strong> are recommended, and coaches
+    should plan ahead for the <strong>fall time change</strong>, as most
+    neighborhood parks do not have lights and will lose daylight later in the
+    season. If you need help, please reach out to your coordinator.
+  </p>
+
+  <div class="r779-callout">
+    Practice areas at approved locations are <strong>not assigned</strong> and
+    operate on a <strong>first-come basis</strong>, with no division holding
+    priority over another. Please work together if you are sharing an area with
+    other teams.
   </div>
+</div>
+<br /><br />
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>10U-19U Practice Locations</h2>
+  </div>
+
+  <p>
+    10U-19U teams use <strong>assigned fields</strong> for practices. These
+    locations require reservation and cannot be used on a drop-in basis.
+  </p>
+
+  <h3>Assigned Fields:</h3>
+  <ul>
+    <li><strong>Community Park</strong></li>
+    <li><strong>Grand Avenue Park</strong></li>
+  </ul>
+
+  <p>
+    Teams wishing to practice at either location must reserve space by
+    contacting the <strong>Assistant Regional Commissioner (ARC)</strong>.
+    Assigned field usage ensures safe spacing, fair access, and proper
+    coordination across divisions.
+  </p>
+
+  <a href="mailto:arc@ayso779.org" class="r779-button">Email ARC</a>
+
+  <p style="margin-top: 1rem !important">
+    Coaches can view the current Fall 2026 field assignments and availability
+    here:
+  </p>
+
+  <a
+    href="https://docs.google.com/spreadsheets/d/18pbz5MlUVyaLxm2iZCmUcjM-e7v9XNW1af576-0-v00/edit?gid=1903231011#gid=1903231011"
+    class="r779-button"
+    target="_blank"
+    rel="noopener noreferrer"
+    >Field Allocation Sheet</a
+  >
+</div>
+<br /><br />
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Off-Limit Locations</h2>
+  </div>
+
+  <p>The following locations may not be used for practices:</p>
+
+  <ul class="r779-location-list">
+    <li>Ayala High School.</li>
+    <li>Chaparral Elementary.</li>
+    <li>Chino Hills High School.</li>
+    <li>Country Springs Elementary.</li>
+    <li>Eagle Canyon Elementary.</li>
+    <li>English Springs Park.</li>
+    <li>Fairfield Park.</li>
+    <li>Glenmeade Elementary.</li>
+    <li>Hunters Hill Park.</li>
+    <li>Litel Elementary.</li>
+    <li>Los Serranos Elementary.</li>
+    <li>Oakridge Elementary.</li>
+    <li>Canyon Hills Jr. High.</li>
+    <li>Townsend Jr. High.</li>
+  </ul>
 </div>
