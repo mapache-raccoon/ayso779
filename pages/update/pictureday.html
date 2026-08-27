@@ -1,0 +1,583 @@
+<!--
+	AYSO 779 CORE PROGRAM CONTENT SOURCE
+	1) Copy the GLOBAL STYLE block into each Sports Connect content window.
+	2) Then copy only the section block you need (Core Explained, Fall, Spring).
+-->
+
+<!-- ===== GLOBAL STYLE: COPY THIS INTO EVERY CONTENT WINDOW ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --black-primary: #040707;
+    --white-primary: #ffffff;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --gold-soft: #f5ecd2;
+    --gray-100: #f4f6f7;
+    --gray-200: #dde4e8;
+    --gray-600: #4b5b63;
+    --gray-800: #243036;
+    --radius: 10px;
+
+    font-size: 15px !important;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-800) !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2 {
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: var(--green-mid) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 p {
+    margin: 0 0 0.85rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    color: var(--gray-800) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 ul,
+  .r779 ol {
+    margin: 0.25rem 0 1rem 1.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.55 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    color: var(--gray-800) !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779 strong {
+    color: var(--black-primary) !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  .r779 a.r779-button,
+  .r779 a.r779-button:visited {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.56rem 0.95rem !important;
+    border-radius: 8px !important;
+    border: 1px solid #0e4429 !important;
+    background: #0e4429 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .r779 a.r779-button:hover,
+  .r779 a.r779-button:focus,
+  .r779 a.r779-button:active {
+    background: #128039 !important;
+    border-color: #128039 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.85rem 1rem !important;
+    margin: 0.9rem 0 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779-callout-alt {
+    background: #fffaf0 !important;
+    border-left: 4px solid #c69214 !important;
+  }
+
+  .r779-highlight-note {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.28rem 0.55rem !important;
+    background: #fff1c8 !important;
+    border: 1px solid #e2c46b !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    color: #5c4600 !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-points-grid {
+    margin: 0.45rem 0 1rem !important;
+    display: grid !important;
+    gap: 0.55rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)) !important;
+  }
+
+  .r779-points-item {
+    border: 1px solid var(--gray-200) !important;
+    border-radius: 10px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f5faf7 100%) !important;
+    padding: 0.55rem 0.7rem !important;
+    text-align: center !important;
+  }
+
+  .r779-points-item strong {
+    display: block !important;
+    margin-bottom: 0.12rem !important;
+    color: var(--green-primary) !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+  }
+
+  .r779-points-value {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    color: var(--black-primary) !important;
+  }
+
+  .r779-points-value.pos {
+    color: #1f7a3d !important;
+  }
+
+  .r779-points-value.neutral {
+    color: #4b5b63 !important;
+  }
+
+  .r779-points-value.neg {
+    color: #b42318 !important;
+  }
+
+  .r779-hero {
+    background: linear-gradient(
+      135deg,
+      var(--green-primary) 0%,
+      var(--green-mid) 100%
+    ) !important;
+    border-radius: var(--radius) !important;
+    padding: 1.5rem 1.8rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-hero h2 {
+    color: var(--white-primary) !important;
+    margin: 0 0 0.35rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+  }
+
+  .r779-badge {
+    display: inline-block !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 0.2rem 0.85rem !important;
+    margin-top: 0.65rem !important;
+    margin-bottom: 0.65rem !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-grid {
+    display: grid !important;
+    gap: 0.6rem !important;
+  }
+
+  .r779-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+
+  .r779-item {
+    background: var(--green-light) !important;
+    border-left: 3px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.75rem 0.85rem !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--green-primary) !important;
+  }
+
+  .r779-welcome {
+    text-align: center !important;
+  }
+
+  .r779-welcome .r779-grid,
+  .r779-welcome .r779-item {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .r779-philosophy-block {
+    max-width: 860px !important;
+    margin: 0.75rem auto 1.15rem !important;
+    padding: 1rem !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    text-align: left !important;
+  }
+
+  .r779-philosophy-block h3 {
+    margin: 0 0 0.75rem !important;
+    text-align: center !important;
+    color: var(--green-primary) !important;
+    font-size: 1.2rem !important;
+  }
+
+  .r779-philosophy-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+
+  .r779-philosophy-list li {
+    margin: 0 !important;
+    padding: 0.75rem 0.9rem !important;
+    list-style: none !important;
+    border: 1px solid #d3e3da !important;
+    border-radius: 9px !important;
+    background: #f1f8f4 !important;
+    color: var(--green-primary) !important;
+    font-size: 1.12rem !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+  }
+
+  .r779-core-callout {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .r779-philosophy-list li::marker {
+    content: "" !important;
+  }
+
+  .r779-season-panel {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+  }
+
+  .r779-season-panel h3 {
+    margin-top: 0 !important;
+  }
+
+  .r779-season-kicker {
+    display: inline-block !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0.24rem 0.7rem !important;
+    border-radius: 999px !important;
+    background: var(--gold-soft) !important;
+    color: var(--green-primary) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.4px !important;
+    text-transform: uppercase !important;
+  }
+
+  .r779-price-row {
+    list-style: none !important;
+    margin: 0.35rem 0 !important;
+    padding: 0.55rem 0.7rem !important;
+    border: 1px solid #d8e7dc !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 8px !important;
+    background: #f3faf6 !important;
+  }
+
+  .r779-price-amount {
+    display: inline-block !important;
+    margin-left: 0.35rem !important;
+    padding: 0.1rem 0.45rem !important;
+    border-radius: 6px !important;
+    background: #e2f2e8 !important;
+    color: var(--green-primary) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  .r779-note {
+    font-size: 15px !important;
+    color: var(--gray-600) !important;
+    font-style: italic !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .r779-location-list {
+    columns: 2 !important;
+    column-gap: 1.6rem !important;
+    margin: 0.35rem 0 1rem 1.2rem !important;
+  }
+
+  .r779-location-list li {
+    break-inside: avoid !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1.1rem !important;
+    }
+
+    .r779-hero h2 {
+      font-size: 1.25rem !important;
+    }
+
+    .r779-grid-2,
+    .r779-philosophy-list {
+      grid-template-columns: 1fr !important;
+    }
+
+    .r779-philosophy-block,
+    .r779-season-panel {
+      padding: 0.8rem !important;
+    }
+
+    .r779-location-list {
+      columns: 1 !important;
+    }
+  }
+
+  .r779 details {
+    margin-bottom: 0.6rem !important;
+    background: var(--gray-100) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--gray-200) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .r779 details summary {
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    color: var(--green-primary) !important;
+    padding: 0.65rem 1rem !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+  }
+
+  .r779 details summary::before {
+    content: "▶" !important;
+    font-size: 0.65rem !important;
+    color: var(--green-mid) !important;
+    transition: transform 0.2s !important;
+    flex-shrink: 0 !important;
+  }
+
+  .r779 details[open] summary::before {
+    content: "▼" !important;
+  }
+
+  .r779 details[open] summary {
+    color: var(--green-mid) !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+  }
+
+  .r779 details > ul {
+    margin: 0.5rem 0 0.75rem 1.75rem !important;
+    padding: 0 0.5rem 0 0 !important;
+  }
+
+  .r779-feature-title {
+    margin-top: 1.45rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .r779-feature-details > p,
+  .r779-feature-details > ul,
+  .r779-feature-details > ol,
+  .r779-feature-details > div {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  .r779-feature-details > ol {
+    padding-left: 1.5rem !important;
+  }
+</style>
+
+<!-- ============================================================ -->
+<!-- SECTION: PICTURE DAY - FALL 2026                             -->
+<!-- ============================================================ -->
+<div class="r779">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Picture Day</h2>
+    <p>Saturday, August 29, 2026</p>
+  </div>
+
+  <h3>Overview</h3>
+  <p>
+    Picture Day will be August 29, 2026 at Chino Hills Community Park. Teams are
+    assigned picture times and should arrive 15-20 minutes before their
+    scheduled time to meet up and sort any last-minute issues.
+  </p>
+
+  <div class="r779-callout r779-callout-alt" role="alert">
+    <strong>Make-Up Pictures:</strong> Make-up pictures will be during the
+    season. A date has yet to be determined.
+  </div>
+
+  <h3>Quick Info</h3>
+  <div class="r779-grid r779-grid-2">
+    <div class="r779-item">
+      <strong>Wear Uniforms</strong><br />
+      Cleats and shin guards are not required.
+    </div>
+    <div class="r779-item">
+      <strong>Bring Team Banner</strong><br />
+      Please bring your own banner holder stand. Banner needs to be set up
+      before the team gets in line.
+    </div>
+    <div class="r779-item">
+      <strong>Bring Picture Day Form</strong><br />
+      Forms were given to teams and are available at the tents.
+    </div>
+  </div>
+
+  <h3>Who Will Be in Pictures?</h3>
+  <p>
+    Team members, coaches, and the team parent are allowed in team pictures.
+  </p>
+
+  <div class="r779-callout">
+    <strong>Buddy Pictures:</strong> Buddy pictures are taken with the team. A
+    buddy will join another team's line and take buddy pictures with the person
+    they choose. A separate form must be completed.
+  </div>
+
+  <h3>Location</h3>
+  <div class="r779-callout r779-callout-alt">
+    <strong>Chino Hills Community Park</strong><br />
+    Meet near the snack bar.
+  </div>
+
+  <h3>Schedule</h3>
+  <div class="r779-grid r779-grid-2">
+    <div class="r779-season-panel">
+      <h3>Division 6</h3>
+      <ul>
+        <li><strong>8:00 AM:</strong> 6101, 6102, 6103, 6104, 6105</li>
+        <li><strong>8:10 AM:</strong> 6106, 6107, 6108, 6109, 6110</li>
+        <li><strong>8:20 AM:</strong> 6111, 6112, 6113, 6114, 6115</li>
+        <li><strong>8:30 AM:</strong> 6116, 6117, 6118, 6119, 6120</li>
+        <li><strong>8:40 AM:</strong> 6121, 6122, 6123, 6124, 6125</li>
+        <li><strong>8:50 AM:</strong> 6126</li>
+      </ul>
+    </div>
+
+    <div class="r779-season-panel">
+      <h3>Division 8</h3>
+      <ul>
+        <li><strong>8:50 AM:</strong> 8101, 8201, 8102</li>
+        <li><strong>9:00 AM:</strong> 8202, 8103, 8203, 8104, 8204</li>
+        <li><strong>9:10 AM:</strong> 8105, 8205, 8106, 8206, 8108</li>
+        <li><strong>9:20 AM:</strong> 8208, 8109, 8209, 8110, 8210</li>
+        <li><strong>9:30 AM:</strong> 8111, 8211, 8112, 8212, 8113</li>
+        <li><strong>9:40 AM:</strong> 8114, 8115, 8116, 8107, 8207</li>
+      </ul>
+    </div>
+
+    <div class="r779-season-panel">
+      <h3>Division 10</h3>
+      <ul>
+        <li><strong>9:50 AM:</strong> 10101, 10201, 10102, 10202, 10103</li>
+        <li><strong>10:00 AM:</strong> 10203, 10104, 10204, 10105, 10205</li>
+        <li><strong>10:10 AM:</strong> 10106, 10206, 10107, 10207, 10108</li>
+        <li><strong>10:20 AM:</strong> 10208, 10109, 10110, 10111</li>
+        <li><strong>10:30 AM:</strong> 10112, 10113, 12101</li>
+      </ul>
+    </div>
+
+    <div class="r779-season-panel">
+      <h3>Division 12</h3>
+      <ul>
+        <li><strong>10:40 AM:</strong> 12201, 12102, 12202, 12103, 12203</li>
+        <li><strong>10:50 AM:</strong> 12104, 12204, 12105, 12205, 12106</li>
+        <li><strong>11:00 AM:</strong> 12206, 12107, 12108, 10209, 16201</li>
+      </ul>
+    </div>
+
+    <div class="r779-season-panel">
+      <h3>Division 14</h3>
+      <ul>
+        <li><strong>11:10 AM:</strong> 14101, 14201, 14102, 14202, 14103</li>
+        <li><strong>11:20 AM:</strong> 14203, 14104, 14105, 19201, 16101</li>
+      </ul>
+    </div>
+
+    <div class="r779-season-panel">
+      <h3>Alliance</h3>
+      <ul>
+        <li><strong>8:50 AM:</strong> Alliance</li>
+        <li><strong>10:20 AM:</strong> Alliance (Hahn)</li>
+        <li><strong>11:30 AM:</strong> Alliance</li>
+      </ul>
+    </div>
+
+    <div class="r779-season-panel">
+      <h3>Kickstart</h3>
+      <ul>
+        <li><strong>10:30 AM:</strong> Kickstart, Kickstart</li>
+      </ul>
+    </div>
+  </div>
+</div>
