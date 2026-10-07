@@ -1,0 +1,521 @@
+<!-- ===== GLOBAL STYLE: COPY THIS INTO EVERY CONTENT WINDOW ===== -->
+<style>
+  .r779 {
+    --green-primary: #0e4429;
+    --black-primary: #040707;
+    --white-primary: #ffffff;
+    --green-mid: #1a6b3c;
+    --green-light: #e6f2ec;
+    --gold-soft: #f5ecd2;
+    --gray-100: #f4f6f7;
+    --gray-200: #dde4e8;
+    --gray-600: #4b5b63;
+    --gray-800: #243036;
+    --radius: 10px;
+
+    font-size: 15px !important;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+    color: var(--gray-800) !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .r779 * {
+    box-sizing: border-box !important;
+  }
+
+  .r779 h2 {
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: var(--green-primary) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 h3 {
+    margin: 1.15rem 0 0.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: var(--green-mid) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 p {
+    margin: 0 0 0.85rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+    color: var(--gray-800) !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .r779 ul,
+  .r779 ol {
+    margin: 0.25rem 0 1rem 1.45rem !important;
+    padding: 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 1.3rem !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779 li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.55 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    color: var(--gray-800) !important;
+    font-size: 1.3rem !important;
+  }
+
+  .r779 strong {
+    color: var(--black-primary) !important;
+  }
+
+  .r779 a {
+    color: var(--green-primary) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  .r779 a.r779-button,
+  .r779 a.r779-button:visited {
+    display: inline-block !important;
+    margin-top: 0.35rem !important;
+    padding: 0.56rem 0.95rem !important;
+    border-radius: 8px !important;
+    border: 1px solid #0e4429 !important;
+    background: #0e4429 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .r779 a.r779-button:hover,
+  .r779 a.r779-button:focus,
+  .r779 a.r779-button:active {
+    background: #128039 !important;
+    border-color: #128039 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  .r779-callout {
+    background: var(--green-light) !important;
+    border-left: 4px solid var(--green-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.85rem 1rem !important;
+    margin: 0.9rem 0 0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    color: var(--gray-800) !important;
+  }
+
+  .r779-callout-alt {
+    background: #fffaf0 !important;
+    border-left: 4px solid #c69214 !important;
+  }
+
+  .r779-hero {
+    background: linear-gradient(
+      135deg,
+      var(--green-primary) 0%,
+      var(--green-mid) 100%
+    ) !important;
+    border-radius: var(--radius) !important;
+    padding: 1.5rem 1.8rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .r779-hero h2 {
+    color: var(--white-primary) !important;
+    margin: 0 0 0.35rem !important;
+  }
+
+  .r779-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+  }
+
+  .r779-core-callout {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .r779-season-panel {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%) !important;
+    border: 1.5px solid var(--gray-200) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+  }
+
+  .r779-season-panel h3 {
+    margin-top: 0 !important;
+  }
+
+  .r779-season-kicker {
+    display: inline-block !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0.24rem 0.7rem !important;
+    border-radius: 999px !important;
+    background: var(--gold-soft) !important;
+    color: var(--green-primary) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.4px !important;
+    text-transform: uppercase !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-hero {
+      padding: 1.1rem !important;
+    }
+
+    .r779-hero h2 {
+      font-size: 1.25rem !important;
+    }
+
+    .r779-philosophy-block,
+    .r779-season-panel {
+      padding: 0.8rem !important;
+    }
+  }
+
+  .r779 details {
+    margin-bottom: 0.6rem !important;
+    background: var(--gray-100) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--gray-200) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .r779 details summary {
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    color: var(--green-primary) !important;
+    padding: 0.65rem 1rem !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+  }
+
+  .r779 details summary::before {
+    content: "▶" !important;
+    font-size: 0.65rem !important;
+    color: var(--green-mid) !important;
+    transition: transform 0.2s !important;
+    flex-shrink: 0 !important;
+  }
+
+  .r779 details[open] summary::before {
+    content: "▼" !important;
+  }
+
+  .r779 details[open] summary {
+    color: var(--green-mid) !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+  }
+
+  .r779 details > ul {
+    margin: 0.5rem 0 0.75rem 1.75rem !important;
+    padding: 0 0.5rem 0 0 !important;
+  }
+
+  .r779-responsive-image {
+    display: block !important;
+    width: min(100%, 860px) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  @media (max-width: 600px) {
+    .r779-responsive-image {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 180px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+  }
+</style>
+
+<!-- ============================================================ -->
+<!-- SECTION: PROGRAM OVERVIEW - SPRING SELECT                    -->
+<!-- ============================================================ -->
+<div class="r779" style="padding: 0 1.5rem !important">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Spring Select Travel Program</h2>
+    <p>AYSO Region 779 &bull; Chino Hills, CA &bull; EST. 1991</p>
+  </div>
+
+  <div style="text-align: center !important; margin-bottom: 1rem !important">
+    <img
+      src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/chino%20hills%20spring%20select%20logo%20medium.png"
+      alt="Spring Select Logo"
+      style="max-height: 180px; width: auto; margin: 0 0.5rem"
+    />
+  </div>
+
+  <h3>Program Overview</h3>
+  <p>
+    The AYSO Spring Select Travel Program is an exciting opportunity for players
+    in the 10U–19U divisions to take their game to the next level! These teams
+    play in competitive league games and tournaments across Southern California,
+    offering players the chance to sharpen their skills while enjoying the fun,
+    challenge, and camaraderie of soccer.
+  </p>
+  <p>
+    The program is designed for players who have demonstrated strong soccer
+    ability, a positive attitude, good sportsmanship, and a cooperative team
+    spirit. Practices begin in December with the season running through No
+    formal tryouts are held—coaches select players directly for Spring Select
+    teams.
+  </p>
+  <p>
+    Participation requires a higher level of commitment from both players and
+    families. Players are expected to attend all practices and games, support
+    their teammates, and represent AYSO with pride. Teams compete against
+    neighboring AYSO regions and enter tournaments, which may involve travel on
+    Fridays, Saturdays, and Sundays.
+  </p>
+  <p>
+    <strong>Family Involvement:</strong> Spring Select teams are financially
+    self-supporting. Families participate in fundraising, and parent involvement
+    is essential. The program builds skills, responsibility, teamwork, and
+    lasting friendships.
+  </p>
+
+  <div class="r779-callout r779-core-callout">
+    For more information, please email
+    <a href="mailto:springselect@ayso779.org">springselect@ayso779.org</a>.
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION: COACHES - SPRING SELECT                             -->
+<!-- ============================================================ -->
+<div class="r779" style="margin-top: 1rem !important; padding: 0 1.5rem !important">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Coaches</h2>
+  </div>
+
+  <p>
+    Coaches interested in leading a Spring Select team must complete a Spring
+    Coach Application using the form below.
+  </p>
+
+  <div class="r779-season-panel">
+    <span class="r779-season-kicker">Prerequisites for Coaches</span>
+    <ul>
+      <li>Be a current, registered AYSO volunteer.</li>
+      <li>
+        Hold the appropriate division coaching certification.
+        <strong>(Note: 10U coaches must be 12U certified.)</strong>
+      </li>
+      <li>
+        Have current AYSO Safe Haven, CDC Concussion Awareness, Sudden Cardiac
+        Arrest, SafeSport certification, and Live Scan clearance.
+      </li>
+      <li>Have at least one year of coaching experience.</li>
+      <li>
+        Be in good standing with Region 779, with no prior disciplinary issues.
+      </li>
+      <li>
+        Be able to provide and maintain a minimum of six referees for the
+        season.
+      </li>
+      <li>
+        Be willing to follow Spring Select guidelines and uphold AYSO
+        philosophies.
+      </li>
+    </ul>
+  </div>
+
+  <div style="text-align: center !important; margin: 1rem 0 !important">
+    <a
+      class="r779-button"
+      href="https://docs.google.com/forms/d/1hDJZUslh7_A-0etq1oOmAxOHGgbs_qQ61R2Lk-y1tmU/viewform?edit_requested=true"
+      target="_blank"
+      rel="noopener"
+      >Submit an Application</a
+    >
+  </div>
+
+  <p>
+    Submitting an application does not guarantee an interview or selection. All
+    applications are reviewed by the Board Select Committee, with final approval
+    made by the Regional Commissioner. The RC, Select Coordinator, and Executive
+    Board reserve the right to approve or deny coaches.
+  </p>
+
+  <div class="r779-season-panel">
+    <span class="r779-season-kicker">Selection Timeline</span>
+    <ul>
+      <li>
+        <strong>Applications:</strong> Open now through October 10 (closes at
+        11:59 PM).
+      </li>
+      <li>
+        <strong>Interviews:</strong> To be scheduled (specific times and
+        location TBD). Attendance is required. If your interview time conflicts
+        with a scheduled practice, please arrange for your assistant coach to
+        run practice in your absence.
+      </li>
+      <li>
+        <strong>Notifications:</strong> Sent within one week of interviews.
+      </li>
+    </ul>
+  </div>
+
+  <div class="r779-callout r779-callout-alt">
+    <strong>Important:</strong> Coaches may not approach or confirm players for
+    roster spots in any way until they have been officially selected and
+    approved. Doing so is not permitted under AYSO Spring Select guidelines.
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION: PLAYER ELIGIBILITY - SPRING SELECT                  -->
+<!-- ============================================================ -->
+<div class="r779" style="margin-top: 1rem !important; padding: 0 1.5rem !important">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Player Eligibility</h2>
+  </div>
+
+  <p>
+    <strong
+      >To be considered for invitation, players must meet the following
+      requirements:</strong
+    >
+  </p>
+
+  <div class="r779-season-panel">
+    <ul>
+      <li>
+        <strong>10U–14U players:</strong> Play at least 70% of the regular fall
+        season games and a minimum of 75% of each game.
+      </li>
+      <li>
+        <strong>16U–19U players:</strong> Play at least 50% of the regular fall
+        season games and a minimum of 50% of each game.
+      </li>
+    </ul>
+  </div>
+
+  <div class="r779-callout r779-callout-alt">
+    <strong>Note:</strong> AYSO EXTRA and Alliance players
+    <strong
+      style="color: #8a4f00 !important; text-decoration: underline !important"
+      >are not eligible to participate</strong
+    >
+    on a Spring Select team as rostered players or guest players.
+  </div>
+
+  <p style="margin-top: 0.9rem !important">
+    The Spring program is intended for players who demonstrate strong soccer
+    skills and show a positive attitude, enthusiasm, fair play, and a
+    cooperative team spirit.
+  </p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION: COMMITMENT & EXPECTATIONS - SPRING SELECT           -->
+<!-- ============================================================ -->
+<div class="r779" style="margin-top: 1rem !important; padding: 0 1.5rem !important">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Commitment &amp; Expectations</h2>
+  </div>
+
+  <p>
+    Participation on a Spring team requires a higher level of commitment from
+    both players and parents.
+  </p>
+
+  <div class="r779-season-panel">
+    <span class="r779-season-kicker">Players are expected to</span>
+    <ul>
+      <li>Punctually attend all practices and games.</li>
+      <li>Show responsibility toward coaches and teammates.</li>
+      <li>
+        Prioritize Spring soccer equally alongside other sports or activities.
+      </li>
+    </ul>
+    <span class="r779-season-kicker">Family Expectations</span>
+    <ul>
+      <li>Most teams play 5–7 tournaments between January and June.</li>
+      <li>
+        Each team is self-funded. Parents should expect a cost of approximately
+        $600–$800 per player.
+      </li>
+      <li>
+        Families are expected to support team fundraising efforts, which help
+        offset costs for all players.
+      </li>
+      <li>
+        All families of players are also required to volunteer at the Region
+        779-hosted tournament in March.
+      </li>
+    </ul>
+  </div>
+
+  <div class="r779-callout">
+    Teams may participate in both Spring League (Area play) and tournaments.
+    Tournaments include Sunday play and may require travel.
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION: FAQ - SPRING SELECT                                 -->
+<!-- ============================================================ -->
+<div class="r779" style="margin-top: 1rem !important; padding: 0 1.5rem !important">
+  <div class="r779-hero" style="text-align: center !important">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+
+  <div class="r779-season-panel">
+    <p>
+      <strong>Do Spring Teams have tryouts?</strong><br />
+      No. Spring players are selected directly by the coach based on their talent and performance during the Fall Core season.
+    </p>
+    <p>
+      <strong>Can players participate in both Spring and Club soccer?</strong><br />
+      Players selected for Spring Select are expected not to participate in a Club program during the Spring season. The time commitment for both programs is too demanding, and players who join a Club team after accepting a spot on a Spring team may lose their Spring roster position.
+    </p>
+    <p>
+      <strong>Do Spring Team fundraisers go to a general fund or are they only for the team doing the fundraiser?</strong><br />
+      No, fundraiser proceeds do not go to a general fund. Each Spring Select team is responsible for organizing its own fundraising efforts, and all funds raised stay with that specific team. The money is used exclusively to support that team&rsquo;s activities &mdash; such as tournament fees, team events, and other expenses. Participation in team fundraisers is expected, and the more your team raises, the more opportunities you&rsquo;ll have during the season.
+    </p>
+  </div>
+
+  <div style="margin-top: 1.5rem !important">
+    <img
+      class="r779-responsive-image"
+      src="https://dt5602vnjxv0c.cloudfront.net/portals/14638/images/2025%20images/2025%20as%20teams.png"
+      alt="Spring Teams"
+    />
+  </div>
+</div>
